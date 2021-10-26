@@ -1,0 +1,74 @@
+SonarCloud plugins:
+  - CSS Code Quality and Security 1.4.2.2002 (cssfamily)
+  - IaC Code Quality and Security 1.2.0.976 (iac)
+  - PL/SQL Code Quality and Security 3.6.1.3873 (plsql)
+  - Scala Code Quality and Security 1.8.3.2219 (sonarscala)
+  - C# Code Quality and Security 8.30.0.37606 (csharp)
+  - Vulnerability Analysis 9.2.0-M1.13789 (security)
+  - Java Code Quality and Security 7.4.0.27839 (java)
+  - HTML Code Quality and Security 3.4.0.2754 (web)
+  - Flex Code Quality and Security 2.6.2.2641 (flex)
+  - XML Code Quality and Security 2.4.0.3273 (xml)
+  - VB.NET Code Quality and Security 8.30.0.37606 (vbnet)
+  - Swift Code Quality and Security 4.3.2.5043 (swift)
+  - CFamily Code Quality and Security 6.27.0.38122 (cpp)
+  - Python Code Quality and Security 3.6.0.8488 (python)
+  - Go Code Quality and Security 1.8.3.2219 (go)
+  - JaCoCo 1.1.1.1157 (jacoco)
+  - Kotlin Code Quality and Security 2.5.0.754 (kotlin)
+  - Mercurial 1.1.2 (scmmercurial)
+  - T-SQL Code Quality and Security 1.5.1.4340 (tsql)
+  - Apex Code Quality and Security 1.8.3.2219 (sonarapex)
+  - JavaScript/TypeScript Code Quality and Security 8.4.0.16431 (javascript)
+  - Ruby Code Quality and Security 1.8.3.2219 (ruby)
+  - Vulnerability Rules for C# 9.2.0-M1.13789 (securitycsharpfrontend)
+  - Vulnerability Rules for Java 9.2.0-M1.13789 (securityjavafrontend)
+  - License for SonarLint 8.0.0.24283 (license)
+  - Vulnerability Rules for JS 9.2.0-M1.13789 (securityjsfrontend)
+  - COBOL Code Quality 4.6.2.4876 (cobol)
+  - Vulnerability Rules for Python 9.2.0-M1.13789 (securitypythonfrontend)
+  - PHP Code Quality and Security 3.21.0.8193 (php)
+  - ABAP Code Quality and Security 3.9.1.3127 (abap)
+  - Configuration detection fot Code Quality and Security 1.0.0.32 (config)
+  - Vulnerability Rules for PHP 9.2.0-M1.13789 (securityphpfrontend)
+Global server settings:
+  - email.from=noreply@sonarcloud.io
+  - email.fromName=SonarCloud
+  - email.prefix=[SonarCloud]
+  - node_10_end_of_support_date=1620604800000
+  - node_10_grace_period_termination_date=1621814400000
+  - sonar.auth.bitbucket.enabled=true
+  - sonar.auth.microsoft.enabled=true
+  - sonar.core.id=1BD809FA-AWHW8ct9-T_TB3XqouNu
+  - sonar.core.serverBaseURL=https://sonarcloud.io
+  - sonar.core.startTime=2021-10-26T10:22:37+0200
+  - sonar.dbcleaner.weeksBeforeDeletingAllSnapshots=260
+  - sonar.dbcleaner.weeksBeforeKeepingOnlyOneSnapshotByMonth=4
+  - sonar.dbcleaner.weeksBeforeKeepingOnlyOneSnapshotByWeek=1
+  - sonar.lf.enableGravatar=true
+  - sonar.lf.logoWidthPx=105
+  - sonar.organizations.anyoneCanCreate=true
+  - sonar.organizations.createPersonalOrg=true
+  - sonar.plsql.file.suffixes=sql,tab,pkb
+  - sonar.tsql.file.suffixes=.tsql
+Project server settings:
+Project scanner properties:
+  - sonar.host.url=https://sonarcloud.io
+  - sonar.java.binaries=.
+  - sonar.java.source=1.8
+  - sonar.language=java
+  - sonar.links.ci=https://travis-ci.org/oatenalex/PolicyEnforcement
+  - sonar.links.homepage=https://github.com/oatenalex/PolicyEnforcement
+  - sonar.links.issue=https://github.com/oatenalex/PolicyEnforcement/issues
+  - sonar.links.scm=https://github.com/oatenalex/PolicyEnforcement
+  - sonar.login=******
+  - sonar.organization=oatenalex
+  - sonar.projectBaseDir=/Users/alexoaten/Documents/GitHub/PolicyEnforcement
+  - sonar.projectKey=oatenalex_PolicyEnforcement
+  - sonar.projectName=PolicyEnforcement
+  - sonar.scanner.app=ScannerCLI
+  - sonar.scanner.appVersion=4.4.0.2170
+  - sonar.sourceEncoding=UTF-8
+  - sonar.sources=.
+  - sonar.verbose=true
+  - sonar.working.directory=/Users/alexoaten/Documents/GitHub/PolicyEnforcement/.scannerwork
