@@ -1,4 +1,4 @@
-# PolicyEnforcement
+# PolicyLock
 
 Run Sonar Cloud Analysis:
 1. Navigate to folder containing repository and project
