@@ -4,7 +4,7 @@ SonarCloud plugins:
   - PL/SQL Code Quality and Security 3.6.1.3873 (plsql)
   - Scala Code Quality and Security 1.8.3.2219 (sonarscala)
   - C# Code Quality and Security 8.30.0.37606 (csharp)
-  - Vulnerability Analysis 9.2.0-M1.13789 (security)
+  - Vulnerability Analysis 9.2.0-M2.14128 (security)
   - Java Code Quality and Security 7.4.0.27839 (java)
   - HTML Code Quality and Security 3.4.0.2754 (web)
   - Flex Code Quality and Security 2.6.2.2641 (flex)
@@ -21,16 +21,16 @@ SonarCloud plugins:
   - Apex Code Quality and Security 1.8.3.2219 (sonarapex)
   - JavaScript/TypeScript Code Quality and Security 8.4.0.16431 (javascript)
   - Ruby Code Quality and Security 1.8.3.2219 (ruby)
-  - Vulnerability Rules for C# 9.2.0-M1.13789 (securitycsharpfrontend)
-  - Vulnerability Rules for Java 9.2.0-M1.13789 (securityjavafrontend)
-  - License for SonarLint 8.0.0.24283 (license)
-  - Vulnerability Rules for JS 9.2.0-M1.13789 (securityjsfrontend)
+  - Vulnerability Rules for C# 9.2.0-M2.14128 (securitycsharpfrontend)
+  - Vulnerability Rules for Java 9.2.0-M2.14128 (securityjavafrontend)
+  - License for SonarLint 8.0.0.24335 (license)
+  - Vulnerability Rules for JS 9.2.0-M2.14128 (securityjsfrontend)
   - COBOL Code Quality 4.6.2.4876 (cobol)
-  - Vulnerability Rules for Python 9.2.0-M1.13789 (securitypythonfrontend)
-  - PHP Code Quality and Security 3.21.0.8193 (php)
+  - Vulnerability Rules for Python 9.2.0-M2.14128 (securitypythonfrontend)
+  - PHP Code Quality and Security 3.21.1.8250 (php)
   - ABAP Code Quality and Security 3.9.1.3127 (abap)
   - Configuration detection fot Code Quality and Security 1.0.0.32 (config)
-  - Vulnerability Rules for PHP 9.2.0-M1.13789 (securityphpfrontend)
+  - Vulnerability Rules for PHP 9.2.0-M2.14128 (securityphpfrontend)
 Global server settings:
   - email.from=noreply@sonarcloud.io
   - email.fromName=SonarCloud
@@ -41,7 +41,7 @@ Global server settings:
   - sonar.auth.microsoft.enabled=true
   - sonar.core.id=1BD809FA-AWHW8ct9-T_TB3XqouNu
   - sonar.core.serverBaseURL=https://sonarcloud.io
-  - sonar.core.startTime=2021-10-26T10:22:37+0200
+  - sonar.core.startTime=2021-10-27T11:03:00+0200
   - sonar.dbcleaner.weeksBeforeDeletingAllSnapshots=260
   - sonar.dbcleaner.weeksBeforeKeepingOnlyOneSnapshotByMonth=4
   - sonar.dbcleaner.weeksBeforeKeepingOnlyOneSnapshotByWeek=1

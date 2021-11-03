@@ -1,7 +1,7 @@
 organization=oatenalex
 projectKey=oatenalex_PolicyEnforcement
 serverUrl=https://sonarcloud.io
-serverVersion=8.0.0.24283
+serverVersion=8.0.0.24335
 dashboardUrl=https://sonarcloud.io/dashboard?id=oatenalex_PolicyEnforcement
-ceTaskId=AXy9ptiayKarsrhgH9nS
-ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AXy9ptiayKarsrhgH9nS
+ceTaskId=AXzBy1wXSPwfurilYJkM
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AXzBy1wXSPwfurilYJkM

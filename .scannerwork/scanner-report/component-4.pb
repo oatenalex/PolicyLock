@@ -1,1 +1,0 @@
- 2javaXhrHelloWorld.java
