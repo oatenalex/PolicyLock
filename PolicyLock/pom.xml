@@ -112,7 +112,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.example.policylock/com.example.policylock.HelloApplication</mainClass>
+                            <mainClass>com.example.policylock/com.example.policylock.loginUI</mainClass>
                         </configuration>
                     </execution>
                 </executions>
