@@ -5,14 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ac93bb9-b54b-41df-80cf-962b49010c51" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_mac_15_0_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_mac_15_0_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_mac_15_0_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_mac_15_0_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_media_mac_15_0_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_web_mac_15_0_1.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/policylock/background.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/policylock_background.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PolicyLock.iml" beforeDir="false" afterPath="$PROJECT_DIR$/PolicyLock.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/policylock/loginUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/policylock/loginUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/policylock/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/policylock/login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/policylock/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/policylock/login.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +36,12 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sebas\OneDrive\Documents\GitHub\PolicyLock\PolicyLock\src\main\resources\img" />
+      <recent name="C:\Users\sebas\OneDrive\Documents\GitHub\PolicyLock\PolicyLock\src\main\resources\com\example\policylock" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="loginUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
