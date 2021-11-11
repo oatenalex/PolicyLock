@@ -43,20 +43,28 @@
 
 <VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="387.0" prefWidth="640.0" VBox.vgrow="ALWAYS">
+        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1024.0" VBox.vgrow="ALWAYS">
             <children>
-                <ImageView fitHeight="400.0" fitWidth="640.0" pickOnBounds="true">
+                <ImageView fitHeight="640.0" fitWidth="1024.0" pickOnBounds="true">
                     <image>
-                        <Image url="@../../../img/policylock_background.jpg"/>
+                        <Image url="@../../../img/policylock_background.jpg" />
                     </image>
                 </ImageView>
-                <TextField layoutX="239.0" layoutY="174.0" prefHeight="25.0" prefWidth="161.0" promptText="Username"/>
-                <TextField layoutX="238.0" layoutY="212.0" prefHeight="25.0" prefWidth="161.0" promptText="Password"/>
-                <Button layoutX="272.0" layoutY="257.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="93.0"
-                        text="Login"/>
-                <Label layoutX="211.0" layoutY="87.0" text="PolicyLock" textFill="WHITE">
+                <TextField layoutX="367.0" layoutY="242.0" prefHeight="40.0" prefWidth="256.0" promptText="Username">
+               <font>
+                  <Font size="16.0" />
+               </font></TextField>
+                <TextField layoutX="367.0" layoutY="289.0" prefHeight="40.0" prefWidth="256.0" promptText="Password">
+               <font>
+                  <Font size="16.0" />
+               </font></TextField>
+                <Button layoutX="423.0" layoutY="339.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="144.0" text="Login">
+               <font>
+                  <Font size="19.0" />
+               </font></Button>
+                <Label layoutX="367.0" layoutY="142.0" text="PolicyLock" textFill="WHITE">
                     <font>
-                        <Font name="HoloLens MDL2 Assets" size="47.0"/>
+                        <Font name="HoloLens MDL2 Assets" size="60.0" />
                     </font>
                 </Label>
             </children>
