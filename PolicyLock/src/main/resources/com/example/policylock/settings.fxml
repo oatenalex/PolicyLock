@@ -61,7 +61,7 @@
                         <Image url="@../../../img/policylock_background.jpg" />
                     </image>
                 </ImageView>
-                <VBox alignment="TOP_CENTER" layoutX="45.0" layoutY="76.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="520.0" prefWidth="934.0">
+                <VBox alignment="TOP_CENTER" layoutX="45.0" layoutY="76.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="486.0" prefWidth="934.0" style="-fx-background-color: black;">
                     <children>
                         <Label alignment="TOP_CENTER" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="1353.0" style="-fx-background-color: black;" text="Settings" textFill="WHITE">
                             <font>
