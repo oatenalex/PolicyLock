@@ -52,7 +52,7 @@
 </AnchorPane>
 -->
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.policylock.Controller">
     <children>
         <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1024.0" VBox.vgrow="ALWAYS">
             <children>
@@ -116,7 +116,7 @@
                 </VBox>
                 <HBox prefHeight="35.0" prefWidth="1024.0" style="-fx-background-color: black; -fx-opacity: 0.6;">
                     <children>
-                        <Button graphicTextGap="0.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="HOME" textFill="WHITE">
+                        <Button fx:id="homeButton" graphicTextGap="0.0" mnemonicParsing="false" onAction="#home" style="-fx-background-color: transparent;" text="HOME" textFill="WHITE">
                             <font>
                                 <Font name="System Bold" size="16.0" />
                             </font>
