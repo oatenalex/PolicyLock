@@ -82,14 +82,14 @@
                             <VBox.margin>
                                 <Insets top="2.0" />
                             </VBox.margin></Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="85.0" prefWidth="400.0" text="LOGGING SETTINGS">
+                        <Button fx:id="log_settingsPageButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#log_settings" prefHeight="85.0" prefWidth="400.0" text="LOGGING SETTINGS">
                             <VBox.margin>
                                 <Insets top="2.0" />
                             </VBox.margin>
                             <font>
                                 <Font name="System Bold" size="15.0" />
                             </font></Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="85.0" prefWidth="400.0" text="NOTIFICATION SETTINGS">
+                        <Button fx:id="notification_settingsPageButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#notification_settings" prefHeight="85.0" prefWidth="400.0" text="NOTIFICATION SETTINGS">
                             <VBox.margin>
                                 <Insets top="2.0" />
                             </VBox.margin>
@@ -104,7 +104,7 @@
                         <Insets top="2.0" />
                      </VBox.margin>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="85.0" prefWidth="400.0" text="LOG OUT">
+                  <Button fx:id="logoutButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#logout" prefHeight="85.0" prefWidth="400.0" text="LOG OUT">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -116,7 +116,7 @@
                 </VBox>
                 <HBox prefHeight="35.0" prefWidth="1024.0" style="-fx-background-color: black; -fx-opacity: 0.6;">
                     <children>
-                        <Button fx:id="homeButton" graphicTextGap="0.0" mnemonicParsing="false" onAction="#home" style="-fx-background-color: transparent;" text="HOME" textFill="WHITE">
+                        <Button fx:id="homePageButton" graphicTextGap="0.0" mnemonicParsing="false" onAction="#home" style="-fx-background-color: transparent;" text="HOME" textFill="WHITE">
                             <font>
                                 <Font name="System Bold" size="16.0" />
                             </font>
@@ -129,7 +129,7 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Button graphicTextGap="0.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="SETTINGS" textFill="WHITE">
+                  <Button fx:id="settingsPageButton" graphicTextGap="0.0" mnemonicParsing="false" onAction="#settings" style="-fx-background-color: transparent;" text="SETTINGS" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>

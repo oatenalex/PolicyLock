@@ -22,6 +22,12 @@ public class Controller {
     private Button devicesPageButton;
     @FXML
     private Button settingsPageButton;
+    @FXML
+    private Button logPageButton;
+    @FXML
+    private Button log_settingsPageButton;
+    @FXML
+    private Button notification_settingsPageButton;
 
 
     public void login() throws IOException {
@@ -65,6 +71,32 @@ public class Controller {
         stage.close();
         Stage primaryStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
+    }
+    public void log() throws IOException {
+        Stage stage = (Stage) logPageButton.getScene().getWindow();
+        stage.close();
+        Stage primaryStage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("log.fxml"));
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
+    }
+
+    public void log_settings() throws IOException {
+        Stage stage = (Stage) log_settingsPageButton.getScene().getWindow();
+        stage.close();
+        Stage primaryStage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("log_settings.fxml"));
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
+    }
+
+    public void notification_settings() throws IOException {
+        Stage stage = (Stage) notification_settingsPageButton.getScene().getWindow();
+        stage.close();
+        Stage primaryStage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("notification_settings.fxml"));
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
