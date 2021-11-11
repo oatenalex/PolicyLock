@@ -58,13 +58,16 @@
                 </Label>
                 <VBox alignment="TOP_CENTER" layoutX="108.0" layoutY="172.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="301.0" prefWidth="404.0">
                     <children>
-                        <Label alignment="TOP_CENTER" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="1353.0" text="Menu" textFill="WHITE" underline="true">
+                        <Label alignment="TOP_CENTER" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="1353.0" style="-fx-background-color: black;" text="Menu" textFill="WHITE" underline="true">
                             <font>
                                 <Font name="System Bold" size="23.0" />
                             </font>
                      <VBox.margin>
-                        <Insets bottom="5.0" top="5.0" />
+                        <Insets />
                      </VBox.margin>
+                     <padding>
+                        <Insets bottom="5.0" top="5.0" />
+                     </padding>
                         </Label>
                         <Button alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" prefWidth="400.0" text="Devices">
                      <font>
@@ -73,14 +76,14 @@
                      <VBox.margin>
                         <Insets top="2.0" />
                      </VBox.margin></Button>
-                        <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" prefWidth="400.0" text="Settings">
+                        <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" prefWidth="400.0" text="Settings">
                      <VBox.margin>
                         <Insets top="2.0" />
                      </VBox.margin>
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font></Button>
-                        <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" prefWidth="400.0" text="Log">
+                        <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" prefWidth="400.0" text="Log">
                      <VBox.margin>
                         <Insets top="2.0" />
                      </VBox.margin>
