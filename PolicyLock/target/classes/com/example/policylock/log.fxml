@@ -60,22 +60,51 @@
                         <Image url="@../../../img/policylock_background.jpg" />
                     </image>
                 </ImageView>
-            <HBox alignment="TOP_RIGHT" layoutX="450.0" prefHeight="35.0" prefWidth="574.0" style="-fx-background-color: black; -fx-opacity: 0.6;">
-               <children>
-                  <Button fx:id="log_settingsPageButton" graphicTextGap="0.0" mnemonicParsing="false" onAction="#log_settings" style="-fx-background-color: transparent;" text="LOGGING SETTINGS" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="16.0" />
-                     </font>
-                     <padding>
-                        <Insets left="2.0" top="6.0" />
-                     </padding>
-                  </Button>
-               </children>
-               <padding>
-                  <Insets right="5.0" />
-               </padding>
-            </HBox>
-                <HBox prefHeight="35.0" prefWidth="450.0" style="-fx-background-color: black; -fx-opacity: 0.6;">
+                <VBox alignment="TOP_CENTER" layoutX="45.0" layoutY="125.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="388.0" prefWidth="934.0" style="-fx-background-color: black;">
+                    <children>
+                        <Label alignment="TOP_CENTER" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="1353.0" style="-fx-background-color: black;" text="Log" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="23.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets />
+                            </VBox.margin>
+                            <padding>
+                                <Insets bottom="5.0" top="5.0" />
+                            </padding>
+                        </Label>
+                        <Button fx:id="permission_settingsPageButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#permission_settings" prefHeight="85.0" prefWidth="400.0" text="Alex's MacBook | Google Chrome | Request to use Camera | Accepted | Nov 12, 2021 10:30 AM">
+                            <font>
+                                <Font name="System Bold" size="15.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets top="2.0" />
+                            </VBox.margin></Button>
+                        <Button fx:id="log_settingsPageButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#log_settings" prefHeight="85.0" prefWidth="400.0" text="Dean's MacBook | Microsoft Word | Request to use Internet | Denied | Nov 12, 2021 7:15 AM">
+                            <VBox.margin>
+                                <Insets top="2.0" />
+                            </VBox.margin>
+                            <font>
+                                <Font name="System Bold" size="15.0" />
+                            </font></Button>
+                        <Button fx:id="notification_settingsPageButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#notification_settings" prefHeight="85.0" prefWidth="400.0" text="Nick's iPhone | Calculator | Request to use Camera | Denied | Nov 11, 2021 11:30 PM">
+                            <VBox.margin>
+                                <Insets top="2.0" />
+                            </VBox.margin>
+                            <font>
+                                <Font name="System Bold" size="15.0" />
+                            </font></Button>
+                        <Button fx:id="account_settingsPageButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#account_settings" prefHeight="85.0" prefWidth="400.0" text="Sebastien's HP | Minecraft | Request to use Camera | Accepted | Nov 11, 2021 2:38 PM">
+                            <font>
+                                <Font name="System Bold" size="15.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets top="2.0" />
+                            </VBox.margin>
+                        </Button>
+                    </children>
+                </VBox>
+                <HBox prefHeight="35.0" prefWidth="1024.0" style="-fx-background-color: black; -fx-opacity: 0.6;">
                     <children>
                         <Button fx:id="homePageButton" graphicTextGap="0.0" mnemonicParsing="false" onAction="#home" style="-fx-background-color: transparent;" text="HOME" textFill="WHITE">
                             <font>
@@ -90,7 +119,7 @@
                                 <Font size="16.0" />
                             </font>
                         </Label>
-                        <Button fx:id="logPageButton" graphicTextGap="0.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="LOG" textFill="WHITE">
+                        <Button fx:id="settingsPageButton" graphicTextGap="0.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="DEVICES" textFill="WHITE">
                             <font>
                                 <Font name="System Bold" size="16.0" />
                             </font>

@@ -60,6 +60,50 @@
                         <Image url="@../../../img/policylock_background.jpg" />
                     </image>
                 </ImageView>
+                <VBox alignment="TOP_CENTER" layoutX="45.0" layoutY="125.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="388.0" prefWidth="934.0" style="-fx-background-color: black;">
+                    <children>
+                        <Label alignment="TOP_CENTER" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="1353.0" style="-fx-background-color: black;" text="Devices" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="23.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets />
+                            </VBox.margin>
+                            <padding>
+                                <Insets bottom="5.0" top="5.0" />
+                            </padding>
+                        </Label>
+                        <Button fx:id="permission_settingsPageButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#permission_settings" prefHeight="85.0" prefWidth="400.0" text="Alex's MacBook">
+                            <font>
+                                <Font name="System Bold" size="15.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets top="2.0" />
+                            </VBox.margin></Button>
+                        <Button fx:id="log_settingsPageButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#log_settings" prefHeight="85.0" prefWidth="400.0" text="Sebastien's HP">
+                            <VBox.margin>
+                                <Insets top="2.0" />
+                            </VBox.margin>
+                            <font>
+                                <Font name="System Bold" size="15.0" />
+                            </font></Button>
+                        <Button fx:id="notification_settingsPageButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#notification_settings" prefHeight="85.0" prefWidth="400.0" text="Nick's iPhone">
+                            <VBox.margin>
+                                <Insets top="2.0" />
+                            </VBox.margin>
+                            <font>
+                                <Font name="System Bold" size="15.0" />
+                            </font></Button>
+                        <Button fx:id="account_settingsPageButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#account_settings" prefHeight="85.0" prefWidth="400.0" text="Dean's MacBook">
+                            <font>
+                                <Font name="System Bold" size="15.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets top="2.0" />
+                            </VBox.margin>
+                        </Button>
+                    </children>
+                </VBox>
                 <HBox prefHeight="35.0" prefWidth="1024.0" style="-fx-background-color: black; -fx-opacity: 0.6;">
                     <children>
                         <Button fx:id="homePageButton" graphicTextGap="0.0" mnemonicParsing="false" onAction="#home" style="-fx-background-color: transparent;" text="HOME" textFill="WHITE">
@@ -75,7 +119,7 @@
                                 <Font size="16.0" />
                             </font>
                         </Label>
-                        <Button fx:id="devicesPageButton" graphicTextGap="0.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="DEVICES" textFill="WHITE">
+                        <Button fx:id="settingsPageButton" graphicTextGap="0.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="DEVICES" textFill="WHITE">
                             <font>
                                 <Font name="System Bold" size="16.0" />
                             </font>
