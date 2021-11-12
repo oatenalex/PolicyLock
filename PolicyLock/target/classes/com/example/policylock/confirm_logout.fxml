@@ -69,29 +69,28 @@
                         <Insets bottom="5.0" top="5.0" />
                      </padding>
                         </Label>
-                        <Button fx:id="devicesPageButton" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#devices" prefHeight="75.0" prefWidth="400.0" text="Devices">
+                        <Button alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" prefWidth="400.0" text="Devices">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                      <VBox.margin>
                         <Insets top="2.0" />
                      </VBox.margin></Button>
-                        <Button fx:id="logPageButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#log" prefHeight="75.0" prefWidth="400.0" text="Log">
-                     <VBox.margin>
-                        <Insets top="2.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font>
-                  </Button>
-                        <Button fx:id="settingsPageButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#settings" prefHeight="75.0" prefWidth="400.0" text="Settings">
+                        <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" prefWidth="400.0" text="Log">
                      <VBox.margin>
                         <Insets top="2.0" />
                      </VBox.margin>
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font></Button>
-                  <Button fx:id="confirm_logoutButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#confirm_logout" prefHeight="75.0" prefWidth="400.0" text="Log Out">
+                        <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" prefWidth="400.0" text="Settings">
+                     <VBox.margin>
+                        <Insets top="2.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font></Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" prefWidth="400.0" text="Log Out">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -101,15 +100,36 @@
                   </Button>
                     </children>
                 </VBox>
+            <VBox alignment="TOP_CENTER" layoutX="299.0" layoutY="220.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="192.0" prefWidth="425.0" style="-fx-background-color: black;">
+               <children>
+                  <Label alignment="TOP_CENTER" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="88.0" prefWidth="425.0" text="Are you sure you want to logout?" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="23.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="5.0" top="25.0" />
+                     </padding>
+                  </Label>
+                  <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#logout" prefHeight="26.0" prefWidth="43.0" text="Yes" />
+                  <Button fx:id="homePageButton" mnemonicParsing="false" onAction="#home" prefHeight="26.0" prefWidth="43.0" text="No">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
             <HBox prefHeight="35.0" prefWidth="1024.0" style="-fx-background-color: black; -fx-opacity: 0.6;">
                <children>
-                  <Button fx:id="homePageButton" graphicTextGap="0.0" mnemonicParsing="false" onAction="#home" style="-fx-background-color: transparent;" text="HOME" textFill="WHITE">
+                  <Button mnemonicParsing="false" style="-fx-background-color: transparent;" text="HOME" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
-                     <padding>
-                        <Insets left="5.0" right="3.0" top="6.0" />
-                     </padding>
                   </Button>
                </children>
             </HBox>
