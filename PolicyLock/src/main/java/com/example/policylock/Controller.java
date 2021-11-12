@@ -9,7 +9,7 @@ import javafx.scene.Scene;
 import java.io.IOException;
 
 public class Controller {
-    //Log in & Log out Buttons
+    //Log out Buttons
     @FXML
     private Button confirm_logoutButton;
     @FXML

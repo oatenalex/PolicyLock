@@ -23,7 +23,7 @@ public class Login {
     private Button loginButton;
 
     public void login() throws IOException {
-        if (username.getText().toString().equals("winemoms") && password.getText().toString().equals("6969")) {
+        if (username.getText().equals("winemoms") && password.getText().equals("6969")) {
             Stage stage = (Stage) loginButton.getScene().getWindow();
             stage.close();
             Stage primaryStage = new Stage();
