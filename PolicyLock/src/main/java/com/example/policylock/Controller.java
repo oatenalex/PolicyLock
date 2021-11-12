@@ -13,6 +13,8 @@ public class Controller {
     @FXML
     private Button loginButton;
     @FXML
+    private Button confirm_logoutButton;
+    @FXML
     private Button logoutButton;
 
     //Page switching buttons
@@ -23,11 +25,15 @@ public class Controller {
     @FXML
     private Button settingsPageButton;
     @FXML
-    private Button logPageButton;
+    private Button permission_settingsPageButton;
     @FXML
     private Button log_settingsPageButton;
     @FXML
     private Button notification_settingsPageButton;
+    @FXML
+    private Button account_settingsPageButton;
+    @FXML
+    private Button logPageButton;
 
 
     public void login() throws IOException {
@@ -35,6 +41,7 @@ public class Controller {
         stage.close();
         Stage primaryStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("home.fxml"));
+        primaryStage.setTitle("PolicyLock");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
@@ -44,6 +51,7 @@ public class Controller {
         stage.close();
         Stage primaryStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("home.fxml"));
+        primaryStage.setTitle("PolicyLock");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
@@ -53,6 +61,7 @@ public class Controller {
         stage.close();
         Stage primaryStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("devices.fxml"));
+        primaryStage.setTitle("PolicyLock");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
@@ -62,23 +71,17 @@ public class Controller {
         stage.close();
         Stage primaryStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("settings.fxml"));
+        primaryStage.setTitle("PolicyLock");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
 
-    public void logout() throws IOException {
-        Stage stage = (Stage) logoutButton.getScene().getWindow();
+    public void permission_settings() throws IOException {
+        Stage stage = (Stage) permission_settingsPageButton.getScene().getWindow();
         stage.close();
         Stage primaryStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
-        primaryStage.setScene(new Scene(root));
-        primaryStage.show();
-    }
-    public void log() throws IOException {
-        Stage stage = (Stage) logPageButton.getScene().getWindow();
-        stage.close();
-        Stage primaryStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("log.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("permission_settings.fxml"));
+        primaryStage.setTitle("PolicyLock");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
@@ -88,6 +91,7 @@ public class Controller {
         stage.close();
         Stage primaryStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("log_settings.fxml"));
+        primaryStage.setTitle("PolicyLock");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
@@ -97,6 +101,47 @@ public class Controller {
         stage.close();
         Stage primaryStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("notification_settings.fxml"));
+        primaryStage.setTitle("PolicyLock");
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
+    }
+
+    public void account_settings() throws IOException {
+        Stage stage = (Stage) account_settingsPageButton.getScene().getWindow();
+        stage.close();
+        Stage primaryStage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("account_settings.fxml"));
+        primaryStage.setTitle("PolicyLock");
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
+    }
+
+    public void log() throws IOException {
+        Stage stage = (Stage) logPageButton.getScene().getWindow();
+        stage.close();
+        Stage primaryStage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("log.fxml"));
+        primaryStage.setTitle("PolicyLock");
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
+    }
+
+    public void confirm_logout() throws IOException {
+        Stage stage = (Stage) confirm_logoutButton.getScene().getWindow();
+        stage.close();
+        Stage primaryStage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("confirm_logout.fxml"));
+        primaryStage.setTitle("PolicyLock");
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
+    }
+
+    public void logout() throws IOException {
+        Stage stage = (Stage) logoutButton.getScene().getWindow();
+        stage.close();
+        Stage primaryStage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+        primaryStage.setTitle("PolicyLock");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }

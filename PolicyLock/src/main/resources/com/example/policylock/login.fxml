@@ -50,19 +50,20 @@
                         <Image url="@../../../img/policylock_background.jpg" />
                     </image>
                 </ImageView>
-                <TextField layoutX="367.0" layoutY="242.0" prefHeight="40.0" prefWidth="256.0" promptText="Username">
+                <TextField layoutX="384.0" layoutY="252.0" prefHeight="40.0" prefWidth="256.0" promptText="Username">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextField>
+                <TextField layoutX="384.0" layoutY="322.0" prefHeight="40.0" prefWidth="256.0" promptText="Password">
                <font>
                   <Font size="16.0" />
                </font></TextField>
-                <TextField layoutX="367.0" layoutY="289.0" prefHeight="40.0" prefWidth="256.0" promptText="Password">
-               <font>
-                  <Font size="16.0" />
-               </font></TextField>
-                <Button fx:id="loginButton" layoutX="423.0" layoutY="339.0" mnemonicParsing="false" onAction="#login" prefHeight="40.0" prefWidth="144.0" text="Login">
+                <Button fx:id="loginButton" layoutX="440.0" layoutY="392.0" mnemonicParsing="false" onAction="#login" prefHeight="40.0" prefWidth="144.0" text="Login">
                <font>
                   <Font size="19.0" />
                </font></Button>
-                <Label layoutX="367.0" layoutY="142.0" text="PolicyLock" textFill="WHITE">
+                <Label layoutX="358.0" layoutY="141.0" text="PolicyLock" textFill="WHITE">
                     <font>
                         <Font name="HoloLens MDL2 Assets" size="60.0" />
                     </font>

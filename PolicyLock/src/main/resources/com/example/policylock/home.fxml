@@ -51,14 +51,14 @@
                         <Image url="@../../../img/policylock_background.jpg" />
                     </image>
                 </ImageView>
-                <Label layoutX="616.0" layoutY="257.0" text="PolicyLock" textFill="WHITE">
+                <Label layoutX="608.0" layoutY="268.0" prefHeight="70.0" prefWidth="296.0" text="PolicyLock" textFill="WHITE">
                     <font>
                         <Font name="HoloLens MDL2 Assets" size="57.0" />
                     </font>
                 </Label>
-                <VBox alignment="TOP_CENTER" layoutX="96.0" layoutY="141.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="357.0" prefWidth="404.0">
+                <VBox alignment="TOP_CENTER" layoutX="138.0" layoutY="147.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="356.0" prefWidth="346.0">
                     <children>
-                        <Label alignment="TOP_CENTER" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: black;" text="Menu" textFill="WHITE" underline="true">
+                        <Label alignment="TOP_CENTER" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: black;" text="Menu" textFill="WHITE">
                             <font>
                                 <Font name="System Bold" size="23.0" />
                             </font>
@@ -76,6 +76,14 @@
                      <VBox.margin>
                         <Insets top="2.0" />
                      </VBox.margin></Button>
+                        <Button fx:id="logPageButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#log" prefHeight="75.0" prefWidth="400.0" text="Log">
+                     <VBox.margin>
+                        <Insets top="2.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Button>
                         <Button fx:id="settingsPageButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#settings" prefHeight="75.0" prefWidth="400.0" text="Settings">
                      <VBox.margin>
                         <Insets top="2.0" />
@@ -83,14 +91,7 @@
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font></Button>
-                        <Button fx:id="logPageButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#log" prefHeight="75.0" prefWidth="400.0" text="Log">
-                     <VBox.margin>
-                        <Insets top="2.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font></Button>
-                  <Button fx:id="logoutButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#logout" prefHeight="75.0" prefWidth="400.0" text="Log Out">
+                  <Button fx:id="confirm_logoutButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#confirm_logout" prefHeight="75.0" prefWidth="400.0" text="Log Out">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -102,10 +103,13 @@
                 </VBox>
             <HBox prefHeight="35.0" prefWidth="1024.0" style="-fx-background-color: black; -fx-opacity: 0.6;">
                <children>
-                  <Button fx:id="homePageButton" mnemonicParsing="false" onAction="#home" style="-fx-background-color: transparent;" text="HOME" textFill="WHITE">
+                  <Button fx:id="homePageButton" graphicTextGap="0.0" mnemonicParsing="false" onAction="#home" style="-fx-background-color: transparent;" text="HOME" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
+                     <padding>
+                        <Insets left="5.0" right="3.0" top="6.0" />
+                     </padding>
                   </Button>
                </children>
             </HBox>
