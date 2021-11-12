@@ -1,4 +1,5 @@
 package com.example.policylock;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -7,11 +8,8 @@ import javafx.stage.Stage;
 import javafx.scene.Scene;
 import java.io.IOException;
 
-
 public class Controller {
     //Log in & Log out Buttons
-    @FXML
-    private Button loginButton;
     @FXML
     private Button confirm_logoutButton;
     @FXML
@@ -34,17 +32,6 @@ public class Controller {
     private Button account_settingsPageButton;
     @FXML
     private Button logPageButton;
-
-
-    public void login() throws IOException {
-        Stage stage = (Stage) loginButton.getScene().getWindow();
-        stage.close();
-        Stage primaryStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("home.fxml"));
-        primaryStage.setTitle("PolicyLock");
-        primaryStage.setScene(new Scene(root));
-        primaryStage.show();
-    }
 
     public void home() throws IOException {
         Stage stage = (Stage) homePageButton.getScene().getWindow();
