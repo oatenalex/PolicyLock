@@ -92,7 +92,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                         </Button>
-                        <Label maxHeight="-Infinity" prefHeight="30.0" text="/" textFill="WHITE">
+                        <Label maxHeight="-Infinity" prefHeight="26.0" text="/" textFill="WHITE">
                             <font>
                                 <Font size="16.0" />
                             </font>

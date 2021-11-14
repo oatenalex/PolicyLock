@@ -52,7 +52,7 @@
                         <Image url="@../../../img/policylock_background.jpg" />
                     </image>
                 </ImageView>
-                <TextField fx:id="username" layoutX="384.0" layoutY="252.0" onAction="#onEnter" prefHeight="40.0" prefWidth="256.0" promptText="Username">
+                <TextField fx:id="username" layoutX="384.0" layoutY="268.0" onAction="#onEnter" prefHeight="40.0" prefWidth="256.0" promptText="Username">
                <font>
                   <Font size="16.0" />
                </font>
@@ -60,19 +60,19 @@
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </TextField>
-                <Button fx:id="loginButton" layoutX="440.0" layoutY="392.0" mnemonicParsing="false" onAction="#login" prefHeight="40.0" prefWidth="144.0" text="Login">
+                <Button fx:id="loginButton" layoutX="443.0" layoutY="402.0" mnemonicParsing="false" onAction="#login" prefHeight="40.0" prefWidth="144.0" text="Login">
                <font>
                   <Font size="19.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-                <Label layoutX="377.0" layoutY="142.0" text="PolicyLock" textFill="WHITE">
+                <Label layoutX="358.0" layoutY="142.0" text="PolicyLock" textFill="WHITE">
                     <font>
                         <Font name="HoloLens MDL2 Assets" size="60.0" />
                     </font>
                 </Label>
-            <PasswordField fx:id="password" layoutX="384.0" layoutY="322.0" onAction="#onEnter" prefHeight="40.0" prefWidth="256.0" promptText="Password">
+            <PasswordField fx:id="password" layoutX="384.0" layoutY="336.0" onAction="#onEnter" prefHeight="40.0" prefWidth="256.0" promptText="Password">
                <font>
                   <Font size="16.0" />
                </font>
@@ -80,7 +80,7 @@
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </PasswordField>
-            <Label fx:id="incorrect" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="380.0" layoutY="482.0" prefHeight="25.0" prefWidth="256.0" textFill="#d50000">
+            <Label fx:id="incorrect" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="384.0" layoutY="233.0" prefHeight="25.0" prefWidth="256.0" textFill="#d50000">
                <font>
                   <Font name="System Bold Italic" size="16.0" />
                </font>
