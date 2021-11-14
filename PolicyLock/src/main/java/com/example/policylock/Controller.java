@@ -1,21 +1,31 @@
 package com.example.policylock;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import java.io.IOException;
 
 
 public class Controller {
-    //Log in & Log out Buttons
+    //Log in & Log out Buttons/Text Fields
     @FXML
     private Button loginButton;
     @FXML
     private Button confirm_logoutButton;
     @FXML
     private Button logoutButton;
+    @FXML
+    private PasswordField loginPasswordBox; //Login password text field
+    @FXML
+    private TextField loginUserBox; //Login username text field
 
     //Page switching buttons
     @FXML
@@ -145,4 +155,13 @@ public class Controller {
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
+
+    //Method that handles when the enter key is pressed in text boxes on the enter page
+    @FXML
+    private void onEnter(ActionEvent event) throws IOException{
+        //Checks if the source calling the actionEvent is the Username box or password
+        if (event.getSource().getClass().equals(loginUserBox.getClass()))
+            loginPasswordBox.requestFocus();
+        else{ login();}
+        };
 }

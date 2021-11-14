@@ -45,14 +45,14 @@
 
 <VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.policylock.Controller">
     <children>
-        <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="640.0" prefWidth="1024.0" VBox.vgrow="ALWAYS">
+        <AnchorPane VBox.vgrow="ALWAYS">
             <children>
                 <ImageView fitHeight="640.0" fitWidth="1024.0" pickOnBounds="true">
                     <image>
                         <Image url="@../../../img/policylock_background.jpg" />
                     </image>
                 </ImageView>
-                <TextField layoutX="384.0" layoutY="252.0" prefHeight="40.0" prefWidth="256.0" promptText="Username">
+                <TextField fx:id="loginUserBox" layoutX="384.0" layoutY="252.0" onAction="#onEnter" prefHeight="40.0" prefWidth="256.0" promptText="Username">
                <font>
                   <Font size="16.0" />
                </font>
@@ -72,7 +72,7 @@
                         <Font name="HoloLens MDL2 Assets" size="60.0" />
                     </font>
                 </Label>
-            <PasswordField layoutX="384.0" layoutY="322.0" prefHeight="40.0" prefWidth="256.0" promptText="Password">
+            <PasswordField fx:id="loginPasswordBox" layoutX="384.0" layoutY="322.0" onAction="#onEnter" prefHeight="40.0" prefWidth="256.0" promptText="Password">
                <font>
                   <Font size="16.0" />
                </font>
