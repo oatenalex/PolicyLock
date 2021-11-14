@@ -33,6 +33,7 @@
 -->
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -75,7 +76,10 @@
                      </font>
                      <VBox.margin>
                         <Insets top="2.0" />
-                     </VBox.margin></Button>
+                     </VBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
                         <Button fx:id="logPageButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#log" prefHeight="75.0" prefWidth="400.0" text="Log">
                      <VBox.margin>
                         <Insets top="2.0" />
@@ -83,6 +87,9 @@
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                         <Button fx:id="settingsPageButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#settings" prefHeight="75.0" prefWidth="400.0" text="Settings">
                      <VBox.margin>
@@ -90,7 +97,10 @@
                      </VBox.margin>
                      <font>
                         <Font name="System Bold" size="15.0" />
-                     </font></Button>
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
                   <Button fx:id="confirm_logoutButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#confirm_logout" prefHeight="75.0" prefWidth="400.0" text="Log Out">
                      <font>
                         <Font name="System Bold" size="15.0" />
@@ -98,6 +108,9 @@
                      <VBox.margin>
                         <Insets top="2.0" />
                      </VBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                     </children>
                 </VBox>
@@ -110,6 +123,9 @@
                      <padding>
                         <Insets left="5.0" right="3.0" top="6.0" />
                      </padding>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                </children>
             </HBox>
