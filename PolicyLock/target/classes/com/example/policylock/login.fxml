@@ -43,7 +43,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.policylock.Controller">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.policylock.Login">
     <children>
         <AnchorPane VBox.vgrow="ALWAYS">
             <children>
@@ -52,7 +52,7 @@
                         <Image url="@../../../img/policylock_background.jpg" />
                     </image>
                 </ImageView>
-                <TextField fx:id="loginUserBox" layoutX="384.0" layoutY="252.0" onAction="#onEnter" prefHeight="40.0" prefWidth="256.0" promptText="Username">
+                <TextField fx:id="username" layoutX="384.0" layoutY="252.0" onAction="#onEnter" prefHeight="40.0" prefWidth="256.0" promptText="Username">
                <font>
                   <Font size="16.0" />
                </font>
@@ -72,7 +72,7 @@
                         <Font name="HoloLens MDL2 Assets" size="60.0" />
                     </font>
                 </Label>
-            <PasswordField fx:id="loginPasswordBox" layoutX="384.0" layoutY="322.0" onAction="#onEnter" prefHeight="40.0" prefWidth="256.0" promptText="Password">
+            <PasswordField fx:id="password" layoutX="384.0" layoutY="322.0" onAction="#onEnter" prefHeight="40.0" prefWidth="256.0" promptText="Password">
                <font>
                   <Font size="16.0" />
                </font>
@@ -80,6 +80,11 @@
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </PasswordField>
+            <Label fx:id="incorrect" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="380.0" layoutY="482.0" prefHeight="25.0" prefWidth="256.0" textFill="#d50000">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </Label>
             </children>
         </AnchorPane>
     </children>

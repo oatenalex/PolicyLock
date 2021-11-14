@@ -15,17 +15,11 @@ import java.io.IOException;
 
 
 public class Controller {
-    //Log in & Log out Buttons/Text Fields
-    @FXML
-    private Button loginButton;
+    //Log Out Buttons
     @FXML
     private Button confirm_logoutButton;
     @FXML
     private Button logoutButton;
-    @FXML
-    private PasswordField loginPasswordBox; //Login password text field
-    @FXML
-    private TextField loginUserBox; //Login username text field
 
     //Page switching buttons
     @FXML
@@ -45,7 +39,7 @@ public class Controller {
     @FXML
     private Button logPageButton;
 
-
+/*
     public void login() throws IOException {
         Stage stage = (Stage) loginButton.getScene().getWindow();
         stage.close();
@@ -55,7 +49,7 @@ public class Controller {
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
-
+*/
     public void home() throws IOException {
         Stage stage = (Stage) homePageButton.getScene().getWindow();
         stage.close();
@@ -155,13 +149,4 @@ public class Controller {
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
-
-    //Method that handles when the enter key is pressed in text boxes on the enter page
-    @FXML
-    private void onEnter(ActionEvent event) throws IOException{
-        //Checks if the source calling the actionEvent is the Username box or password
-        if (event.getSource().getClass().equals(loginUserBox.getClass()))
-            loginPasswordBox.requestFocus();
-        else{ login();}
-        };
 }
