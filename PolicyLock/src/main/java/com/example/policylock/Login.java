@@ -24,12 +24,18 @@ public class Login {
     private PasswordField password;
     @FXML
     private Label incorrect;
+    @FXML
+    private Label triesLabel;
 
-    private static final String usernameValue = "winemoms";
-    private static final String passwordValue = "6969";
+
+    private int tries = 3;
+
+    //Username & Password Settings
+    private static final String usernameValue = "Username";
+    private static final String passwordValue = "Password";
 
     public void login() throws IOException {
-        if (username.getText().equals(usernameValue) && password.getText().equals(passwordValue)) {
+        if (username.getText().equals(usernameValue) && password.getText().equals(passwordValue) && (tries > 0)) {
             Stage stage = (Stage) loginButton.getScene().getWindow();
             stage.close();
             Stage primaryStage = new Stage();
@@ -37,10 +43,23 @@ public class Login {
             primaryStage.setTitle("PolicyLock");
             primaryStage.setScene(new Scene(root));
             primaryStage.show();
+            root.requestFocus();
         }
 
         else {
             incorrect.setText("Incorrect username or password");
+            tries -= 1;
+
+            //Limited amount of tries
+            if (tries > 0)
+            {
+                triesLabel.setText("Attempts Left: " + tries);
+            }
+            else{
+                incorrect.setText("You have been locked out");
+                triesLabel.setText("");
+            }
+
 
             //Resets the login screen
             username.setText("");

@@ -35,6 +35,8 @@ public class Controller {
     private Button account_settingsPageButton;
     @FXML
     private Button logPageButton;
+    @FXML
+    private Button logoutNo;
 
     /*
     public void highlight(ActionEvent event) {
@@ -72,6 +74,7 @@ public class Controller {
         primaryStage.setTitle("PolicyLock");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+        root.requestFocus();
     }
 
     public void devices() throws IOException {
@@ -82,6 +85,7 @@ public class Controller {
         primaryStage.setTitle("PolicyLock");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+        root.requestFocus();
     }
 
     public void settings() throws IOException {
@@ -92,6 +96,7 @@ public class Controller {
         primaryStage.setTitle("PolicyLock");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+        root.requestFocus();
     }
 
     public void permission_settings() throws IOException {
@@ -102,6 +107,7 @@ public class Controller {
         primaryStage.setTitle("PolicyLock");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+        root.requestFocus();
     }
 
     public void log_settings() throws IOException {
@@ -112,6 +118,7 @@ public class Controller {
         primaryStage.setTitle("PolicyLock");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+        root.requestFocus();
     }
 
     public void log_log_settings() throws IOException {
@@ -122,8 +129,10 @@ public class Controller {
         Parent root = loader.load();
         Controller c = loader.getController();
         c.breadcrumb.setText("LOG");
+        primaryStage.setTitle("PolicyLock");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+        root.requestFocus();
     }
 
     public void breadcrumb_trace() throws IOException {
@@ -138,6 +147,7 @@ public class Controller {
         primaryStage.setTitle("PolicyLock");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+        root.requestFocus();
     }
 
     public void notification_settings() throws IOException {
@@ -148,6 +158,7 @@ public class Controller {
         primaryStage.setTitle("PolicyLock");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+        root.requestFocus();
     }
 
     public void account_settings() throws IOException {
@@ -158,6 +169,7 @@ public class Controller {
         primaryStage.setTitle("PolicyLock");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+        root.requestFocus();
     }
 
     public void log() throws IOException {
@@ -168,6 +180,7 @@ public class Controller {
         primaryStage.setTitle("PolicyLock");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+        root.requestFocus();
     }
 
     public void confirm_logout() throws IOException {
@@ -178,6 +191,7 @@ public class Controller {
         primaryStage.setTitle("PolicyLock");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+        root.requestFocus();
     }
 
     public void logout() throws IOException {
