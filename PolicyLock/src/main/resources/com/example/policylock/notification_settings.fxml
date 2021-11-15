@@ -50,7 +50,7 @@
 
 <VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.policylock.Controller">
     <children>
-        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1024.0" VBox.vgrow="ALWAYS">
+        <AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseExited="#inactivityTimer" prefHeight="640.0" prefWidth="1024.0" VBox.vgrow="ALWAYS">
             <children>
                 <ImageView fitHeight="640.0" fitWidth="1024.0" pickOnBounds="true">
                     <image>

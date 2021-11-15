@@ -1,12 +1,18 @@
 package com.example.policylock;
 
+import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
+import javafx.util.Duration;
+
 import java.io.IOException;
 
 public class Controller {
@@ -38,6 +44,11 @@ public class Controller {
     @FXML
     private Button logoutNo;
 
+    //Background anchorpane on which each UI element is placed. Use for inactivity timer
+    @FXML
+    private AnchorPane anchorPane;
+
+    public static boolean timeOutCompleted = false; //Variable used to check if timeout has already been completed to fix multiple log in screen issue from multiple anchor panes being activated
     /*
     public void highlight(ActionEvent event) {
         Button btn = (Button) event.getSource();
@@ -202,5 +213,31 @@ public class Controller {
         primaryStage.setTitle("PolicyLock");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+    }
+
+    public void inactivityTimer(){
+        PauseTransition delay = new PauseTransition(Duration.seconds(5));
+        delay.setOnFinished( event -> {
+            try {
+                appTimeOut();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+        delay.play();
+    }
+
+    private void appTimeOut() throws IOException {
+        Stage stage = (Stage) anchorPane.getScene().getWindow();
+        stage.close();
+        if (!timeOutCompleted) {
+            Stage primaryStage = new Stage();
+            Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+            primaryStage.setTitle("PolicyLock");
+            primaryStage.setScene(new Scene(root));
+            primaryStage.show();
+            timeOutCompleted= true;
+            //Login.inactivityMessage.setText("You have been signed out for inactivity");
+        }
     }
 }

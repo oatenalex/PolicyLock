@@ -75,9 +75,9 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-                <Label layoutX="377.0" layoutY="142.0" text="PolicyLock" textFill="WHITE">
+                <Label layoutX="387.0" layoutY="143.0" prefHeight="66.0" prefWidth="256.0" text="PolicyLock" textFill="WHITE">
                     <font>
-                        <Font name="HoloLens MDL2 Assets" size="60.0" />
+                        <Font name="HoloLens MDL2 Assets" size="56.0" />
                     </font>
                 </Label>
             <Label fx:id="incorrect" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="384.0" layoutY="220.0" prefHeight="25.0" prefWidth="256.0" textFill="#d50000">
@@ -88,6 +88,11 @@
             <Label fx:id="triesLabel" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="384.0" layoutY="242.0" prefHeight="25.0" prefWidth="256.0" textFill="#d50000">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="inactivityMessage" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="339.0" layoutY="495.0" prefHeight="25.0" prefWidth="352.0" textFill="#d50000">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
                </font>
             </Label>
             </children>
