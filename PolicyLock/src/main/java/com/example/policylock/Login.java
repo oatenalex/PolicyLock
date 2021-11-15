@@ -38,7 +38,7 @@ public class Login {
 
     public void login() throws IOException {
         if (username.getText().equals(usernameValue) && password.getText().equals(passwordValue) && (tries > 0)) {
-            Controller.timeOutCompleted = false; //Resets the timeout variable
+            //Controller.timeOutCompleted = false; //Resets the timeout variable
             Stage stage = (Stage) loginButton.getScene().getWindow();
             stage.close();
             Stage primaryStage = new Stage();

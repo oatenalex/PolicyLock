@@ -216,7 +216,7 @@ public class Controller {
     }
 
     public void inactivityTimer(){
-        PauseTransition delay = new PauseTransition(Duration.seconds(5));
+        PauseTransition delay = new PauseTransition(Duration.seconds(6));
         delay.setOnFinished( event -> {
             try {
                 appTimeOut();
@@ -232,12 +232,11 @@ public class Controller {
         stage.close();
         if (!timeOutCompleted) {
             Stage primaryStage = new Stage();
-            Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("inactive.fxml"));
             primaryStage.setTitle("PolicyLock");
             primaryStage.setScene(new Scene(root));
             primaryStage.show();
-            timeOutCompleted= true;
-            //Login.inactivityMessage.setText("You have been signed out for inactivity");
+            timeOutCompleted = true;
         }
     }
 }
