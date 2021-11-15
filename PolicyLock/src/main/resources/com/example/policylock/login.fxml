@@ -32,18 +32,13 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.policylock.Login">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.policylock.Login">
     <children>
         <AnchorPane VBox.vgrow="ALWAYS">
             <children>
@@ -60,6 +55,14 @@
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </TextField>
+            <PasswordField fx:id="password" layoutX="384.0" layoutY="336.0" onAction="#onEnter" prefHeight="40.0" prefWidth="256.0" promptText="Password">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+            </PasswordField>
                 <Button fx:id="loginButton" layoutX="443.0" layoutY="402.0" mnemonicParsing="false" onAction="#login" prefHeight="40.0" prefWidth="144.0" text="Login">
                <font>
                   <Font size="19.0" />
@@ -72,14 +75,6 @@
                         <Font name="HoloLens MDL2 Assets" size="60.0" />
                     </font>
                 </Label>
-            <PasswordField fx:id="password" layoutX="384.0" layoutY="336.0" onAction="#onEnter" prefHeight="40.0" prefWidth="256.0" promptText="Password">
-               <font>
-                  <Font size="16.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="TEXT" />
-               </cursor>
-            </PasswordField>
             <Label fx:id="incorrect" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="384.0" layoutY="233.0" prefHeight="25.0" prefWidth="256.0" textFill="#d50000">
                <font>
                   <Font name="System Bold Italic" size="16.0" />

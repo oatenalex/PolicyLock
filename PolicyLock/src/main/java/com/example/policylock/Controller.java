@@ -1,21 +1,15 @@
 package com.example.policylock;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import java.io.IOException;
 
-
 public class Controller {
-    //Log Out Buttons
+    //Log out Buttons
     @FXML
     private Button confirm_logoutButton;
     @FXML
@@ -33,23 +27,14 @@ public class Controller {
     @FXML
     private Button log_settingsPageButton;
     @FXML
+    private Button breadcrumb;
+    @FXML
     private Button notification_settingsPageButton;
     @FXML
     private Button account_settingsPageButton;
     @FXML
     private Button logPageButton;
 
-/*
-    public void login() throws IOException {
-        Stage stage = (Stage) loginButton.getScene().getWindow();
-        stage.close();
-        Stage primaryStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("home.fxml"));
-        primaryStage.setTitle("PolicyLock");
-        primaryStage.setScene(new Scene(root));
-        primaryStage.show();
-    }
-*/
     public void home() throws IOException {
         Stage stage = (Stage) homePageButton.getScene().getWindow();
         stage.close();
@@ -100,6 +85,20 @@ public class Controller {
         primaryStage.show();
     }
 
+    public void breadcrumb_trace() throws IOException {
+        Stage stage = (Stage) breadcrumb.getScene().getWindow();
+        stage.close();
+        Stage primaryStage = new Stage();
+        Parent root;
+        if (breadcrumb.getText().equals("SETTINGS"))
+            root = FXMLLoader.load(getClass().getResource("settings.fxml"));
+        else
+            root = FXMLLoader.load(getClass().getResource("log.fxml"));
+        primaryStage.setTitle("PolicyLock");
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
+    }
+
     public void notification_settings() throws IOException {
         Stage stage = (Stage) notification_settingsPageButton.getScene().getWindow();
         stage.close();
@@ -128,6 +127,10 @@ public class Controller {
         primaryStage.setTitle("PolicyLock");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+    }
+
+    public void log_log_settings() throws IOException {
+        log_settings();
     }
 
     public void confirm_logout() throws IOException {
