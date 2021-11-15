@@ -1,5 +1,6 @@
 package com.example.policylock;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -34,6 +35,34 @@ public class Controller {
     private Button account_settingsPageButton;
     @FXML
     private Button logPageButton;
+
+    /*
+    public void highlight(ActionEvent event) {
+        Button btn = (Button) event.getSource();
+        btn.setStyle("-fx-text-fill: #33D7FF; -fx-background-color: transparent;");
+    }
+
+    public void unhighlight(ActionEvent event) {
+        Button btn = (Button) event.getSource();
+        btn.setStyle("-fx-text-fill: WHITE; -fx-background-color: transparent;");
+    }
+
+    idk how to encompass all the highlights and unhighlits into 1 method */
+    public void highlight_home() { homePageButton.setStyle("-fx-text-fill: #33D7FF; -fx-background-color: transparent;"); }
+
+    public void unhighlight_home() { homePageButton.setStyle("-fx-text-fill: WHITE; -fx-background-color: transparent;"); }
+
+    public void highlight_settings() { settingsPageButton.setStyle("-fx-text-fill: #33D7FF; -fx-background-color: transparent;"); }
+
+    public void unhighlight_settings() { settingsPageButton.setStyle("-fx-text-fill: WHITE; -fx-background-color: transparent;"); }
+
+    public void highlight_breadcrumb() { breadcrumb.setStyle("-fx-text-fill: #33D7FF; -fx-background-color: transparent;"); }
+
+    public void unhighlight_breadcrumb() { breadcrumb.setStyle("-fx-text-fill: WHITE; -fx-background-color: transparent;"); }
+
+    public void highlight_logsettings() { log_settingsPageButton.setStyle("-fx-text-fill: #33D7FF; -fx-background-color: transparent;"); }
+
+    public void unhighlight_logsettings() { log_settingsPageButton.setStyle("-fx-text-fill: WHITE; -fx-background-color: transparent;"); }
 
     public void home() throws IOException {
         Stage stage = (Stage) homePageButton.getScene().getWindow();
@@ -85,6 +114,18 @@ public class Controller {
         primaryStage.show();
     }
 
+    public void log_log_settings() throws IOException {
+        Stage stage = (Stage) log_settingsPageButton.getScene().getWindow();
+        stage.close();
+        Stage primaryStage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("log_settings.fxml"));
+        Parent root = loader.load();
+        Controller c = loader.getController();
+        c.breadcrumb.setText("LOG");
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
+    }
+
     public void breadcrumb_trace() throws IOException {
         Stage stage = (Stage) breadcrumb.getScene().getWindow();
         stage.close();
@@ -127,10 +168,6 @@ public class Controller {
         primaryStage.setTitle("PolicyLock");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
-    }
-
-    public void log_log_settings() throws IOException {
-        log_settings();
     }
 
     public void confirm_logout() throws IOException {
