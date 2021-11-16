@@ -41,13 +41,14 @@ public class Controller {
     private Button account_settingsPageButton;
     @FXML
     private Button logPageButton;
-    @FXML
-    private Button logoutNo;
 
     //Background anchorpane on which each UI element is placed. Use for inactivity timer
     @FXML
     private AnchorPane anchorPane;
 
+    //Timer variables used for handling inactivity
+    private int inactivityTimeAllowance = 5;
+    private PauseTransition inactivityTimeCounter = new PauseTransition();
     public static boolean timeOutCompleted = false; //Variable used to check if timeout has already been completed to fix multiple log in screen issue from multiple anchor panes being activated
     /*
     public void highlight(ActionEvent event) {
@@ -215,16 +216,19 @@ public class Controller {
         primaryStage.show();
     }
 
+    public void pauseInactivityTimer(){
+        inactivityTimeCounter.stop();
+    }
     public void inactivityTimer(){
-        PauseTransition delay = new PauseTransition(Duration.seconds(6));
-        delay.setOnFinished( event -> {
+        inactivityTimeCounter.setDuration(Duration.seconds(inactivityTimeAllowance));
+        inactivityTimeCounter.setOnFinished( event -> {
             try {
                 appTimeOut();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         });
-        delay.play();
+        inactivityTimeCounter.play();
     }
 
     private void appTimeOut() throws IOException {
