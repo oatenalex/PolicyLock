@@ -33,6 +33,7 @@
 -->
 
 <?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -43,73 +44,77 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.policylock.Login">
-    <children>
-      <GridPane fx:id="test">
-         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="171.31936645507812" minWidth="10.0" prefWidth="171.31936645507812" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="619.9574184417725" minWidth="10.0" prefWidth="296.3839111328125" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="619.9574184417725" minWidth="10.0" prefWidth="173.1160888671875" />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints maxHeight="353.304931640625" minHeight="10.0" prefHeight="136.26783752441406" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="172.3551025390625" minHeight="10.0" prefHeight="45.73216247558594" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="149.20603942871094" minHeight="7.787078857421875" prefHeight="60.22044372558594" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="100.21292114257812" minHeight="0.0" prefHeight="81.80152893066406" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="130.0" minHeight="10.0" prefHeight="75.11334228515625" vgrow="SOMETIMES" />
-         </rowConstraints>
-         <children>
-                <ImageView fx:id="background" fitHeight="990.0" fitWidth="1500.0" pickOnBounds="true" GridPane.columnSpan="2147483647" GridPane.rowSpan="2147483647">
-                    <image>
-                        <Image url="@../../../img/policylock_background.jpg" />
-                    </image>
-                </ImageView>
-                <TextField fx:id="username" maxWidth="200.0" onAction="#onEnter" prefHeight="40.0" prefWidth="256.0" promptText="Username" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
-               <font>
-                  <Font size="16.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="TEXT" />
-               </cursor>
-            </TextField>
-            <PasswordField fx:id="password" maxWidth="200.0" onAction="#onEnter" prefHeight="40.0" prefWidth="256.0" promptText="Password" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
-               <font>
-                  <Font size="16.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="TEXT" />
-               </cursor>
-            </PasswordField>
-                <Button fx:id="loginButton" mnemonicParsing="false" onAction="#login" prefHeight="40.0" prefWidth="144.0" text="Login" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP">
-               <font>
-                  <Font size="19.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-                <Label prefHeight="68.0" prefWidth="287.0" text="PolicyLock" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
-                    <font>
-                        <Font name="HoloLens MDL2 Assets" size="56.0" />
-                    </font>
-               <GridPane.margin>
-                  <Insets bottom="10.0" />
-               </GridPane.margin>
-                </Label>
-            <Label fx:id="incorrect" alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="25.0" prefWidth="256.0" textFill="#d50000" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
-               <font>
-                  <Font name="System Bold Italic" size="16.0" />
-               </font>
-            </Label>
-            <Label fx:id="triesLabel" alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="25.0" prefWidth="256.0" textFill="#d50000" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
-               <font>
-                  <Font name="System Bold Italic" size="12.0" />
-               </font>
-            </Label>
-         </children>
-      </GridPane>
-    </children>
-</VBox>
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="544.0" prefWidth="864.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.policylock.Login">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="2000.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="100.0" prefHeight="1000.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <ImageView fitHeight="990.0" fitWidth="1500.0" pickOnBounds="true" GridPane.halignment="LEFT" GridPane.valignment="TOP">
+         <image>
+            <Image url="@../../../img/new_policylock_background.jpg" />
+         </image>
+         <viewport>
+            <Rectangle2D minX="1024.0" minY="664.0" />
+         </viewport>
+      </ImageView>
+      <TextField fx:id="username" maxWidth="-Infinity" onAction="#onEnter" prefHeight="40.0" promptText="Username" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
+      <PasswordField fx:id="password" maxWidth="-Infinity" onAction="#onEnter" prefHeight="40.0" promptText="Password" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <GridPane.margin>
+            <Insets top="120.0" />
+         </GridPane.margin>
+      </PasswordField>
+      <Button fx:id="loginButton" mnemonicParsing="false" onAction="#login" prefHeight="40.0" prefWidth="144.0" text="Login" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+         <font>
+            <Font size="19.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <GridPane.margin>
+            <Insets top="240.0" />
+         </GridPane.margin>
+      </Button>
+      <Label prefHeight="79.0" prefWidth="327.0" text="PolicyLock" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+         <font>
+            <Font size="64.0" />
+         </font>
+         <GridPane.margin>
+            <Insets bottom="300.0" />
+         </GridPane.margin>
+      </Label>
+      <Label fx:id="incorrect" alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="25.0" prefWidth="256.0" textFill="#d50000" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+         <font>
+            <Font name="System Bold Italic" size="16.0" />
+         </font>
+         <GridPane.margin>
+            <Insets bottom="150.0" />
+         </GridPane.margin>
+      </Label>
+      <Label fx:id="triesLabel" alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="25.0" prefWidth="256.0" textFill="#d50000" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+         <GridPane.margin>
+            <Insets bottom="100.0" />
+         </GridPane.margin>
+      </Label>
+   </children>
+</GridPane>
