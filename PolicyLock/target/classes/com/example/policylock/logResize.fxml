@@ -51,6 +51,7 @@
 <GridPane fx:id="gridPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseExited="#inactivityTimer" prefHeight="580.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.policylock.Controller">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
   <rowConstraints>
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -61,7 +62,7 @@
             <Image url="@../../../img/new_policylock_background.jpg" />
          </image>
       </ImageView>
-      <HBox maxHeight="34.0" prefHeight="34.0" prefWidth="900.0" style="-fx-background-color: black; -fx-opacity: 0.6;" GridPane.hgrow="NEVER" GridPane.valignment="TOP" GridPane.vgrow="NEVER">
+      <HBox maxHeight="34.0" prefHeight="34.0" prefWidth="900.0" style="-fx-background-color: black; -fx-opacity: 0.6;" GridPane.halignment="LEFT" GridPane.hgrow="NEVER" GridPane.valignment="TOP" GridPane.vgrow="NEVER">
          <children>
             <Button fx:id="homePageButton" graphicTextGap="0.0" mnemonicParsing="false" onAction="#home" onMouseEntered="#highlight_home" onMouseExited="#unhighlight_home" style="-fx-background-color: transparent;" text="HOME" textFill="WHITE">
                <font>
@@ -82,7 +83,7 @@
                   <Insets top="5.0" />
                </padding>
             </Label>
-            <Button fx:id="devicesPageButton" graphicTextGap="0.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="DEVICES" textFill="WHITE">
+            <Button fx:id="logPageButton" graphicTextGap="0.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="LOG" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
@@ -94,6 +95,24 @@
                </cursor>
             </Button>
          </children>
+      </HBox>
+      <HBox alignment="TOP_RIGHT" maxHeight="34.0" prefHeight="34.0" prefWidth="900.0" style="-fx-background-color: black; -fx-opacity: 0.6;" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.hgrow="NEVER" GridPane.valignment="TOP" GridPane.vgrow="NEVER">
+         <children>
+            <Button fx:id="log_settingsPageButton" graphicTextGap="0.0" mnemonicParsing="false" onAction="#log_log_settings" onMouseEntered="#highlight_logsettings" onMouseExited="#unhighlight_logsettings" style="-fx-background-color: transparent;" text="LOGGING SETTINGS" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <padding>
+                  <Insets left="2.0" top="6.0" />
+               </padding>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+         <padding>
+            <Insets right="5.0" />
+         </padding>
       </HBox>
    </children>
 </GridPane>

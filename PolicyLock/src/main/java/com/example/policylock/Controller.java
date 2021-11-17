@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.util.Duration;
@@ -44,7 +45,7 @@ public class Controller {
 
     //Background anchorpane on which each UI element is placed. Use for inactivity timer
     @FXML
-    private AnchorPane anchorPane;
+    private GridPane gridPane;
 
     //Timer variables used for handling inactivity
     private int inactivityTimeAllowance = 5;
@@ -107,7 +108,7 @@ public class Controller {
         stage.close();
         pauseInactivityTimer();
         Stage primaryStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("settings.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("settingsResize.fxml"));
         primaryStage.setTitle("PolicyLock");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
@@ -119,7 +120,7 @@ public class Controller {
         stage.close();
         pauseInactivityTimer();
         Stage primaryStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("permission_settings.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("permission_settingsResize.fxml"));
         primaryStage.setTitle("PolicyLock");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
@@ -131,7 +132,7 @@ public class Controller {
         stage.close();
         pauseInactivityTimer();
         Stage primaryStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("log_settings.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("log_settingsResize.fxml"));
         primaryStage.setTitle("PolicyLock");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
@@ -143,7 +144,7 @@ public class Controller {
         stage.close();
         pauseInactivityTimer();
         Stage primaryStage = new Stage();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("log_settings.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("log_settingsResize.fxml"));
         Parent root = loader.load();
         Controller c = loader.getController();
         c.breadcrumb.setText("LOG");
@@ -160,9 +161,9 @@ public class Controller {
         Stage primaryStage = new Stage();
         Parent root;
         if (breadcrumb.getText().equals("SETTINGS"))
-            root = FXMLLoader.load(getClass().getResource("settings.fxml"));
+            root = FXMLLoader.load(getClass().getResource("settingsResize.fxml"));
         else
-            root = FXMLLoader.load(getClass().getResource("log.fxml"));
+            root = FXMLLoader.load(getClass().getResource("logResize.fxml"));
         primaryStage.setTitle("PolicyLock");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
@@ -174,7 +175,7 @@ public class Controller {
         stage.close();
         pauseInactivityTimer();
         Stage primaryStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("notification_settings.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("notification_settingsResize.fxml"));
         primaryStage.setTitle("PolicyLock");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
@@ -186,7 +187,7 @@ public class Controller {
         stage.close();
         pauseInactivityTimer();
         Stage primaryStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("account_settings.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("account_settingsResize.fxml"));
         primaryStage.setTitle("PolicyLock");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
@@ -198,7 +199,7 @@ public class Controller {
         stage.close();
         pauseInactivityTimer();
         Stage primaryStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("log.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("logResize.fxml"));
         primaryStage.setTitle("PolicyLock");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
@@ -244,11 +245,11 @@ public class Controller {
     }
 
     private void appTimeOut() throws IOException {
-        Stage stage = (Stage) anchorPane.getScene().getWindow();
+        Stage stage = (Stage) gridPane.getScene().getWindow();
         stage.close();
         if (!timeOutCompleted) {
             Stage primaryStage = new Stage();
-            Parent root = FXMLLoader.load(getClass().getResource("inactive.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("inactiveResize.fxml"));
             primaryStage.setTitle("PolicyLock");
             primaryStage.setScene(new Scene(root));
             primaryStage.show();

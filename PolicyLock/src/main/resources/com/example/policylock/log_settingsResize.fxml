@@ -82,12 +82,31 @@
                   <Insets top="5.0" />
                </padding>
             </Label>
-            <Button fx:id="devicesPageButton" graphicTextGap="0.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="DEVICES" textFill="WHITE">
+            <Button fx:id="breadcrumb" graphicTextGap="0.0" mnemonicParsing="false" onAction="#breadcrumb_trace" onMouseEntered="#highlight_breadcrumb" onMouseExited="#unhighlight_breadcrumb" style="-fx-background-color: transparent;" text="SETTINGS" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
                <padding>
-                  <Insets left="2.0" top="6.0" />
+                  <Insets left="2.0" right="2.0" top="6.0" />
+               </padding>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label maxHeight="-Infinity" prefHeight="26.0" text="/" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <padding>
+                  <Insets top="5.0" />
+               </padding>
+            </Label>
+            <Button fx:id="log_settingsPageButton" graphicTextGap="0.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="LOGGING SETTINGS" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <padding>
+                  <Insets left="2.0" right="2.0" top="6.0" />
                </padding>
                <cursor>
                   <Cursor fx:constant="HAND" />
