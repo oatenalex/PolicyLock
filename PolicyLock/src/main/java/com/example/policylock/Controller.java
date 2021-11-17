@@ -83,7 +83,7 @@ public class Controller {
         stage.close();
         pauseInactivityTimer();
         Stage primaryStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("home.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("homeResize.fxml"));
         primaryStage.setTitle("PolicyLock");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
@@ -95,7 +95,7 @@ public class Controller {
         stage.close();
         pauseInactivityTimer();
         Stage primaryStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("devices.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("devicesResize.fxml"));
         primaryStage.setTitle("PolicyLock");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
@@ -210,7 +210,7 @@ public class Controller {
         stage.close();
         pauseInactivityTimer();
         Stage primaryStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("confirm_logout.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("confirm_logoutResize.fxml"));
         primaryStage.setTitle("PolicyLock");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
@@ -222,7 +222,7 @@ public class Controller {
         stage.close();
         pauseInactivityTimer();
         Stage primaryStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("loginResize.fxml"));
         primaryStage.setTitle("PolicyLock");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();

@@ -46,7 +46,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="544.0" prefWidth="864.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.policylock.Login">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.policylock.Login">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="2000.0" />
   </columnConstraints>
@@ -69,6 +69,9 @@
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
+         <GridPane.margin>
+            <Insets bottom="50.0" />
+         </GridPane.margin>
       </TextField>
       <PasswordField fx:id="password" maxWidth="-Infinity" onAction="#onEnter" prefHeight="40.0" promptText="Password" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
          <font>
@@ -78,7 +81,7 @@
             <Cursor fx:constant="TEXT" />
          </cursor>
          <GridPane.margin>
-            <Insets top="120.0" />
+            <Insets top="80.0" />
          </GridPane.margin>
       </PasswordField>
       <Button fx:id="loginButton" mnemonicParsing="false" onAction="#login" prefHeight="40.0" prefWidth="144.0" text="Login" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
@@ -89,7 +92,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
          <GridPane.margin>
-            <Insets top="240.0" />
+            <Insets top="210.0" />
          </GridPane.margin>
       </Button>
       <Label prefHeight="79.0" prefWidth="327.0" text="PolicyLock" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
@@ -105,7 +108,7 @@
             <Font name="System Bold Italic" size="16.0" />
          </font>
          <GridPane.margin>
-            <Insets bottom="150.0" />
+            <Insets bottom="160.0" />
          </GridPane.margin>
       </Label>
       <Label fx:id="triesLabel" alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="25.0" prefWidth="256.0" textFill="#d50000" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
@@ -113,7 +116,7 @@
             <Font name="System Bold Italic" size="12.0" />
          </font>
          <GridPane.margin>
-            <Insets bottom="100.0" />
+            <Insets bottom="110.0" />
          </GridPane.margin>
       </Label>
    </children>

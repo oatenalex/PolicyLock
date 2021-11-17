@@ -31,8 +31,8 @@ public class Login {
     private int tries = 3;
 
     //Username & Password Settings
-    private static final String usernameValue = "Username";
-    private static final String passwordValue = "Password";
+    private static final String usernameValue = "u";
+    private static final String passwordValue = "p";
 
     public void login() throws IOException {
         if (username.getText().equals(usernameValue) && password.getText().equals(passwordValue) && (tries > 0)) {
@@ -40,7 +40,7 @@ public class Login {
             Stage stage = (Stage) loginButton.getScene().getWindow();
             stage.close();
             Stage primaryStage = new Stage();
-            Parent root = FXMLLoader.load(getClass().getResource("home.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("homeResize.fxml"));
             primaryStage.setTitle("PolicyLock");
             primaryStage.setScene(new Scene(root));
             primaryStage.show();
