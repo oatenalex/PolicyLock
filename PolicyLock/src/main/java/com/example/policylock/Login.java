@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -26,6 +27,8 @@ public class Login {
     private Label incorrect;
     @FXML
     private Label triesLabel;
+    @FXML
+    private ImageView background;
 
 
     private int tries = 3;
@@ -39,6 +42,10 @@ public class Login {
             Controller.timeOutCompleted = false; //Resets the timeout variable
             Stage stage = (Stage) loginButton.getScene().getWindow();
             stage.close();
+            stage.setWidth(900);
+            stage.setHeight(580);
+            background.fitHeightProperty().bind(stage.heightProperty());
+            background.fitWidthProperty().bind(stage.widthProperty());
             Stage primaryStage = new Stage();
             Parent root = FXMLLoader.load(getClass().getResource("homeResize.fxml"));
             primaryStage.setTitle("PolicyLock");
