@@ -39,17 +39,16 @@ public class Login {
 
     public void login() throws IOException {
         if (username.getText().equals(usernameValue) && password.getText().equals(passwordValue) && (tries > 0)) {
+            double width, height;
             Controller.timeOutCompleted = false; //Resets the timeout variable
             Stage stage = (Stage) loginButton.getScene().getWindow();
+            width = stage.getWidth();
+            height = stage.getHeight();
             stage.close();
-            stage.setWidth(900);
-            stage.setHeight(580);
-            background.fitHeightProperty().bind(stage.heightProperty());
-            background.fitWidthProperty().bind(stage.widthProperty());
             Stage primaryStage = new Stage();
             Parent root = FXMLLoader.load(getClass().getResource("homeResize.fxml"));
             primaryStage.setTitle("PolicyLock");
-            primaryStage.setScene(new Scene(root));
+            primaryStage.setScene(new Scene(root, width, height));
             primaryStage.show();
             root.requestFocus();
         }

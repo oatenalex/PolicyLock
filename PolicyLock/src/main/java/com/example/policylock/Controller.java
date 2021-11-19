@@ -80,67 +80,85 @@ public class Controller {
     public void unhighlight_logsettings() { log_settingsPageButton.setStyle("-fx-text-fill: WHITE; -fx-background-color: transparent;"); }
 
     public void home() throws IOException {
+        double width, height;
         Stage stage = (Stage) homePageButton.getScene().getWindow();
+        width = stage.getWidth();
+        height = stage.getHeight();
         stage.close();
         pauseInactivityTimer();
         Stage primaryStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("homeResize.fxml"));
         primaryStage.setTitle("PolicyLock");
-        primaryStage.setScene(new Scene(root));
+        primaryStage.setScene(new Scene(root, width, height));
         primaryStage.show();
         root.requestFocus();
     }
 
     public void devices() throws IOException {
+        double width, height;
         Stage stage = (Stage) devicesPageButton.getScene().getWindow();
+        width = stage.getWidth();
+        height = stage.getHeight();
         stage.close();
         pauseInactivityTimer();
         Stage primaryStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("devicesResize.fxml"));
         primaryStage.setTitle("PolicyLock");
-        primaryStage.setScene(new Scene(root));
+        primaryStage.setScene(new Scene(root, width, height));
         primaryStage.show();
         root.requestFocus();
     }
 
     public void settings() throws IOException {
+        double width, height;
         Stage stage = (Stage) settingsPageButton.getScene().getWindow();
+        width = stage.getWidth();
+        height = stage.getHeight();
         stage.close();
         pauseInactivityTimer();
         Stage primaryStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("settingsResize.fxml"));
         primaryStage.setTitle("PolicyLock");
-        primaryStage.setScene(new Scene(root));
+        primaryStage.setScene(new Scene(root, width, height));
         primaryStage.show();
         root.requestFocus();
     }
 
     public void permission_settings() throws IOException {
+        double width, height;
         Stage stage = (Stage) permission_settingsPageButton.getScene().getWindow();
+        width = stage.getWidth();
+        height = stage.getHeight();
         stage.close();
         pauseInactivityTimer();
         Stage primaryStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("permission_settingsResize.fxml"));
         primaryStage.setTitle("PolicyLock");
-        primaryStage.setScene(new Scene(root));
+        primaryStage.setScene(new Scene(root, width, height));
         primaryStage.show();
         root.requestFocus();
     }
 
     public void log_settings() throws IOException {
+        double width, height;
         Stage stage = (Stage) log_settingsPageButton.getScene().getWindow();
+        width = stage.getWidth();
+        height = stage.getHeight();
         stage.close();
         pauseInactivityTimer();
         Stage primaryStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("log_settingsResize.fxml"));
         primaryStage.setTitle("PolicyLock");
-        primaryStage.setScene(new Scene(root));
+        primaryStage.setScene(new Scene(root, width, height));
         primaryStage.show();
         root.requestFocus();
     }
 
     public void log_log_settings() throws IOException {
+        double width, height;
         Stage stage = (Stage) log_settingsPageButton.getScene().getWindow();
+        width = stage.getWidth();
+        height = stage.getHeight();
         stage.close();
         pauseInactivityTimer();
         Stage primaryStage = new Stage();
@@ -149,13 +167,16 @@ public class Controller {
         Controller c = loader.getController();
         c.breadcrumb.setText("LOG");
         primaryStage.setTitle("PolicyLock");
-        primaryStage.setScene(new Scene(root));
+        primaryStage.setScene(new Scene(root, width, height));
         primaryStage.show();
         root.requestFocus();
     }
 
     public void breadcrumb_trace() throws IOException {
+        double width, height;
         Stage stage = (Stage) breadcrumb.getScene().getWindow();
+        width = stage.getWidth();
+        height = stage.getHeight();
         stage.close();
         pauseInactivityTimer();
         Stage primaryStage = new Stage();
@@ -165,67 +186,82 @@ public class Controller {
         else
             root = FXMLLoader.load(getClass().getResource("logResize.fxml"));
         primaryStage.setTitle("PolicyLock");
-        primaryStage.setScene(new Scene(root));
+        primaryStage.setScene(new Scene(root, width, height));
         primaryStage.show();
         root.requestFocus();
     }
 
     public void notification_settings() throws IOException {
+        double width, height;
         Stage stage = (Stage) notification_settingsPageButton.getScene().getWindow();
+        width = stage.getWidth();
+        height = stage.getHeight();
         stage.close();
         pauseInactivityTimer();
         Stage primaryStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("notification_settingsResize.fxml"));
         primaryStage.setTitle("PolicyLock");
-        primaryStage.setScene(new Scene(root));
+        primaryStage.setScene(new Scene(root, width, height));
         primaryStage.show();
         root.requestFocus();
     }
 
     public void account_settings() throws IOException {
+        double width, height;
         Stage stage = (Stage) account_settingsPageButton.getScene().getWindow();
+        width = stage.getWidth();
+        height = stage.getHeight();
         stage.close();
         pauseInactivityTimer();
         Stage primaryStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("account_settingsResize.fxml"));
         primaryStage.setTitle("PolicyLock");
-        primaryStage.setScene(new Scene(root));
+        primaryStage.setScene(new Scene(root, width, height));
         primaryStage.show();
         root.requestFocus();
     }
 
     public void log() throws IOException {
+        double width, height;
         Stage stage = (Stage) logPageButton.getScene().getWindow();
+        width = stage.getWidth();
+        height = stage.getHeight();
         stage.close();
         pauseInactivityTimer();
         Stage primaryStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("logResize.fxml"));
         primaryStage.setTitle("PolicyLock");
-        primaryStage.setScene(new Scene(root));
+        primaryStage.setScene(new Scene(root, width, height));
         primaryStage.show();
         root.requestFocus();
     }
 
     public void confirm_logout() throws IOException {
+        double width, height;
         Stage stage = (Stage) confirm_logoutButton.getScene().getWindow();
+        width = stage.getWidth();
+        height = stage.getHeight();
         stage.close();
         pauseInactivityTimer();
         Stage primaryStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("confirm_logoutResize.fxml"));
         primaryStage.setTitle("PolicyLock");
-        primaryStage.setScene(new Scene(root));
+        primaryStage.setScene(new Scene(root, width, height));
         primaryStage.show();
         root.requestFocus();
     }
 
     public void logout() throws IOException {
+        double width, height;
         Stage stage = (Stage) logoutButton.getScene().getWindow();
+        width = stage.getWidth();
+        height = stage.getHeight();
         stage.close();
         pauseInactivityTimer();
         Stage primaryStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("loginResize.fxml"));
         primaryStage.setTitle("PolicyLock");
-        primaryStage.setScene(new Scene(root));
+        primaryStage.setScene(new Scene(root, width, height));
         primaryStage.show();
     }
 
@@ -245,13 +281,16 @@ public class Controller {
     }
 
     private void appTimeOut() throws IOException {
+        double width, height;
         Stage stage = (Stage) gridPane.getScene().getWindow();
         stage.close();
         if (!timeOutCompleted) {
             Stage primaryStage = new Stage();
+            width = stage.getWidth();
+            height = stage.getHeight();
             Parent root = FXMLLoader.load(getClass().getResource("inactiveResize.fxml"));
             primaryStage.setTitle("PolicyLock");
-            primaryStage.setScene(new Scene(root));
+            primaryStage.setScene(new Scene(root, width, height));
             primaryStage.show();
             timeOutCompleted = true;
         }
