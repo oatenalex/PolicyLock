@@ -13,6 +13,8 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import javafx.scene.layout.GridPane;
+
 
 public class Login {
     //Log in & Log out Buttons/Text Fields
@@ -42,17 +44,10 @@ public class Login {
             double width, height;
             Controller.timeOutCompleted = false; //Resets the timeout variable
             Stage stage = (Stage) loginButton.getScene().getWindow();
-            width = stage.getScene().getWidth();
-            height = stage.getScene().getHeight();
-            stage.close();
-            Stage primaryStage = new Stage();
-            Parent root = FXMLLoader.load(getClass().getResource("homeResize.fxml"));
-            primaryStage.setTitle("PolicyLock");
-            primaryStage.setScene(new Scene(root, width, height));
-            primaryStage.show();
-            root.requestFocus();
-            background.fitHeightProperty().bind(primaryStage.heightProperty());
-            background.fitWidthProperty().bind(primaryStage.widthProperty());
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("homeResize.fxml"));
+            GridPane mainLayout = loader.load();
+            stage.getScene().setRoot(mainLayout);
         }
 
         else {

@@ -67,7 +67,7 @@
             <Insets right="20.0" />
          </GridPane.margin>
       </Label>
-      <VBox alignment="TOP_CENTER" maxHeight="900.0" maxWidth="580.0" prefWidth="300.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+      <VBox alignment="TOP_CENTER" maxHeight="600.0" maxWidth="560.0" prefWidth="300.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
          <children>
             <Label alignment="TOP_CENTER" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: black;" text="Menu" textFill="WHITE" VBox.vgrow="NEVER">
                <font>
