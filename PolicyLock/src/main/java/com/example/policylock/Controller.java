@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.util.Duration;
@@ -47,12 +48,17 @@ public class Controller {
     private Button account_settingsPageButton;
     @FXML
     private Button logPageButton;
+    @FXML
+    private Button applicationsPageButton;
 
     //Background anchorpane on which each UI element is placed. Use for inactivity timer
     @FXML
     private GridPane gridPane;
     @FXML
     private ImageView background;
+
+    @FXML
+    private AnchorPane applicationsAnchorPane;
 
     //Timer variables used for handling inactivity
     private int inactivityTimeAllowance = 120;
