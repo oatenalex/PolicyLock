@@ -1,0 +1,50 @@
+
+Lcom.example.policylock.Application#getLastModifiedString()Ljava/lang/String;w
+m/Users/alexoaten/Documents/GitHub/PolicyLock/PolicyLock/src/main/java/com/example/policylock/Application.java ('"1*Û
+1w
+m/Users/alexoaten/Documents/GitHub/PolicyLock/PolicyLock/src/main/java/com/example/policylock/Application.java4 (Bº·
+w
+m/Users/alexoaten/Documents/GitHub/PolicyLock/PolicyLock/src/main/java/com/example/policylock/Application.java# (3 
+%0java.text.SimpleDateFormat"java.text.SimpleDateFormatð
+í
+w
+m/Users/alexoaten/Documents/GitHub/PolicyLock/PolicyLock/src/main/java/com/example/policylock/Application.java (C
+%1"6java.text.SimpleDateFormat#<init>(Ljava/lang/String;)V*"
+ 
+%0java.text.SimpleDateFormat*
+MMM dd, yyyyÉ
+Æ
+w
+m/Users/alexoaten/Documents/GitHub/PolicyLock/PolicyLock/src/main/java/com/example/policylock/Application.java (D!
+fmtjava.text.SimpleDateFormat"__id*"
+ 
+%0java.text.SimpleDateFormatã
+à
+w
+m/Users/alexoaten/Documents/GitHub/PolicyLock/PolicyLock/src/main/java/com/example/policylock/Application.java& (6!
+%2java.util.GregorianCalendar"__id*<*:$
+"com.example.policylock.Application"
+dateLastModifiedðí
+w
+m/Users/alexoaten/Documents/GitHub/PolicyLock/PolicyLock/src/main/java/com/example/policylock/Application.java& (@
+%3java.util.Date",java.util.Calendar#getTime()Ljava/util/Date;*#
+!
+%2java.util.GregorianCalendar2	getTime()¬©
+w
+m/Users/alexoaten/Documents/GitHub/PolicyLock/PolicyLock/src/main/java/com/example/policylock/Application.java (A
+%4java.lang.String"?java.text.DateFormat#format(Ljava/util/Date;)Ljava/lang/String;*#
+!
+fmtjava.text.SimpleDateFormat*
+
+%3java.util.Date2format(Ljava/util/Date;)»
+¸
+w
+m/Users/alexoaten/Documents/GitHub/PolicyLock/PolicyLock/src/main/java/com/example/policylock/Application.java (B
+	formattedjava.lang.String"__id*
+
+%4java.lang.String"š
+w
+m/Users/alexoaten/Documents/GitHub/PolicyLock/PolicyLock/src/main/java/com/example/policylock/Application.java (
+
+	formattedjava.lang.StringB&$
+"com.example.policylock.Application
