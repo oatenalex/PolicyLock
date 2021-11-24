@@ -42,8 +42,8 @@ public class Login {
             double width, height;
             Controller.timeOutCompleted = false; //Resets the timeout variable
             Stage stage = (Stage) loginButton.getScene().getWindow();
-            width = stage.getWidth();
-            height = stage.getHeight();
+            width = stage.getScene().getWidth();
+            height = stage.getScene().getHeight();
             stage.close();
             Stage primaryStage = new Stage();
             Parent root = FXMLLoader.load(getClass().getResource("homeResize.fxml"));
@@ -51,6 +51,8 @@ public class Login {
             primaryStage.setScene(new Scene(root, width, height));
             primaryStage.show();
             root.requestFocus();
+            background.fitHeightProperty().bind(primaryStage.heightProperty());
+            background.fitWidthProperty().bind(primaryStage.widthProperty());
         }
 
         else {

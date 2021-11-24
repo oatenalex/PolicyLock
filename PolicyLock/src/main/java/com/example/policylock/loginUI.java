@@ -18,8 +18,6 @@ public class loginUI extends Application {
         stage.show();
     }
 
-    public int dumbTest(){return 3;}
-
     public static void main(String[] args) {
         launch();
     }

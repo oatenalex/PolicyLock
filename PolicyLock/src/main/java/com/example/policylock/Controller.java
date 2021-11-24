@@ -8,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -46,23 +47,15 @@ public class Controller {
     //Background anchorpane on which each UI element is placed. Use for inactivity timer
     @FXML
     private GridPane gridPane;
+    @FXML
+    private ImageView background;
 
     //Timer variables used for handling inactivity
-    private int inactivityTimeAllowance = 5;
+    private int inactivityTimeAllowance = 120;
     private PauseTransition inactivityTimeCounter = new PauseTransition();
     public static boolean timeOutCompleted = false; //Variable used to check if timeout has already been completed to fix multiple log in screen issue from multiple anchor panes being activated
-    /*
-    public void highlight(ActionEvent event) {
-        Button btn = (Button) event.getSource();
-        btn.setStyle("-fx-text-fill: #33D7FF; -fx-background-color: transparent;");
-    }
 
-    public void unhighlight(ActionEvent event) {
-        Button btn = (Button) event.getSource();
-        btn.setStyle("-fx-text-fill: WHITE; -fx-background-color: transparent;");
-    }
 
-    idk how to encompass all the highlights and unhighlits into 1 method */
     public void highlight_home() { homePageButton.setStyle("-fx-text-fill: #33D7FF; -fx-background-color: transparent;"); }
 
     public void unhighlight_home() { homePageButton.setStyle("-fx-text-fill: WHITE; -fx-background-color: transparent;"); }
@@ -82,8 +75,8 @@ public class Controller {
     public void home() throws IOException {
         double width, height;
         Stage stage = (Stage) homePageButton.getScene().getWindow();
-        width = stage.getWidth();
-        height = stage.getHeight();
+        width = stage.getScene().getWidth();
+        height = stage.getScene().getHeight();
         stage.close();
         pauseInactivityTimer();
         Stage primaryStage = new Stage();
@@ -92,13 +85,15 @@ public class Controller {
         primaryStage.setScene(new Scene(root, width, height));
         primaryStage.show();
         root.requestFocus();
+        background.fitHeightProperty().bind(primaryStage.heightProperty());
+        background.fitWidthProperty().bind(primaryStage.widthProperty());
     }
 
     public void devices() throws IOException {
         double width, height;
         Stage stage = (Stage) devicesPageButton.getScene().getWindow();
-        width = stage.getWidth();
-        height = stage.getHeight();
+        width = stage.getScene().getWidth();
+        height = stage.getScene().getHeight();
         stage.close();
         pauseInactivityTimer();
         Stage primaryStage = new Stage();
@@ -107,13 +102,15 @@ public class Controller {
         primaryStage.setScene(new Scene(root, width, height));
         primaryStage.show();
         root.requestFocus();
+        background.fitHeightProperty().bind(primaryStage.heightProperty());
+        background.fitWidthProperty().bind(primaryStage.widthProperty());
     }
 
     public void settings() throws IOException {
         double width, height;
         Stage stage = (Stage) settingsPageButton.getScene().getWindow();
-        width = stage.getWidth();
-        height = stage.getHeight();
+        width = stage.getScene().getWidth();
+        height = stage.getScene().getHeight();
         stage.close();
         pauseInactivityTimer();
         Stage primaryStage = new Stage();
@@ -122,13 +119,15 @@ public class Controller {
         primaryStage.setScene(new Scene(root, width, height));
         primaryStage.show();
         root.requestFocus();
+        background.fitHeightProperty().bind(primaryStage.heightProperty());
+        background.fitWidthProperty().bind(primaryStage.widthProperty());
     }
 
     public void permission_settings() throws IOException {
         double width, height;
         Stage stage = (Stage) permission_settingsPageButton.getScene().getWindow();
-        width = stage.getWidth();
-        height = stage.getHeight();
+        width = stage.getScene().getWidth();
+        height = stage.getScene().getHeight();
         stage.close();
         pauseInactivityTimer();
         Stage primaryStage = new Stage();
@@ -137,13 +136,15 @@ public class Controller {
         primaryStage.setScene(new Scene(root, width, height));
         primaryStage.show();
         root.requestFocus();
+        background.fitHeightProperty().bind(primaryStage.heightProperty());
+        background.fitWidthProperty().bind(primaryStage.widthProperty());
     }
 
     public void log_settings() throws IOException {
         double width, height;
         Stage stage = (Stage) log_settingsPageButton.getScene().getWindow();
-        width = stage.getWidth();
-        height = stage.getHeight();
+        width = stage.getScene().getWidth();
+        height = stage.getScene().getHeight();
         stage.close();
         pauseInactivityTimer();
         Stage primaryStage = new Stage();
@@ -152,13 +153,15 @@ public class Controller {
         primaryStage.setScene(new Scene(root, width, height));
         primaryStage.show();
         root.requestFocus();
+        background.fitHeightProperty().bind(primaryStage.heightProperty());
+        background.fitWidthProperty().bind(primaryStage.widthProperty());
     }
 
     public void log_log_settings() throws IOException {
         double width, height;
         Stage stage = (Stage) log_settingsPageButton.getScene().getWindow();
-        width = stage.getWidth();
-        height = stage.getHeight();
+        width = stage.getScene().getWidth();
+        height = stage.getScene().getHeight();
         stage.close();
         pauseInactivityTimer();
         Stage primaryStage = new Stage();
@@ -170,13 +173,15 @@ public class Controller {
         primaryStage.setScene(new Scene(root, width, height));
         primaryStage.show();
         root.requestFocus();
+        background.fitHeightProperty().bind(primaryStage.heightProperty());
+        background.fitWidthProperty().bind(primaryStage.widthProperty());
     }
 
     public void breadcrumb_trace() throws IOException {
         double width, height;
         Stage stage = (Stage) breadcrumb.getScene().getWindow();
-        width = stage.getWidth();
-        height = stage.getHeight();
+        width = stage.getScene().getWidth();
+        height = stage.getScene().getHeight();
         stage.close();
         pauseInactivityTimer();
         Stage primaryStage = new Stage();
@@ -189,13 +194,15 @@ public class Controller {
         primaryStage.setScene(new Scene(root, width, height));
         primaryStage.show();
         root.requestFocus();
+        background.fitHeightProperty().bind(primaryStage.heightProperty());
+        background.fitWidthProperty().bind(primaryStage.widthProperty());
     }
 
     public void notification_settings() throws IOException {
         double width, height;
         Stage stage = (Stage) notification_settingsPageButton.getScene().getWindow();
-        width = stage.getWidth();
-        height = stage.getHeight();
+        width = stage.getScene().getWidth();
+        height = stage.getScene().getHeight();
         stage.close();
         pauseInactivityTimer();
         Stage primaryStage = new Stage();
@@ -204,13 +211,15 @@ public class Controller {
         primaryStage.setScene(new Scene(root, width, height));
         primaryStage.show();
         root.requestFocus();
+        background.fitHeightProperty().bind(primaryStage.heightProperty());
+        background.fitWidthProperty().bind(primaryStage.widthProperty());
     }
 
     public void account_settings() throws IOException {
         double width, height;
         Stage stage = (Stage) account_settingsPageButton.getScene().getWindow();
-        width = stage.getWidth();
-        height = stage.getHeight();
+        width = stage.getScene().getWidth();
+        height = stage.getScene().getHeight();
         stage.close();
         pauseInactivityTimer();
         Stage primaryStage = new Stage();
@@ -219,13 +228,15 @@ public class Controller {
         primaryStage.setScene(new Scene(root, width, height));
         primaryStage.show();
         root.requestFocus();
+        background.fitHeightProperty().bind(primaryStage.heightProperty());
+        background.fitWidthProperty().bind(primaryStage.widthProperty());
     }
 
     public void log() throws IOException {
         double width, height;
         Stage stage = (Stage) logPageButton.getScene().getWindow();
-        width = stage.getWidth();
-        height = stage.getHeight();
+        width = stage.getScene().getWidth();
+        height = stage.getScene().getHeight();
         stage.close();
         pauseInactivityTimer();
         Stage primaryStage = new Stage();
@@ -239,8 +250,8 @@ public class Controller {
     public void confirm_logout() throws IOException {
         double width, height;
         Stage stage = (Stage) confirm_logoutButton.getScene().getWindow();
-        width = stage.getWidth();
-        height = stage.getHeight();
+        width = stage.getScene().getWidth();
+        height = stage.getScene().getHeight();
         stage.close();
         pauseInactivityTimer();
         Stage primaryStage = new Stage();
@@ -249,13 +260,15 @@ public class Controller {
         primaryStage.setScene(new Scene(root, width, height));
         primaryStage.show();
         root.requestFocus();
+        background.fitHeightProperty().bind(primaryStage.heightProperty());
+        background.fitWidthProperty().bind(primaryStage.widthProperty());
     }
 
     public void logout() throws IOException {
         double width, height;
         Stage stage = (Stage) logoutButton.getScene().getWindow();
-        width = stage.getWidth();
-        height = stage.getHeight();
+        width = stage.getScene().getWidth();
+        height = stage.getScene().getHeight();
         stage.close();
         pauseInactivityTimer();
         Stage primaryStage = new Stage();
@@ -263,6 +276,8 @@ public class Controller {
         primaryStage.setTitle("PolicyLock");
         primaryStage.setScene(new Scene(root, width, height));
         primaryStage.show();
+        background.fitHeightProperty().bind(primaryStage.heightProperty());
+        background.fitWidthProperty().bind(primaryStage.widthProperty());
     }
 
     public void pauseInactivityTimer(){
@@ -286,12 +301,14 @@ public class Controller {
         stage.close();
         if (!timeOutCompleted) {
             Stage primaryStage = new Stage();
-            width = stage.getWidth();
-            height = stage.getHeight();
+            width = stage.getScene().getWidth();
+            height = stage.getScene().getHeight();
             Parent root = FXMLLoader.load(getClass().getResource("inactiveResize.fxml"));
             primaryStage.setTitle("PolicyLock");
             primaryStage.setScene(new Scene(root, width, height));
             primaryStage.show();
+            background.fitHeightProperty().bind(primaryStage.heightProperty());
+            background.fitWidthProperty().bind(primaryStage.widthProperty());
             timeOutCompleted = true;
         }
     }

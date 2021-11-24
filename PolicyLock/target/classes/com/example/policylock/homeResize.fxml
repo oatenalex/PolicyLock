@@ -54,7 +54,7 @@
       <RowConstraints minHeight="10.0" prefHeight="1000.0" valignment="CENTER" vgrow="NEVER" />
   </rowConstraints>
    <children>
-      <ImageView fitHeight="990.0" fitWidth="1500.0" pickOnBounds="true" GridPane.halignment="LEFT" GridPane.valignment="TOP">
+      <ImageView fx:id="background" pickOnBounds="true" GridPane.halignment="LEFT" GridPane.valignment="TOP">
          <image>
             <Image url="@../../../img/new_policylock_background.jpg" />
          </image>
@@ -144,6 +144,6 @@
             </Button>
          </children>
       </HBox>
-      <HBox maxHeight="34.0" prefHeight="35.0" prefWidth="900.0" style="-fx-background-color: black; -fx-opacity: 0.6;" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.valignment="TOP" GridPane.vgrow="NEVER" />
+      <HBox maxHeight="34.0" prefHeight="35.0" prefWidth="900.0" style="-fx-background-color: black; -fx-opacity: 0.6;" GridPane.columnIndex="1" GridPane.valignment="TOP" />
    </children>
 </GridPane>
