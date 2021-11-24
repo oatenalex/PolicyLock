@@ -59,7 +59,7 @@
             <Image url="@../../../img/new_policylock_background.jpg" />
          </image>
       </ImageView>
-      <Label prefHeight="73.0" prefWidth="307.0" text="PolicyLock" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+      <Label prefHeight="73.0" prefWidth="307.0" text="PolicyLock" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <font>
             <Font size="60.0" />
          </font>
@@ -67,9 +67,9 @@
             <Insets right="20.0" />
          </GridPane.margin>
       </Label>
-      <VBox alignment="TOP_CENTER" maxHeight="346.0" maxWidth="400.0" prefWidth="300.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER">
+      <VBox alignment="TOP_CENTER" maxHeight="900.0" maxWidth="580.0" prefWidth="300.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <children>
-            <Label alignment="TOP_CENTER" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: black;" text="Menu" textFill="WHITE">
+            <Label alignment="TOP_CENTER" contentDisplay="TOP" maxHeight="900.0" maxWidth="580.0" style="-fx-background-color: black;" text="Menu" textFill="WHITE" VBox.vgrow="NEVER">
                <font>
                   <Font name="System Bold" size="23.0" />
                </font>
@@ -80,7 +80,7 @@
                   <Insets bottom="5.0" top="5.0" />
                </padding>
             </Label>
-            <Button fx:id="devicesPageButton" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#devices" prefHeight="75.0" text="Devices">
+            <Button fx:id="devicesPageButton" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#devices" prefHeight="75.0" text="Devices" VBox.vgrow="ALWAYS">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -91,7 +91,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="logPageButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#log" prefHeight="75.0" prefWidth="400.0" text="Log">
+            <Button fx:id="logPageButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#log" prefHeight="75.0" prefWidth="400.0" text="Log" VBox.vgrow="ALWAYS">
                <VBox.margin>
                   <Insets top="2.0" />
                </VBox.margin>
@@ -102,7 +102,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="settingsPageButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#settings" prefHeight="75.0" prefWidth="400.0" text="Settings">
+            <Button fx:id="settingsPageButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#settings" prefHeight="75.0" prefWidth="400.0" text="Settings" VBox.vgrow="ALWAYS">
                <VBox.margin>
                   <Insets top="2.0" />
                </VBox.margin>
@@ -113,7 +113,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="confirm_logoutButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#confirm_logout" prefHeight="75.0" prefWidth="400.0" text="Log Out">
+            <Button fx:id="confirm_logoutButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#confirm_logout" prefHeight="75.0" prefWidth="400.0" text="Log Out" VBox.vgrow="ALWAYS">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -126,7 +126,7 @@
             </Button>
          </children>
          <GridPane.margin>
-            <Insets />
+            <Insets bottom="92.0" left="30.0" right="30.0" top="100.0" />
          </GridPane.margin>
       </VBox>
       <HBox maxHeight="34.0" prefHeight="35.0" prefWidth="900.0" style="-fx-background-color: black; -fx-opacity: 0.6;" GridPane.hgrow="NEVER" GridPane.valignment="TOP" GridPane.vgrow="NEVER">
