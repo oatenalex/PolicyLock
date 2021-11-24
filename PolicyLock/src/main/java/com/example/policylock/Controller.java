@@ -35,6 +35,10 @@ public class Controller {
     @FXML
     private Button devicesPageButton;
     @FXML
+    private Button applicationsPageButton;
+    @FXML
+    private Button local_devicePageButton;
+    @FXML
     private Button settingsPageButton;
     @FXML
     private Button permission_settingsPageButton;
@@ -48,8 +52,6 @@ public class Controller {
     private Button account_settingsPageButton;
     @FXML
     private Button logPageButton;
-    @FXML
-    private Button applicationsPageButton;
 
     //Background anchorpane on which each UI element is placed. Use for inactivity timer
     @FXML
@@ -68,19 +70,23 @@ public class Controller {
 
     public void highlight_home() { homePageButton.setStyle("-fx-text-fill: #33D7FF; -fx-background-color: transparent;"); }
 
-    public void unhighlight_home() { homePageButton.setStyle("-fx-text-fill: WHITE; -fx-background-color: transparent;"); }
+    public void unhighlight_home() { homePageButton.setStyle("-fx-text-fill: #909090; -fx-background-color: transparent;"); }
 
     public void highlight_settings() { settingsPageButton.setStyle("-fx-text-fill: #33D7FF; -fx-background-color: transparent;"); }
 
-    public void unhighlight_settings() { settingsPageButton.setStyle("-fx-text-fill: WHITE; -fx-background-color: transparent;"); }
+    public void unhighlight_settings() { settingsPageButton.setStyle("-fx-text-fill: #909090; -fx-background-color: transparent;"); }
 
     public void highlight_breadcrumb() { breadcrumb.setStyle("-fx-text-fill: #33D7FF; -fx-background-color: transparent;"); }
 
-    public void unhighlight_breadcrumb() { breadcrumb.setStyle("-fx-text-fill: WHITE; -fx-background-color: transparent;"); }
+    public void unhighlight_breadcrumb() { breadcrumb.setStyle("-fx-text-fill: #909090; -fx-background-color: transparent;"); }
 
     public void highlight_logsettings() { log_settingsPageButton.setStyle("-fx-text-fill: #33D7FF; -fx-background-color: transparent;"); }
 
-    public void unhighlight_logsettings() { log_settingsPageButton.setStyle("-fx-text-fill: WHITE; -fx-background-color: transparent;"); }
+    public void unhighlight_logsettings() { log_settingsPageButton.setStyle("-fx-text-fill: #909090; -fx-background-color: transparent;"); }
+
+    public void highlight_devices() { devicesPageButton.setStyle("-fx-text-fill: #33D7FF; -fx-background-color: transparent;"); }
+
+    public void unhighlight_devices() { devicesPageButton.setStyle("-fx-text-fill: #909090; -fx-background-color: transparent;"); }
 
     public void home() throws IOException {
         double width, height;
@@ -324,7 +330,10 @@ public class Controller {
     }
 
     public void goToApplicationsPage() throws IOException {
+        double width, height;
         Stage stage = (Stage) applicationsPageButton.getScene().getWindow();
+        width = stage.getScene().getWidth();
+        height = stage.getScene().getHeight();
         stage.close();
         pauseInactivityTimer();
         Stage primaryStage = new Stage();
@@ -343,7 +352,7 @@ public class Controller {
         applicationsAnchorPane.getChildren().add(appVBox);
 
         primaryStage.setTitle("PolicyLock");
-        primaryStage.setScene(new Scene(root));
+        primaryStage.setScene(new Scene(root, width, height));
         primaryStage.show();
         root.requestFocus();
     }

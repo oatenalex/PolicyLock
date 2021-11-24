@@ -64,7 +64,7 @@
       </ImageView>
       <HBox maxHeight="34.0" prefHeight="34.0" prefWidth="900.0" style="-fx-background-color: black; -fx-opacity: 0.6;" GridPane.halignment="LEFT" GridPane.hgrow="NEVER" GridPane.valignment="TOP" GridPane.vgrow="NEVER">
          <children>
-            <Button fx:id="homePageButton" graphicTextGap="0.0" mnemonicParsing="false" onAction="#home" onMouseEntered="#highlight_home" onMouseExited="#unhighlight_home" style="-fx-background-color: transparent;" text="HOME" textFill="WHITE">
+            <Button fx:id="homePageButton" graphicTextGap="0.0" mnemonicParsing="false" onAction="#home" onMouseEntered="#highlight_home" onMouseExited="#unhighlight_home" style="-fx-background-color: transparent;" text="HOME" textFill="#909090">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
@@ -75,7 +75,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Label maxHeight="-Infinity" prefHeight="26.0" text="/" textFill="WHITE">
+            <Label maxHeight="-Infinity" prefHeight="26.0" text="/" textFill="#909090">
                <font>
                   <Font size="16.0" />
                </font>
