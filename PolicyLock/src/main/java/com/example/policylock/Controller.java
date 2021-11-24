@@ -319,7 +319,7 @@ public class Controller {
             Stage primaryStage = new Stage();
             width = stage.getScene().getWidth();
             height = stage.getScene().getHeight();
-            Parent root = FXMLLoader.load(getClass().getResource("inactiveResize.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("loginResize.fxml"));
             primaryStage.setTitle("PolicyLock");
             primaryStage.setScene(new Scene(root, width, height));
             primaryStage.show();
