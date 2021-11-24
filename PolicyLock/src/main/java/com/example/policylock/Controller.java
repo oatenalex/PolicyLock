@@ -133,44 +133,26 @@ public class Controller {
     }
 
     public void log_log_settings() throws IOException {
-        double width, height;
         Stage stage = (Stage) log_settingsPageButton.getScene().getWindow();
-        width = stage.getScene().getWidth();
-        height = stage.getScene().getHeight();
-        stage.close();
-        pauseInactivityTimer();
-        Stage primaryStage = new Stage();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("log_settingsResize.fxml"));
-        Parent root = loader.load();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("log_settingsResize.fxml"));
+        GridPane mainLayout = loader.load();
         Controller c = loader.getController();
         c.breadcrumb.setText("LOG");
-        primaryStage.setTitle("PolicyLock");
-        primaryStage.setScene(new Scene(root, width, height));
-        primaryStage.show();
-        root.requestFocus();
-        background.fitHeightProperty().bind(primaryStage.heightProperty());
-        background.fitWidthProperty().bind(primaryStage.widthProperty());
+        stage.getScene().setRoot(mainLayout);
+        pauseInactivityTimer();
     }
 
     public void breadcrumb_trace() throws IOException {
-        double width, height;
         Stage stage = (Stage) breadcrumb.getScene().getWindow();
-        width = stage.getScene().getWidth();
-        height = stage.getScene().getHeight();
-        stage.close();
-        pauseInactivityTimer();
-        Stage primaryStage = new Stage();
-        Parent root;
+        FXMLLoader loader = new FXMLLoader();
         if (breadcrumb.getText().equals("SETTINGS"))
-            root = FXMLLoader.load(getClass().getResource("settingsResize.fxml"));
+            loader.setLocation(getClass().getResource("settingsResize.fxml"));
         else
-            root = FXMLLoader.load(getClass().getResource("logResize.fxml"));
-        primaryStage.setTitle("PolicyLock");
-        primaryStage.setScene(new Scene(root, width, height));
-        primaryStage.show();
-        root.requestFocus();
-        background.fitHeightProperty().bind(primaryStage.heightProperty());
-        background.fitWidthProperty().bind(primaryStage.widthProperty());
+            loader.setLocation(getClass().getResource("logResize.fxml"));
+        GridPane mainLayout = loader.load();
+        stage.getScene().setRoot(mainLayout);
+        pauseInactivityTimer();
     }
 
     public void notification_settings() throws IOException {
@@ -201,7 +183,6 @@ public class Controller {
     }
 
     public void confirm_logout() throws IOException {
-        double width, height;
         Stage stage = (Stage) confirm_logoutButton.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("confirm_logoutResize.fxml"));
@@ -246,15 +227,12 @@ public class Controller {
     }
 
     public void goToApplicationsPage() throws IOException {
-        double width, height;
         Stage stage = (Stage) applicationsPageButton.getScene().getWindow();
-        width = stage.getScene().getWidth();
-        height = stage.getScene().getHeight();
-        stage.close();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("deviceApplications.fxml"));
+        GridPane mainLayout = loader.load();
+        stage.getScene().setRoot(mainLayout);
         pauseInactivityTimer();
-        Stage primaryStage = new Stage();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("deviceApplications.fxml"));
-        Parent root = loader.load();
 
         applicationsAnchorPane = (AnchorPane) loader.getNamespace().get("applicationsAnchorPane");
         VBox appVBox = new VBox();
@@ -266,11 +244,6 @@ public class Controller {
         }
 
         applicationsAnchorPane.getChildren().add(appVBox);
-
-        primaryStage.setTitle("PolicyLock");
-        primaryStage.setScene(new Scene(root, width, height));
-        primaryStage.show();
-        root.requestFocus();
     }
 
     private Button createApplicationButton(Application app) {
