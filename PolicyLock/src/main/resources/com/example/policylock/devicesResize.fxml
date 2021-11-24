@@ -107,17 +107,14 @@
          <children>
             <ScrollPane fitToHeight="true" hbarPolicy="NEVER" maxHeight="900.0" maxWidth="1200.0" prefHeight="466.0" prefWidth="820.0" style="-fx-background-color: transparent;" vbarPolicy="ALWAYS" VBox.vgrow="ALWAYS">
                <content>
-                  <AnchorPane maxHeight="900.0" maxWidth="1200.0" minHeight="0.0" minWidth="0.0" prefHeight="448.0" prefWidth="685.0" style="-fx-background-color: transparent;">
+                  <AnchorPane maxWidth="1200.0" prefHeight="900.0" prefWidth="700.0">
                      <children>
-                        <Button id="localDeviceButton" fx:id="applicationsPageButton" contentDisplay="CENTER" maxWidth="1200.0" mnemonicParsing="false" onAction="#goToApplicationsPage" prefHeight="39.0" prefWidth="683.0" text="Local Device" textAlignment="CENTER">
+                        <Button id="localDeviceButton" fx:id="applicationsPageButton" contentDisplay="CENTER" maxWidth="1200.0" mnemonicParsing="false" onAction="#goToApplicationsPage" text="Local Device" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <font>
                               <Font name="System Bold" size="20.0" />
                            </font>
                         </Button>
                      </children>
-                     <padding>
-                        <Insets right="100.0" />
-                     </padding>
                   </AnchorPane>
                </content>
                <VBox.margin>

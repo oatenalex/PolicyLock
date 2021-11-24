@@ -330,7 +330,10 @@ public class Controller {
     }
 
     public void goToApplicationsPage() throws IOException {
+        double width, height;
         Stage stage = (Stage) applicationsPageButton.getScene().getWindow();
+        width = stage.getScene().getWidth();
+        height = stage.getScene().getHeight();
         stage.close();
         pauseInactivityTimer();
         Stage primaryStage = new Stage();
@@ -349,7 +352,7 @@ public class Controller {
         applicationsAnchorPane.getChildren().add(appVBox);
 
         primaryStage.setTitle("PolicyLock");
-        primaryStage.setScene(new Scene(root));
+        primaryStage.setScene(new Scene(root, width, height));
         primaryStage.show();
         root.requestFocus();
     }
