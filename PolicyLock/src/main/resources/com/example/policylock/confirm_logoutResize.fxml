@@ -32,14 +32,20 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<GridPane fx:id="gridPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseEntered="#pauseInactivityTimer" onMouseExited="#inactivityTimer" prefHeight="580.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.policylock.Controller">
+<GridPane fx:id="gridPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseEntered="#pauseInactivityTimer" onMouseExited="#inactivityTimer" prefHeight="580.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.policylock.Controller">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -61,9 +67,9 @@
             <Insets right="20.0" />
          </GridPane.margin>
       </Label>
-      <VBox alignment="TOP_CENTER" maxHeight="346.0" maxWidth="400.0" prefWidth="300.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+      <VBox alignment="TOP_CENTER" maxHeight="900.0" maxWidth="580.0" prefWidth="300.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
          <children>
-            <Label alignment="TOP_CENTER" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: black;" text="Menu" textFill="WHITE">
+            <Label alignment="TOP_CENTER" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: black;" text="Menu" textFill="WHITE" VBox.vgrow="NEVER">
                <font>
                   <Font name="System Bold" size="23.0" />
                </font>
@@ -74,7 +80,7 @@
                   <Insets bottom="5.0" top="5.0" />
                </padding>
             </Label>
-            <Button alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" text="Devices">
+            <Button alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" text="Devices" VBox.vgrow="ALWAYS">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -85,7 +91,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" prefWidth="400.0" text="Log">
+            <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" prefWidth="400.0" text="Log" VBox.vgrow="ALWAYS">
                <VBox.margin>
                   <Insets top="2.0" />
                </VBox.margin>
@@ -96,7 +102,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" prefWidth="400.0" text="Settings">
+            <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" prefWidth="400.0" text="Settings" VBox.vgrow="ALWAYS">
                <VBox.margin>
                   <Insets top="2.0" />
                </VBox.margin>
@@ -107,7 +113,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" prefWidth="400.0" text="Log Out">
+            <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" prefWidth="400.0" text="Log Out" VBox.vgrow="ALWAYS">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -119,6 +125,9 @@
                </cursor>
             </Button>
          </children>
+         <GridPane.margin>
+            <Insets bottom="92.0" left="30.0" right="30.0" top="100.0" />
+         </GridPane.margin>
       </VBox>
       <HBox maxHeight="34.0" prefHeight="35.0" prefWidth="900.0" style="-fx-background-color: black; -fx-opacity: 0.6;" GridPane.hgrow="NEVER" GridPane.valignment="TOP" GridPane.vgrow="NEVER">
          <children>
@@ -136,54 +145,54 @@
          </children>
       </HBox>
       <HBox maxHeight="34.0" prefHeight="35.0" prefWidth="900.0" style="-fx-background-color: black; -fx-opacity: 0.6;" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.valignment="TOP" GridPane.vgrow="NEVER" />
-      <VBox alignment="TOP_CENTER" maxHeight="160.0" maxWidth="225.0" prefHeight="192.0" prefWidth="425.0" style="-fx-background-color: black;" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+      <VBox alignment="TOP_CENTER" maxHeight="200.0" maxWidth="300.0" prefHeight="192.0" prefWidth="425.0" style="-fx-background-color: black;" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <children>
-            <Label alignment="TOP_CENTER" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="88.0" prefWidth="425.0" text="Are you sure you" textFill="WHITE">
+            <Label alignment="TOP_RIGHT" contentDisplay="TOP" maxHeight="70.0" maxWidth="556.0" text="Are you sure you" textAlignment="RIGHT" textFill="WHITE" VBox.vgrow="ALWAYS">
                <font>
-                  <Font name="System Bold" size="23.0" />
+                  <Font name="System Bold" size="28.0" />
                </font>
                <VBox.margin>
-                  <Insets left="40.0" />
+                  <Insets top="35.0" />
                </VBox.margin>
-               <padding>
-                  <Insets bottom="5.0" top="25.0" />
-               </padding>
             </Label>
-            <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#logout" prefHeight="26.0" prefWidth="100.0" text="Yes">
+            <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#logout" prefHeight="26.0" prefWidth="100.0" text="Yes" VBox.vgrow="ALWAYS">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
                <VBox.margin>
-                  <Insets left="50.0" top="10.0" />
+                  <Insets left="50.0" />
                </VBox.margin>
             </Button>
          </children>
+         <GridPane.margin>
+            <Insets bottom="210.0" left="200.0" top="210.0" />
+         </GridPane.margin>
       </VBox>
-      <VBox alignment="TOP_CENTER" maxHeight="160.0" maxWidth="225.0" prefHeight="192.0" prefWidth="225.0" style="-fx-background-color: black;" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+      <VBox alignment="TOP_CENTER" maxHeight="200.0" maxWidth="300.0" prefHeight="192.0" prefWidth="425.0" style="-fx-background-color: black;" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <children>
-            <Label alignment="TOP_CENTER" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="88.0" prefWidth="425.0" text="want to logout?" textFill="WHITE">
+            <Label alignment="TOP_LEFT" contentDisplay="TOP" maxHeight="70.0" maxWidth="556.0" prefHeight="70.0" prefWidth="223.0" text=" want to logout?" textFill="WHITE" VBox.vgrow="ALWAYS">
                <font>
-                  <Font name="System Bold" size="23.0" />
+                  <Font name="System Bold" size="28.0" />
                </font>
                <VBox.margin>
-                  <Insets right="42.0" />
+                  <Insets top="35.0" />
                </VBox.margin>
-               <padding>
-                  <Insets bottom="5.0" top="25.0" />
-               </padding>
             </Label>
-            <Button fx:id="homePageButton" mnemonicParsing="false" onAction="#home" prefHeight="26.0" prefWidth="100.0" text="No">
+            <Button fx:id="homePageButton" mnemonicParsing="false" onAction="#home" prefHeight="26.0" prefWidth="100.0" text="No" VBox.vgrow="ALWAYS">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
                <VBox.margin>
-                  <Insets right="50.0" top="10.0" />
+                  <Insets right="50.0" />
                </VBox.margin>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
          </children>
+         <GridPane.margin>
+            <Insets bottom="210.0" right="200.0" top="210.0" />
+         </GridPane.margin>
       </VBox>
    </children>
 </GridPane>
