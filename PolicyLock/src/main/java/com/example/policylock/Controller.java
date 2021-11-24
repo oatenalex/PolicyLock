@@ -15,7 +15,11 @@ import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.util.Duration;
 
+import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.GregorianCalendar;
 
 public class Controller {
     //Log out Buttons
@@ -311,5 +315,61 @@ public class Controller {
             background.fitWidthProperty().bind(primaryStage.widthProperty());
             timeOutCompleted = true;
         }
+    }
+
+    public void goToApplicationsPage() throws IOException {
+        Stage stage = (Stage) applicationsPageButton.getScene().getWindow();
+        stage.close();
+        pauseInactivityTimer();
+        Stage primaryStage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("deviceApplications.fxml"));
+        Parent root = loader.load();
+
+        applicationsAnchorPane = (AnchorPane) loader.getNamespace().get("applicationsAnchorPane");
+        VBox appVBox = new VBox();
+
+
+        ArrayList<Application> apps = getLocalApplicationList();
+        for (Application app : apps) {
+            appVBox.getChildren().add(createApplicationButton(app));
+        }
+
+        applicationsAnchorPane.getChildren().add(appVBox);
+
+        primaryStage.setTitle("PolicyLock");
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
+        root.requestFocus();
+    }
+
+    private Button createApplicationButton(Application app) {
+        Button newApp = new Button();
+        newApp.setText(app.getButtonFormat());
+        return newApp;
+    }
+
+    /**
+     * Gets a list of the applications on a device.
+     * Currently only works for Macs that did not move the default location of applications directory.
+     * @return List of Application objects
+     */
+    private ArrayList<Application> getLocalApplicationList() {
+        ArrayList<Application> apps = new ArrayList<Application>();
+        File f = new File("/Applications");
+        ArrayList<File> files = new ArrayList<File>(Arrays.asList(f.listFiles()));
+        for (File file : files) {
+            if (!file.getName().startsWith(".")) {
+                String name = file.getName().split("\\.")[0];
+
+                GregorianCalendar date = new GregorianCalendar();
+                date.setTimeInMillis(file.lastModified());
+
+                Application newApp = new Application(name);
+                newApp.setDateLastModified(date);
+
+                apps.add(newApp);
+            }
+        }
+        return apps;
     }
 }
