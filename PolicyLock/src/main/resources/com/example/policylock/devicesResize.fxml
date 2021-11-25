@@ -64,7 +64,7 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
-      <ImageView fitHeight="990.0" fitWidth="1500.0" pickOnBounds="true" GridPane.halignment="LEFT" GridPane.valignment="TOP">
+      <ImageView pickOnBounds="true" GridPane.halignment="LEFT" GridPane.valignment="TOP">
          <image>
             <Image url="@../../../img/new_policylock_background.jpg" />
          </image>
