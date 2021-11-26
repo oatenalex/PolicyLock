@@ -66,7 +66,7 @@
         </ImageView>
         <HBox maxHeight="34.0" prefHeight="35.0" prefWidth="900.0" style="-fx-background-color: black; -fx-opacity: 0.6;" GridPane.valignment="TOP" GridPane.vgrow="NEVER">
             <children>
-                <Button fx:id="homePageButton" graphicTextGap="0.0" mnemonicParsing="false" onAction="#home" onMouseEntered="#highlight_home" onMouseExited="#unhighlight_home" style="-fx-background-color: transparent;" text="HOME" textFill="#909090">
+                <Button fx:id="homePageButton" graphicTextGap="0.0" mnemonicParsing="false" onAction="#home" onMouseEntered="#highlightHome" onMouseExited="#unhighlightHome" style="-fx-background-color: transparent;" text="HOME" textFill="#909090">
                     <font>
                         <Font name="System Bold" size="16.0" />
                     </font>
@@ -85,7 +85,7 @@
                         <Insets top="5.0" />
                     </padding>
                 </Label>
-                <Button fx:id="devicesPageButton" graphicTextGap="0.0" mnemonicParsing="false" onAction="#devices" onMouseEntered="#highlight_devices" onMouseExited="#unhighlight_devices" style="-fx-background-color: transparent;" text="DEVICES" textFill="#909090">
+                <Button fx:id="devicesPageButton" graphicTextGap="0.0" mnemonicParsing="false" onAction="#devices" onMouseEntered="#highlightDevices" onMouseExited="#unhighlightDevices" style="-fx-background-color: transparent;" text="DEVICES" textFill="#909090">
                     <font>
                         <Font name="System Bold" size="16.0" />
                     </font>
@@ -104,7 +104,7 @@
                   <Insets left="1.0" top="5.0" />
                </padding>
             </Label>
-            <Button fx:id="local_devicePageButton" graphicTextGap="0.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="LOCAL DEVICE" textFill="WHITE">
+            <Button fx:id="localDevicePageButton" graphicTextGap="0.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="LOCAL DEVICE" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>

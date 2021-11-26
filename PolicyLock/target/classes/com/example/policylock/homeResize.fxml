@@ -113,7 +113,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="confirm_logoutButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#confirm_logout" prefHeight="75.0" prefWidth="400.0" text="Log Out" VBox.vgrow="ALWAYS">
+            <Button fx:id="confirmLogoutButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#confirm_logout" prefHeight="75.0" prefWidth="400.0" text="Log Out" VBox.vgrow="ALWAYS">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
