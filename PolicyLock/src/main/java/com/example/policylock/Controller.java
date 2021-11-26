@@ -25,6 +25,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.GregorianCalendar;
 
+import static com.mongodb.client.model.Filters.eq;
+import org.bson.Document;
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoClients;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
+
 public class Controller {
     //For Login
     @FXML
@@ -315,6 +322,7 @@ public class Controller {
         }
 
         applicationsAnchorPane.getChildren().add(appVBox);
+        updateApplicationsForDatabase();
     }
 
     private Button createApplicationButton(Application app) {
@@ -346,5 +354,15 @@ public class Controller {
             }
         }
         return apps;
+    }
+
+    private void updateApplicationsForDatabase() {
+        String uri = "mongodb+srv://PolicyLock:PolicyLock@policylock.rrwer.mongodb.net/PolicyLock?retryWrites=true&w=majority";
+        try (MongoClient mongoClient = MongoClients.create(uri)) {
+            MongoDatabase database = mongoClient.getDatabase("PolicyLock");
+            MongoCollection<Document> collection = database.getCollection("Devices");
+            Document doc = collection.find(eq("Test1", "Hello World!")).first();
+            System.out.println(doc.toJson());
+        }
     }
 }
