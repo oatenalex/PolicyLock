@@ -1,97 +1,96 @@
-
 Fcom.example.policylock.Application#getButtonFormat()Ljava/lang/String;w
-m/Users/alexoaten/Documents/GitHub/PolicyLock/PolicyLock/src/main/java/com/example/policylock/Application.java (!"5*∑
-3w
-m/Users/alexoaten/Documents/GitHub/PolicyLock/PolicyLock/src/main/java/com/example/policylock/Application.java# #(≥∞
-w
-m/Users/alexoaten/Documents/GitHub/PolicyLock/PolicyLock/src/main/java/com/example/policylock/Application.java# #(!
-%7java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*&
-$
-	formattedjava.lang.StringBuilder*
- 2append(Ljava/lang/String;)*
-4*ù
-4w
-m/Users/alexoaten/Documents/GitHub/PolicyLock/PolicyLock/src/main/java/com/example/policylock/Application.java" "(Ã
-…
-w
+    m/Users/alexoaten/Documents/GitHub/PolicyLock/PolicyLock/src/main/java/com/example/policylock/Application.java (!"5*ÔøΩ
+    3w
+    m/Users/alexoaten/Documents/GitHub/PolicyLock/PolicyLock/src/main/java/com/example/policylock/Application.java#  #(ÔøΩÔøΩ
+    w
+    m/Users/alexoaten/Documents/GitHub/PolicyLock/PolicyLock/src/main/java/com/example/policylock/Application.java#  #(!
+    %7java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*&
+    $
+    formattedjava.lang.StringBuilder*
+     2append(Ljava/lang/String;)*
+    4*ÔøΩ
+    4w
+    m/Users/alexoaten/Documents/GitHub/PolicyLock/PolicyLock/src/main/java/com/example/policylock/Application.java" "(ÔøΩ
+    ÔøΩ
+    w
 m/Users/alexoaten/Documents/GitHub/PolicyLock/PolicyLock/src/main/java/com/example/policylock/Application.java"! "(*
-%5java.lang.String"__id*0*.$
-"com.example.policylock.Application"
-name«ƒ
-w
-m/Users/alexoaten/Documents/GitHub/PolicyLock/PolicyLock/src/main/java/com/example/policylock/Application.java"! "(3	
-%6int"java.lang.String#length()I*
-
-%5java.lang.String2length()*
-3
-1*ô
-5w
-m/Users/alexoaten/Documents/GitHub/PolicyLock/PolicyLock/src/main/java/com/example/policylock/Application.java "  (5¥±
-w
-m/Users/alexoaten/Documents/GitHub/PolicyLock/PolicyLock/src/main/java/com/example/policylock/Application.java &  (3
-%0java.lang.StringBuilder"java.lang.StringBuilder∆
-√
-w
-m/Users/alexoaten/Documents/GitHub/PolicyLock/PolicyLock/src/main/java/com/example/policylock/Application.java "  (5
+    %5java.lang.String"__id*0*.$
+    "com.example.policylock.Application"
+    nameÔøΩÔøΩ
+    w
+    m/Users/alexoaten/Documents/GitHub/PolicyLock/PolicyLock/src/main/java/com/example/policylock/Application.java"! "(3
+    %6int"java.lang.String#length()I*
+    
+    %5java.lang.String2length()*
+    3
+    1*ÔøΩ
+    5w
+    m/Users/alexoaten/Documents/GitHub/PolicyLock/PolicyLock/src/main/java/com/example/policylock/Application.java "  (5ÔøΩÔøΩ
+    w
+    m/Users/alexoaten/Documents/GitHub/PolicyLock/PolicyLock/src/main/java/com/example/policylock/Application.java &  (3
+    %0java.lang.StringBuilder"java.lang.StringBuilderÔøΩ
+    ÔøΩ
+    w
+    m/Users/alexoaten/Documents/GitHub/PolicyLock/PolicyLock/src/main/java/com/example/policylock/Application.java "  (5
 %1"!java.lang.StringBuilder#<init>()V*
-
-%0java.lang.StringBuilder…
-∆
+    
+    %0java.lang.StringBuilderÔøΩ
+    ÔøΩ
 w
-m/Users/alexoaten/Documents/GitHub/PolicyLock/PolicyLock/src/main/java/com/example/policylock/Application.java   (6$
-	formattedjava.lang.StringBuilder"__id*
-
-%0java.lang.StringBuilder∏µ
-w
-m/Users/alexoaten/Documents/GitHub/PolicyLock/PolicyLock/src/main/java/com/example/policylock/Application.java! !("
+    m/Users/alexoaten/Documents/GitHub/PolicyLock/PolicyLock/src/main/java/com/example/policylock/Application.java   (6$
+    formattedjava.lang.StringBuilder"__id*
+    
+    %0java.lang.StringBuilderÔøΩÔøΩ
+    w
+    m/Users/alexoaten/Documents/GitHub/PolicyLock/PolicyLock/src/main/java/com/example/policylock/Application.java! !("
 %2java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*&
-$
-	formattedjava.lang.StringBuilder*
-
-Name: 2append(Ljava/lang/String;)Ã
-…
-w
-m/Users/alexoaten/Documents/GitHub/PolicyLock/PolicyLock/src/main/java/com/example/policylock/Application.java!* !(3
-%3java.lang.String"__id*0*.$
-"com.example.policylock.Application"
-nameøº
-w
-m/Users/alexoaten/Documents/GitHub/PolicyLock/PolicyLock/src/main/java/com/example/policylock/Application.java! !(4
-%4java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*
-
-%2java.lang.StringBuilder*
-
-%3java.lang.String2append(Ljava/lang/String;)*
-4*÷
+    $
+    formattedjava.lang.StringBuilder*
+    
+    Name: 2append(Ljava/lang/String;)ÔøΩ
+    ÔøΩ
+    w
+    m/Users/alexoaten/Documents/GitHub/PolicyLock/PolicyLock/src/main/java/com/example/policylock/Application.java!* !(3
+    %3java.lang.String"__id*0*.$
+    "com.example.policylock.Application"
+    nameÔøΩÔøΩ
+    w
+    m/Users/alexoaten/Documents/GitHub/PolicyLock/PolicyLock/src/main/java/com/example/policylock/Application.java! !(4
+    %4java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*
+    
+    %2java.lang.StringBuilder*
+    
+    %3java.lang.String2append(Ljava/lang/String;)*
+    4*ÔøΩ
 
-1w
-m/Users/alexoaten/Documents/GitHub/PolicyLock/PolicyLock/src/main/java/com/example/policylock/Application.java% %(£†
-w
-m/Users/alexoaten/Documents/GitHub/PolicyLock/PolicyLock/src/main/java/com/example/policylock/Application.java%. %(J
-%8java.lang.String"Lcom.example.policylock.Application#getLastModifiedString()Ljava/lang/String;*&$
-"com.example.policylock.Application2getLastModifiedString()Œ
-À
-w
-m/Users/alexoaten/Documents/GitHub/PolicyLock/PolicyLock/src/main/java/com/example/policylock/Application.java% %(J
-%9java.lang.String"__concat*
- Last Modified: *
-
-%8java.lang.String«ƒ
-w
-m/Users/alexoaten/Documents/GitHub/PolicyLock/PolicyLock/src/main/java/com/example/policylock/Application.java% %(K
-%10java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*&
-$
-	formattedjava.lang.StringBuilder*
-
-%9java.lang.String2append(Ljava/lang/String;)ˇ¸
-w
-m/Users/alexoaten/Documents/GitHub/PolicyLock/PolicyLock/src/main/java/com/example/policylock/Application.java& &(#
-%11java.lang.String"4java.lang.StringBuilder#toString()Ljava/lang/String;*&
-$
-	formattedjava.lang.StringBuilder2
-toString()"î
-w
+    1w
+m/Users/alexoaten/Documents/GitHub/PolicyLock/PolicyLock/src/main/java/com/example/policylock/Application.java% %(ÔøΩÔøΩ
+    w
+    m/Users/alexoaten/Documents/GitHub/PolicyLock/PolicyLock/src/main/java/com/example/policylock/Application.java%. %(J
+    %8java.lang.String"Lcom.example.policylock.Application#getLastModifiedString()Ljava/lang/String;*&$
+    "com.example.policylock.Application2getLastModifiedString()ÔøΩ
+    ÔøΩ
+    w
+    m/Users/alexoaten/Documents/GitHub/PolicyLock/PolicyLock/src/main/java/com/example/policylock/Application.java% %(J
+    %9java.lang.String"__concat*
+     Last Modified: *
+    
+    %8java.lang.StringÔøΩÔøΩ
+    w
+    m/Users/alexoaten/Documents/GitHub/PolicyLock/PolicyLock/src/main/java/com/example/policylock/Application.java% %(K
+    %10java.lang.StringBuilder"Kjava.lang.StringBuilder#append(Ljava/lang/String;)Ljava/lang/StringBuilder;*&
+    $
+    formattedjava.lang.StringBuilder*
+    
+%9java.lang.String2append(Ljava/lang/String;)ÔøΩÔøΩ
+    w
+    m/Users/alexoaten/Documents/GitHub/PolicyLock/PolicyLock/src/main/java/com/example/policylock/Application.java& &(#
+    %11java.lang.String"4java.lang.StringBuilder#toString()Ljava/lang/String;*&
+    $
+    formattedjava.lang.StringBuilder2
+    toString()"ÔøΩ
+    w
 m/Users/alexoaten/Documents/GitHub/PolicyLock/PolicyLock/src/main/java/com/example/policylock/Application.java& &($
-
-%11java.lang.StringB&$
-"com.example.policylock.Application
+    
+    %11java.lang.StringB&$
+    "com.example.policylock.Application
