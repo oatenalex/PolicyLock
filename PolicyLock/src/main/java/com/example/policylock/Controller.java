@@ -4,8 +4,6 @@ import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -16,7 +14,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.scene.Scene;
 import javafx.util.Duration;
 
 import java.io.File;
@@ -50,7 +47,7 @@ public class Controller {
 
     //Log out Buttons
     @FXML
-    private Button confirm_logoutButton;
+    private Button confirmLogoutButton;
     @FXML
     private Button logoutButton;
 
@@ -62,19 +59,19 @@ public class Controller {
     @FXML
     private Button applicationsPageButton;
     @FXML
-    private Button local_devicePageButton;
+    private Button localDevicePageButton;
     @FXML
     private Button settingsPageButton;
     @FXML
-    private Button permission_settingsPageButton;
+    private Button permissionSettingsPageButton;
     @FXML
-    private Button log_settingsPageButton;
+    private Button logSettingsPageButton;
     @FXML
     private Button breadcrumb;
     @FXML
-    private Button notification_settingsPageButton;
+    private Button notificationSettingsPageButton;
     @FXML
-    private Button account_settingsPageButton;
+    private Button accountSettingsPageButton;
     @FXML
     private Button logPageButton;
 
@@ -88,50 +85,33 @@ public class Controller {
     private AnchorPane applicationsAnchorPane;
 
     //Timer variables used for handling inactivity
-    private int inactivityTimeAllowance = 2;
+    private int inactivityTimeAllowance = 20;
     private PauseTransition inactivityTimeCounter = new PauseTransition();
-    public static boolean timeOutCompleted = false; //Variable used to check if timeout has already been completed to fix multiple log in screen issue from multiple anchor panes being activated
+    private static boolean timeOutCompleted = false; //Variable used to check if timeout has already been completed to fix multiple log in screen issue from multiple anchor panes being activated
 
+    //Breadcrumb Styling
+    private static final String highlightStyle = "-fx-text-fill: #33D7FF; -fx-background-color: transparent;";
+    private static final String unhighlightStyle = "-fx-text-fill: #909090; -fx-background-color: transparent;";
 
-    public void highlight_home() {
-        homePageButton.setStyle("-fx-text-fill: #33D7FF; -fx-background-color: transparent;");
-    }
+    public void highlightHome() { homePageButton.setStyle(highlightStyle); }
 
-    public void unhighlight_home() {
-        homePageButton.setStyle("-fx-text-fill: #909090; -fx-background-color: transparent;");
-    }
+    public void unhighlightHome() { homePageButton.setStyle(unhighlightStyle); }
 
-    public void highlight_settings() {
-        settingsPageButton.setStyle("-fx-text-fill: #33D7FF; -fx-background-color: transparent;");
-    }
+    public void highlightSettings() { settingsPageButton.setStyle(highlightStyle); }
 
-    public void unhighlight_settings() {
-        settingsPageButton.setStyle("-fx-text-fill: #909090; -fx-background-color: transparent;");
-    }
+    public void unhighlightSettings() { settingsPageButton.setStyle(unhighlightStyle); }
 
-    public void highlight_breadcrumb() {
-        breadcrumb.setStyle("-fx-text-fill: #33D7FF; -fx-background-color: transparent;");
-    }
+    public void highlightBreadcrumb() { breadcrumb.setStyle(highlightStyle); }
 
-    public void unhighlight_breadcrumb() {
-        breadcrumb.setStyle("-fx-text-fill: #909090; -fx-background-color: transparent;");
-    }
+    public void unhighlightBreadcrumb() { breadcrumb.setStyle(unhighlightStyle); }
 
-    public void highlight_logsettings() {
-        log_settingsPageButton.setStyle("-fx-text-fill: #33D7FF; -fx-background-color: transparent;");
-    }
+    public void highlightLogSettings() { logSettingsPageButton.setStyle(highlightStyle); }
 
-    public void unhighlight_logsettings() {
-        log_settingsPageButton.setStyle("-fx-text-fill: #909090; -fx-background-color: transparent;");
-    }
+    public void unhighlightLogSettings() { logSettingsPageButton.setStyle(unhighlightStyle); }
 
-    public void highlight_devices() {
-        devicesPageButton.setStyle("-fx-text-fill: #33D7FF; -fx-background-color: transparent;");
-    }
+    public void highlightDevices() { devicesPageButton.setStyle(highlightStyle); }
 
-    public void unhighlight_devices() {
-        devicesPageButton.setStyle("-fx-text-fill: #909090; -fx-background-color: transparent;");
-    }
+    public void unhighlightDevices() { devicesPageButton.setStyle(unhighlightStyle); }
 
     public void login() throws IOException {
 
@@ -142,14 +122,18 @@ public class Controller {
             loader.setLocation(getClass().getResource("homeResize.fxml"));
             GridPane mainLayout = loader.load();
             stage.getScene().setRoot(mainLayout);
-        } else {
+        }
+
+        else {
             incorrect.setText("Incorrect username or password");
             tries -= 1;
 
             //Limited amount of tries
-            if (tries > 0) {
+            if (tries > 0)
+            {
                 triesLabel.setText("Attempts Left: " + tries);
-            } else {
+            }
+            else{
                 incorrect.setText("You have been locked out");
                 triesLabel.setText("");
             }
@@ -162,21 +146,16 @@ public class Controller {
         }
     }
 
-    public void closeNotification() {
-        notification.setVisible(false);
-    }
+    public void closeNotification() { notification.setVisible(false); }
 
     //Method that handles when the enter key is pressed in text boxes on the enter page
     @FXML
-    private void onEnter(ActionEvent event) throws IOException {
+    private void onEnter(ActionEvent event) throws IOException{
         //Checks if the source calling the actionEvent is the Username box or password
         if (event.getSource().getClass().equals(username.getClass()))
             password.requestFocus();
-        else {
-            login();
-        }
-    }
-
+        else{ login();}
+    };
 
     public void home() throws IOException {
         Stage stage = (Stage) homePageButton.getScene().getWindow();
@@ -205,7 +184,7 @@ public class Controller {
     }
 
     public void permission_settings() throws IOException {
-        Stage stage = (Stage) permission_settingsPageButton.getScene().getWindow();
+        Stage stage = (Stage) permissionSettingsPageButton.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("permission_settingsResize.fxml"));
         GridPane mainLayout = loader.load();
@@ -213,8 +192,8 @@ public class Controller {
         pauseInactivityTimer();
     }
 
-    public void log_settings() throws IOException {
-        Stage stage = (Stage) log_settingsPageButton.getScene().getWindow();
+    public void logSettings() throws IOException {
+        Stage stage = (Stage) logSettingsPageButton.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("log_settingsResize.fxml"));
         GridPane mainLayout = loader.load();
@@ -222,8 +201,8 @@ public class Controller {
         pauseInactivityTimer();
     }
 
-    public void log_log_settings() throws IOException {
-        Stage stage = (Stage) log_settingsPageButton.getScene().getWindow();
+    public void logLogSettings() throws IOException {
+        Stage stage = (Stage) logSettingsPageButton.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("log_settingsResize.fxml"));
         GridPane mainLayout = loader.load();
@@ -233,7 +212,7 @@ public class Controller {
         pauseInactivityTimer();
     }
 
-    public void breadcrumb_trace() throws IOException {
+    public void breadcrumbTrace() throws IOException {
         Stage stage = (Stage) breadcrumb.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
         if (breadcrumb.getText().equals("SETTINGS"))
@@ -245,8 +224,8 @@ public class Controller {
         pauseInactivityTimer();
     }
 
-    public void notification_settings() throws IOException {
-        Stage stage = (Stage) notification_settingsPageButton.getScene().getWindow();
+    public void notificationSettings() throws IOException {
+        Stage stage = (Stage) notificationSettingsPageButton.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("notification_settingsResize.fxml"));
         GridPane mainLayout = loader.load();
@@ -254,8 +233,8 @@ public class Controller {
         pauseInactivityTimer();
     }
 
-    public void account_settings() throws IOException {
-        Stage stage = (Stage) account_settingsPageButton.getScene().getWindow();
+    public void accountSettings() throws IOException {
+        Stage stage = (Stage) accountSettingsPageButton.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("account_settingsResize.fxml"));
         GridPane mainLayout = loader.load();
@@ -272,8 +251,8 @@ public class Controller {
         pauseInactivityTimer();
     }
 
-    public void confirm_logout() throws IOException {
-        Stage stage = (Stage) confirm_logoutButton.getScene().getWindow();
+    public void confirmLogout() throws IOException {
+        Stage stage = (Stage) confirmLogoutButton.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("confirm_logoutResize.fxml"));
         GridPane mainLayout = loader.load();
@@ -290,13 +269,12 @@ public class Controller {
         pauseInactivityTimer();
     }
 
-    public void pauseInactivityTimer() {
+    public void pauseInactivityTimer(){
         inactivityTimeCounter.stop();
     }
-
-    public void inactivityTimer() {
+    public void inactivityTimer(){
         inactivityTimeCounter.setDuration(Duration.seconds(inactivityTimeAllowance));
-        inactivityTimeCounter.setOnFinished(event -> {
+        inactivityTimeCounter.setOnFinished( event -> {
             try {
                 appTimeOut();
             } catch (IOException e) {
@@ -348,13 +326,13 @@ public class Controller {
     /**
      * Gets a list of the applications on a device.
      * Currently only works for Macs that did not move the default location of applications directory.
-     *
      * @return List of Application objects
      */
+    private static final String applicationsPath = "/Applications";
     private ArrayList<Application> getLocalApplicationList() {
-        ArrayList<Application> apps = new ArrayList<Application>();
-        File f = new File("/Applications");
-        ArrayList<File> files = new ArrayList<File>(Arrays.asList(f.listFiles()));
+        ArrayList<Application> apps = new ArrayList<>();
+        File f = new File(applicationsPath);
+        ArrayList<File> files = new ArrayList<>(Arrays.asList(f.listFiles()));
         for (File file : files) {
             if (!file.getName().startsWith(".")) {
                 String name = file.getName().split("\\.")[0];
