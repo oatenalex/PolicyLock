@@ -32,20 +32,14 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<GridPane fx:id="gridPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseEntered="#pauseInactivityTimer" onMouseExited="#inactivityTimer" prefHeight="580.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.policylock.Controller">
+<GridPane fx:id="gridPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseEntered="#pauseInactivityTimer" onMouseExited="#inactivityTimer" prefHeight="580.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.policylock.Controller">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -147,7 +141,7 @@
       <HBox maxHeight="34.0" prefHeight="35.0" prefWidth="900.0" style="-fx-background-color: black; -fx-opacity: 0.6;" GridPane.columnIndex="1" GridPane.valignment="TOP" GridPane.vgrow="NEVER" />
       <VBox alignment="TOP_CENTER" maxHeight="200.0" maxWidth="300.0" prefHeight="192.0" prefWidth="425.0" style="-fx-background-color: black;" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <children>
-            <Label alignment="TOP_RIGHT" contentDisplay="TOP" maxHeight="70.0" maxWidth="556.0" text="Are you sure you" textAlignment="RIGHT" textFill="WHITE" VBox.vgrow="ALWAYS">
+            <Label alignment="TOP_RIGHT" contentDisplay="TOP" maxHeight="70.0" maxWidth="556.0" text="Are you sure you" textAlignment="RIGHT" textFill="RED" VBox.vgrow="ALWAYS">
                <font>
                   <Font name="System Bold" size="28.0" />
                </font>
@@ -170,7 +164,7 @@
       </VBox>
       <VBox alignment="TOP_CENTER" maxHeight="200.0" maxWidth="300.0" prefHeight="192.0" prefWidth="425.0" style="-fx-background-color: black;" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <children>
-            <Label alignment="TOP_LEFT" contentDisplay="TOP" maxHeight="70.0" maxWidth="556.0" prefHeight="70.0" prefWidth="223.0" text=" want to logout?" textFill="WHITE" VBox.vgrow="ALWAYS">
+            <Label alignment="TOP_LEFT" contentDisplay="TOP" maxHeight="70.0" maxWidth="556.0" prefHeight="70.0" prefWidth="223.0" text=" want to logout?" textFill="RED" VBox.vgrow="ALWAYS">
                <font>
                   <Font name="System Bold" size="28.0" />
                </font>
