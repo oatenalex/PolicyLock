@@ -8,9 +8,12 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -23,6 +26,28 @@ import java.util.Arrays;
 import java.util.GregorianCalendar;
 
 public class Controller {
+    //For Login
+    @FXML
+    private Button loginButton;
+    @FXML
+    private TextField username;
+    @FXML
+    private PasswordField password;
+    @FXML
+    private Label incorrect;
+    @FXML
+    private Label triesLabel;
+    @FXML
+    private HBox notification;
+    @FXML
+    private Button closeNotificationButton;
+
+    private int tries = 3;
+
+    //Username & Password Settings
+    private static final String usernameValue = "u";
+    private static final String passwordValue = "p";
+
     //Log out Buttons
     @FXML
     private Button confirm_logoutButton;
@@ -63,7 +88,7 @@ public class Controller {
     private AnchorPane applicationsAnchorPane;
 
     //Timer variables used for handling inactivity
-    private int inactivityTimeAllowance = 120;
+    private int inactivityTimeAllowance = 2;
     private PauseTransition inactivityTimeCounter = new PauseTransition();
     public static boolean timeOutCompleted = false; //Variable used to check if timeout has already been completed to fix multiple log in screen issue from multiple anchor panes being activated
 
@@ -87,6 +112,50 @@ public class Controller {
     public void highlight_devices() { devicesPageButton.setStyle("-fx-text-fill: #33D7FF; -fx-background-color: transparent;"); }
 
     public void unhighlight_devices() { devicesPageButton.setStyle("-fx-text-fill: #909090; -fx-background-color: transparent;"); }
+
+    public void login() throws IOException {
+
+        if (username.getText().equals(usernameValue) && password.getText().equals(passwordValue) && (tries > 0)) {
+            Controller.timeOutCompleted = false; //Resets the timeout variable
+            Stage stage = (Stage) loginButton.getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("homeResize.fxml"));
+            GridPane mainLayout = loader.load();
+            stage.getScene().setRoot(mainLayout);
+        }
+
+        else {
+            incorrect.setText("Incorrect username or password");
+            tries -= 1;
+
+            //Limited amount of tries
+            if (tries > 0)
+            {
+                triesLabel.setText("Attempts Left: " + tries);
+            }
+            else{
+                incorrect.setText("You have been locked out");
+                triesLabel.setText("");
+            }
+
+
+            //Resets the login screen
+            username.setText("");
+            password.setText("");
+            username.requestFocus();
+        }
+    }
+
+    public void closeNotification() { notification.setVisible(false); }
+
+    //Method that handles when the enter key is pressed in text boxes on the enter page
+    @FXML
+    private void onEnter(ActionEvent event) throws IOException{
+        //Checks if the source calling the actionEvent is the Username box or password
+        if (event.getSource().getClass().equals(username.getClass()))
+            password.requestFocus();
+        else{ login();}
+    };
 
     public void home() throws IOException {
         Stage stage = (Stage) homePageButton.getScene().getWindow();
@@ -221,6 +290,8 @@ public class Controller {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("loginResize.fxml"));
             GridPane mainLayout = loader.load();
+            Controller c = loader.getController();
+            c.notification.setVisible(true);
             stage.getScene().setRoot(mainLayout);
             timeOutCompleted = true;
         }
