@@ -22,13 +22,13 @@ SonarCloud plugins:
   - Ruby Code Quality and Security 1.8.3.2219 (ruby)
   - Vulnerability Rules for C# 9.2.0.14426 (securitycsharpfrontend)
   - Vulnerability Rules for Java 9.2.0.14426 (securityjavafrontend)
-  - License for SonarLint 8.0.0.25072 (license)
+  - License for SonarLint 8.0.0.25123 (license)
   - Vulnerability Rules for JS 9.2.0.14426 (securityjsfrontend)
   - COBOL Code Quality 4.6.2.4876 (cobol)
   - Vulnerability Rules for Python 9.2.0.14426 (securitypythonfrontend)
   - PHP Code Quality and Security 3.21.2.8292 (php)
   - ABAP Code Quality and Security 3.9.1.3127 (abap)
-  - Configuration detection fot Code Quality and Security 1.0.0.32 (config)
+  - Configuration detection fot Code Quality and Security 1.1.0.185 (config)
   - Vulnerability Rules for PHP 9.2.0.14426 (securityphpfrontend)
 Global server settings:
   - email.from=noreply@sonarcloud.io
@@ -40,7 +40,7 @@ Global server settings:
   - sonar.auth.microsoft.enabled=true
   - sonar.core.id=1BD809FA-AWHW8ct9-T_TB3XqouNu
   - sonar.core.serverBaseURL=https://sonarcloud.io
-  - sonar.core.startTime=2021-11-24T11:08:23+0100
+  - sonar.core.startTime=2021-11-25T17:16:17+0100
   - sonar.dbcleaner.weeksBeforeDeletingAllSnapshots=260
   - sonar.dbcleaner.weeksBeforeKeepingOnlyOneSnapshotByMonth=4
   - sonar.dbcleaner.weeksBeforeKeepingOnlyOneSnapshotByWeek=1
@@ -70,6 +70,6 @@ Project scanner properties:
   - sonar.scanner.app=ScannerCLI
   - sonar.scanner.appVersion=4.4.0.2170
   - sonar.sourceEncoding=UTF-8
-  - sonar.sources=.
+  - sonar.sources=src
   - sonar.verbose=true
   - sonar.working.directory=/Users/alexoaten/Documents/GitHub/PolicyLock/PolicyLock/.scannerwork

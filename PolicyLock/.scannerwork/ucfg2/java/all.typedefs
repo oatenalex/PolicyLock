@@ -522,13 +522,14 @@ valueOf(J)-java.lang.String#valueOf(J)Ljava/lang/String;2
 checkIndex(II) java.lang.String#checkIndex(II)VX
 !<init>(Ljava/lang/StringBuilder;)3java.lang.String#<init>(Ljava/lang/StringBuilder;)V%
 value()java.lang.String#value()[B`
-%regionMatches(ZILjava/lang/String;II)7java.lang.String#regionMatches(ZILjava/lang/String;II)Zâ
+%regionMatches(ZILjava/lang/String;II)7java.lang.String#regionMatches(ZILjava/lang/String;II)Zè
 !com.example.policylock.Controllerjava.lang.ObjectC
 log_settings()1com.example.policylock.Controller#log_settings()VG
 highlight_home()3com.example.policylock.Controller#highlight_home()VS
 goToApplicationsPage()9com.example.policylock.Controller#goToApplicationsPage()VW
 unhighlight_breadcrumb();com.example.policylock.Controller#unhighlight_breadcrumb()VY
-unhighlight_logsettings()<com.example.policylock.Controller#unhighlight_logsettings()VK
+unhighlight_logsettings()<com.example.policylock.Controller#unhighlight_logsettings()V5
+login()*com.example.policylock.Controller#login()VK
 breadcrumb_trace()5com.example.policylock.Controller#breadcrumb_trace()VQ
 permission_settings()8com.example.policylock.Controller#permission_settings()V7
 <init>()+com.example.policylock.Controller#<init>()VS
@@ -546,7 +547,8 @@ settings()-com.example.policylock.Controller#settings()V1
 home())com.example.policylock.Controller#home()VU
 notification_settings():com.example.policylock.Controller#notification_settings()VI
 inactivityTimer()4com.example.policylock.Controller#inactivityTimer()VQ
-unhighlight_devices()8com.example.policylock.Controller#unhighlight_devices()VS
+unhighlight_devices()8com.example.policylock.Controller#unhighlight_devices()VM
+closeNotification()6com.example.policylock.Controller#closeNotification()VS
 pauseInactivityTimer()9com.example.policylock.Controller#pauseInactivityTimer()Vm
 getLocalApplicationList()Pcom.example.policylock.Controller#getLocalApplicationList()Ljava/util/ArrayList;U
 highlight_logsettings():com.example.policylock.Controller#highlight_logsettings()VK
@@ -700,10 +702,7 @@ AcheckMemberAccess(Ljava/lang/SecurityManager;ILjava/lang/Class;Z)Rjava.lang.Cl
 toGenericString()3java.lang.Class#toGenericString()Ljava/lang/String;¨
 :getMethodsRecursive(Ljava/lang/String;[Ljava/lang/Class;Z)njava.lang.Class#getMethodsRecursive(Ljava/lang/String;[Ljava/lang/Class;Z)Ljava/lang/PublicMethods$MethodList;R
 getSimpleBinaryName0()8java.lang.Class#getSimpleBinaryName0()Ljava/lang/String;1
-isLocalClass()java.lang.Class#isLocalClass()Zñ
-com.example.policylock.Loginjava.lang.Object2
-<init>()&com.example.policylock.Login#<init>()V0
-login()%com.example.policylock.Login#login()V
+isLocalClass()java.lang.Class#isLocalClass()Z
 Applicationjava.lang.Objectª
 com.example.policylock.loginUIApplication4
 <init>()(com.example.policylock.loginUI#<init>()VV

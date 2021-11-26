@@ -7,7 +7,6 @@ public class Application {
 
     public String name;
 
-    private String path;
     private GregorianCalendar dateLastModified;
 
     public Application(String name) {
@@ -24,8 +23,7 @@ public class Application {
 
     public String getLastModifiedString() {
         SimpleDateFormat fmt = new SimpleDateFormat("MMM dd, yyyy");
-        String formatted = fmt.format(dateLastModified.getTime());
-        return formatted;
+        return fmt.format(dateLastModified.getTime());
     }
 
     public String getButtonFormat() {

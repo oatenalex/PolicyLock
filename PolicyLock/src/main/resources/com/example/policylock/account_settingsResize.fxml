@@ -68,7 +68,7 @@
       </ImageView>
       <HBox maxHeight="34.0" prefHeight="34.0" prefWidth="900.0" style="-fx-background-color: black; -fx-opacity: 0.6;" GridPane.valignment="TOP" GridPane.vgrow="NEVER">
          <children>
-            <Button fx:id="homePageButton" graphicTextGap="0.0" mnemonicParsing="false" onAction="#home" onMouseEntered="#highlight_home" onMouseExited="#unhighlight_home" style="-fx-background-color: transparent;" text="HOME" textFill="#909090">
+            <Button fx:id="homePageButton" graphicTextGap="0.0" mnemonicParsing="false" onAction="#home" onMouseEntered="#highlightHome" onMouseExited="#unhighlightHome" style="-fx-background-color: transparent;" text="HOME" textFill="#909090">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
@@ -87,7 +87,7 @@
                   <Insets top="5.0" />
                </padding>
             </Label>
-            <Button fx:id="settingsPageButton" graphicTextGap="0.0" mnemonicParsing="false" onAction="#settings" onMouseEntered="#highlight_settings" onMouseExited="#unhighlight_settings" style="-fx-background-color: transparent;" text="SETTINGS" textFill="#909090">
+            <Button fx:id="settingsPageButton" graphicTextGap="0.0" mnemonicParsing="false" onAction="#settings" onMouseEntered="#highlightSettings" onMouseExited="#unhighlightSettings" style="-fx-background-color: transparent;" text="SETTINGS" textFill="#909090">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
@@ -106,7 +106,7 @@
                   <Insets left="2.0" top="5.0" />
                </padding>
             </Label>
-            <Button fx:id="account_settingsPageButton" graphicTextGap="0.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="ACCOUNT MANAGEMENT" textFill="WHITE">
+            <Button fx:id="accountSettingsPageButton" graphicTextGap="0.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="ACCOUNT MANAGEMENT" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
