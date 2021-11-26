@@ -56,75 +56,88 @@
 </AnchorPane>
 -->
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.policylock.Controller">
-   <columnConstraints>
-      <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
-   </columnConstraints>
-   <rowConstraints>
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-   </rowConstraints>
-   <children>
-      <ImageView pickOnBounds="true" GridPane.halignment="LEFT" GridPane.valignment="TOP">
-         <image>
-            <Image url="@../../../img/new_policylock_background.jpg" />
-         </image>
-      </ImageView>
-      <HBox maxHeight="34.0" prefHeight="35.0" prefWidth="900.0" style="-fx-background-color: black; -fx-opacity: 0.6;" GridPane.valignment="TOP" GridPane.vgrow="NEVER">
-         <children>
-            <Button fx:id="homePageButton" graphicTextGap="0.0" mnemonicParsing="false" onAction="#home" onMouseEntered="#highlight_home" onMouseExited="#unhighlight_home" style="-fx-background-color: transparent;" text="HOME" textFill="#909090">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-               <padding>
-                  <Insets left="5.0" right="3.0" top="6.0" />
-               </padding>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Label maxHeight="-Infinity" prefHeight="26.0" text="/" textFill="#909090">
-               <font>
-                  <Font size="16.0" />
-               </font>
-               <padding>
-                  <Insets top="5.0" />
-               </padding>
-            </Label>
-            <Button fx:id="devicesPageButton" graphicTextGap="0.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="DEVICES" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-               <padding>
-                  <Insets left="2.0" top="6.0" />
-               </padding>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-         </children>
-      </HBox>
-      <VBox maxHeight="900.0" maxWidth="1200.0" prefHeight="200.0" prefWidth="100.0" spacing="10.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
-         <children>
-            <ScrollPane fitToHeight="true" hbarPolicy="NEVER" maxHeight="900.0" maxWidth="1200.0" prefHeight="466.0" prefWidth="820.0" style="-fx-background-color: transparent;" vbarPolicy="ALWAYS" VBox.vgrow="ALWAYS">
-               <content>
-                  <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="900.0" prefWidth="700.0">
-                     <children>
-                        <Button id="localDeviceButton" fx:id="applicationsPageButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#goToApplicationsPage" text="Local Device" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <font>
-                              <Font name="System Bold" size="20.0" />
-                           </font>
-                        </Button>
-                     </children>
-                  </AnchorPane>
-               </content>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </ScrollPane>
-         </children>
-         <GridPane.margin>
-            <Insets bottom="40.0" left="100.0" right="100.0" top="90.0" />
-         </GridPane.margin>
-      </VBox>
-   </children>
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0"
+          prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="com.example.policylock.Controller">
+    <columnConstraints>
+        <ColumnConstraints minWidth="10.0" prefWidth="100.0"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+    </rowConstraints>
+    <children>
+        <ImageView pickOnBounds="true" GridPane.halignment="LEFT" GridPane.valignment="TOP">
+            <image>
+                <Image url="@../../../img/new_policylock_background.jpg"/>
+            </image>
+        </ImageView>
+        <HBox maxHeight="34.0" prefHeight="35.0" prefWidth="900.0"
+              style="-fx-background-color: black; -fx-opacity: 0.6;" GridPane.valignment="TOP" GridPane.vgrow="NEVER">
+            <children>
+                <Button fx:id="homePageButton" graphicTextGap="0.0" mnemonicParsing="false" onAction="#home"
+                        onMouseEntered="#highlight_home" onMouseExited="#unhighlight_home"
+                        style="-fx-background-color: transparent;" text="HOME" textFill="#909090">
+                    <font>
+                        <Font name="System Bold" size="16.0"/>
+                    </font>
+                    <padding>
+                        <Insets left="5.0" right="3.0" top="6.0"/>
+                    </padding>
+                    <cursor>
+                        <Cursor fx:constant="HAND"/>
+                    </cursor>
+                </Button>
+                <Label maxHeight="-Infinity" prefHeight="26.0" text="/" textFill="#909090">
+                    <font>
+                        <Font size="16.0"/>
+                    </font>
+                    <padding>
+                        <Insets top="5.0"/>
+                    </padding>
+                </Label>
+                <Button fx:id="devicesPageButton" graphicTextGap="0.0" mnemonicParsing="false"
+                        style="-fx-background-color: transparent;" text="DEVICES" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="16.0"/>
+                    </font>
+                    <padding>
+                        <Insets left="2.0" top="6.0"/>
+                    </padding>
+                    <cursor>
+                        <Cursor fx:constant="HAND"/>
+                    </cursor>
+                </Button>
+            </children>
+        </HBox>
+        <VBox maxHeight="900.0" maxWidth="1200.0" prefHeight="200.0" prefWidth="100.0" spacing="10.0"
+              GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+            <children>
+                <ScrollPane fitToHeight="true" hbarPolicy="NEVER" maxHeight="900.0" maxWidth="1200.0" prefHeight="466.0"
+                            prefWidth="820.0" style="-fx-background-color: transparent;" vbarPolicy="ALWAYS"
+                            VBox.vgrow="ALWAYS">
+                    <content>
+                        <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                                    prefHeight="900.0" prefWidth="700.0">
+                            <children>
+                                <Button id="localDeviceButton" fx:id="applicationsPageButton" contentDisplay="CENTER"
+                                        mnemonicParsing="false" onAction="#goToApplicationsPage" text="Local Device"
+                                        textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                                        AnchorPane.topAnchor="0.0">
+                                    <font>
+                                        <Font name="System Bold" size="20.0"/>
+                                    </font>
+                                </Button>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                    <VBox.margin>
+                        <Insets/>
+                    </VBox.margin>
+                </ScrollPane>
+            </children>
+            <GridPane.margin>
+                <Insets bottom="40.0" left="100.0" right="100.0" top="90.0"/>
+            </GridPane.margin>
+        </VBox>
+    </children>
 </GridPane>
