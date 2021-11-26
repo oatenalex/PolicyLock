@@ -333,7 +333,7 @@ public class Controller {
 
     /**
      * Gets a list of the applications on a device.
-     * Currently only works for Macs that did not move the default location of applications directory.
+     * Currently, only works for Macs that did not move the default location of applications directory.
      * @return List of Application objects
      */
     private ArrayList<Application> getLocalApplicationList() {
