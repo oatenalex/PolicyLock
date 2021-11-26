@@ -119,5 +119,13 @@
             <Insets bottom="110.0" />
          </GridPane.margin>
       </Label>
+      <Label fx:id="inactivityLabel" alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="25.0" textFill="#d50000" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+         <GridPane.margin>
+            <Insets bottom="102.0" />
+         </GridPane.margin>
+      </Label>
    </children>
 </GridPane>

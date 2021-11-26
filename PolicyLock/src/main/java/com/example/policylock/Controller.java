@@ -53,7 +53,7 @@ public class Controller {
     @FXML
     private Button logPageButton;
 
-    //Background anchorpane on which each UI element is placed. Use for inactivity timer
+    //Background gridpane on which each UI element is placed. Use for inactivity timer
     @FXML
     private GridPane gridPane;
     @FXML
@@ -63,7 +63,7 @@ public class Controller {
     private AnchorPane applicationsAnchorPane;
 
     //Timer variables used for handling inactivity
-    private int inactivityTimeAllowance = 120;
+    private int inactivityTimeAllowance = 10;
     private PauseTransition inactivityTimeCounter = new PauseTransition();
     public static boolean timeOutCompleted = false; //Variable used to check if timeout has already been completed to fix multiple log in screen issue from multiple anchor panes being activated
 
@@ -103,6 +103,7 @@ public class Controller {
         GridPane mainLayout = loader.load();
         stage.getScene().setRoot(mainLayout);
         pauseInactivityTimer();
+        stage.requestFocus();
     }
 
     public void settings() throws IOException {
@@ -112,6 +113,7 @@ public class Controller {
         GridPane mainLayout = loader.load();
         stage.getScene().setRoot(mainLayout);
         pauseInactivityTimer();
+        stage.requestFocus();
     }
 
     public void permission_settings() throws IOException {
@@ -121,6 +123,7 @@ public class Controller {
         GridPane mainLayout = loader.load();
         stage.getScene().setRoot(mainLayout);
         pauseInactivityTimer();
+        stage.requestFocus();
     }
 
     public void log_settings() throws IOException {
@@ -130,6 +133,7 @@ public class Controller {
         GridPane mainLayout = loader.load();
         stage.getScene().setRoot(mainLayout);
         pauseInactivityTimer();
+        stage.requestFocus();
     }
 
     public void log_log_settings() throws IOException {
@@ -141,6 +145,7 @@ public class Controller {
         c.breadcrumb.setText("LOG");
         stage.getScene().setRoot(mainLayout);
         pauseInactivityTimer();
+        stage.requestFocus();
     }
 
     public void breadcrumb_trace() throws IOException {
@@ -153,6 +158,7 @@ public class Controller {
         GridPane mainLayout = loader.load();
         stage.getScene().setRoot(mainLayout);
         pauseInactivityTimer();
+        stage.requestFocus();
     }
 
     public void notification_settings() throws IOException {
@@ -162,6 +168,7 @@ public class Controller {
         GridPane mainLayout = loader.load();
         stage.getScene().setRoot(mainLayout);
         pauseInactivityTimer();
+        stage.requestFocus();
     }
 
     public void account_settings() throws IOException {
@@ -171,6 +178,7 @@ public class Controller {
         GridPane mainLayout = loader.load();
         stage.getScene().setRoot(mainLayout);
         pauseInactivityTimer();
+        stage.requestFocus();
     }
 
     public void log() throws IOException {
@@ -180,6 +188,7 @@ public class Controller {
         GridPane mainLayout = loader.load();
         stage.getScene().setRoot(mainLayout);
         pauseInactivityTimer();
+        stage.requestFocus();
     }
 
     public void confirm_logout() throws IOException {
@@ -189,6 +198,7 @@ public class Controller {
         GridPane mainLayout = loader.load();
         stage.getScene().setRoot(mainLayout);
         pauseInactivityTimer();
+        stage.requestFocus();
     }
 
     public void logout() throws IOException {
@@ -198,6 +208,7 @@ public class Controller {
         GridPane mainLayout = loader.load();
         stage.getScene().setRoot(mainLayout);
         pauseInactivityTimer();
+        stage.requestFocus();
     }
 
     public void pauseInactivityTimer(){

@@ -31,6 +31,8 @@ public class Login {
     private Label triesLabel;
     @FXML
     private ImageView background;
+    @FXML
+    public Label inactivityLabel;
 
 
     private int tries = 3;
@@ -41,7 +43,6 @@ public class Login {
 
     public void login() throws IOException {
         if (username.getText().equals(usernameValue) && password.getText().equals(passwordValue) && (tries > 0)) {
-            double width, height;
             Controller.timeOutCompleted = false; //Resets the timeout variable
             Stage stage = (Stage) loginButton.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader();
