@@ -119,7 +119,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="logSettingsPageButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#log_settings" prefHeight="85.0" prefWidth="400.0" text="LOGGING SETTINGS" VBox.vgrow="ALWAYS">
+            <Button fx:id="logSettingsPageButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#logSettings" prefHeight="85.0" prefWidth="400.0" text="LOGGING SETTINGS" VBox.vgrow="ALWAYS">
                <VBox.margin>
                   <Insets top="2.0" />
                </VBox.margin>
@@ -130,7 +130,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="notificationSettingsPageButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#notification_settings" prefHeight="85.0" prefWidth="400.0" text="NOTIFICATION SETTINGS" VBox.vgrow="ALWAYS">
+            <Button fx:id="notificationSettingsPageButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#notificationSettings" prefHeight="85.0" prefWidth="400.0" text="NOTIFICATION SETTINGS" VBox.vgrow="ALWAYS">
                <VBox.margin>
                   <Insets top="2.0" />
                </VBox.margin>
@@ -141,7 +141,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="accountSettingsPageButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#account_settings" prefHeight="85.0" prefWidth="400.0" text="ACCOUNT MANAGEMENT" VBox.vgrow="ALWAYS">
+            <Button fx:id="accountSettingsPageButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#accountSettings" prefHeight="85.0" prefWidth="400.0" text="ACCOUNT MANAGEMENT" VBox.vgrow="ALWAYS">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>

@@ -328,10 +328,11 @@ public class Controller {
      * Currently only works for Macs that did not move the default location of applications directory.
      * @return List of Application objects
      */
+    private static final String applicationsPath = "/Applications";
     private ArrayList<Application> getLocalApplicationList() {
-        ArrayList<Application> apps = new ArrayList<Application>();
-        File f = new File("/Applications");
-        ArrayList<File> files = new ArrayList<File>(Arrays.asList(f.listFiles()));
+        ArrayList<Application> apps = new ArrayList<>();
+        File f = new File(applicationsPath);
+        ArrayList<File> files = new ArrayList<>(Arrays.asList(f.listFiles()));
         for (File file : files) {
             if (!file.getName().startsWith(".")) {
                 String name = file.getName().split("\\.")[0];

@@ -82,7 +82,7 @@
                   <Insets top="5.0" />
                </padding>
             </Label>
-            <Button fx:id="breadcrumb" graphicTextGap="0.0" mnemonicParsing="false" onAction="#breadcrumb_trace" onMouseEntered="#highlightBreadcrumb" onMouseExited="#unhighlightBreadcrumb" style="-fx-background-color: transparent;" text="SETTINGS" textFill="#909090">
+            <Button fx:id="breadcrumb" graphicTextGap="0.0" mnemonicParsing="false" onAction="#breadcrumbTrace" onMouseEntered="#highlightBreadcrumb" onMouseExited="#unhighlightBreadcrumb" style="-fx-background-color: transparent;" text="SETTINGS" textFill="#909090">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
