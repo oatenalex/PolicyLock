@@ -96,7 +96,7 @@ public class Controller {
     private ScrollPane applicationsScrollPane;
 
     //Timer variables used for handling inactivity
-    private int inactivityTimeAllowance = 2;
+    private int inactivityTimeAllowance = 20;
     private PauseTransition inactivityTimeCounter = new PauseTransition();
     private static boolean timeOutCompleted = false; //Variable used to check if timeout has already been completed to fix multiple log in screen issue from multiple anchor panes being activated
 
