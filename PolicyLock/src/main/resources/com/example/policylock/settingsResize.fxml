@@ -122,7 +122,7 @@
                 </Label>
                 <Button fx:id="permissionSettingsPageButton" alignment="CENTER" contentDisplay="CENTER"
                         maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
-                        onAction="#permission_settings" prefHeight="85.0" prefWidth="400.0" text="PERMISSION SETTINGS"
+                        onAction="#permissionSettings" prefHeight="85.0" prefWidth="400.0" text="PERMISSION SETTINGS"
                         VBox.vgrow="ALWAYS">
                     <font>
                         <Font name="System Bold" size="15.0"/>

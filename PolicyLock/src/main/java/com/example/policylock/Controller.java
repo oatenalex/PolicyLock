@@ -53,8 +53,8 @@ public class Controller {
     private int tries = 3;
 
     //Username & Password Settings
-    private static final String usernameValue = "u";
-    private static final String passwordValue = "p";
+    private static final String USERNAME_VALUE = "u";
+    private static final String PASSWORD_VALUE = "p";
 
     //Log out Buttons
     @FXML
@@ -103,39 +103,39 @@ public class Controller {
     private static boolean timeOutCompleted = false; //Variable used to check if timeout has already been completed to fix multiple log in screen issue from multiple anchor panes being activated
 
     //File Path Variables
-    private static final String applicationsPath = "/Applications"; // for mac only
+    private static final String APPLICATIONS_PATH = "/Applications"; // for mac only
 
     //Breadcrumb Styling
-    private static final String highlightStyle = "-fx-text-fill: #33D7FF; -fx-background-color: transparent;";
-    private static final String unhighlightStyle = "-fx-text-fill: #909090; -fx-background-color: transparent;";
+    private static final String HIGHLIGHT_STYLE = "-fx-text-fill: #33D7FF; -fx-background-color: transparent;";
+    private static final String UNHIGHLIGHT_STYLE = "-fx-text-fill: #909090; -fx-background-color: transparent;";
 
-    public void highlightHome() { homePageButton.setStyle(highlightStyle); }
+    public void highlightHome() { homePageButton.setStyle(HIGHLIGHT_STYLE); }
 
-    public void unhighlightHome() { homePageButton.setStyle(unhighlightStyle); }
+    public void unhighlightHome() { homePageButton.setStyle(UNHIGHLIGHT_STYLE); }
 
-    public void highlightSettings() { settingsPageButton.setStyle(highlightStyle); }
+    public void highlightSettings() { settingsPageButton.setStyle(HIGHLIGHT_STYLE); }
 
-    public void unhighlightSettings() { settingsPageButton.setStyle(unhighlightStyle); }
+    public void unhighlightSettings() { settingsPageButton.setStyle(UNHIGHLIGHT_STYLE); }
 
-    public void highlightBreadcrumb() { breadcrumb.setStyle(highlightStyle); }
+    public void highlightBreadcrumb() { breadcrumb.setStyle(HIGHLIGHT_STYLE); }
 
-    public void unhighlightBreadcrumb() { breadcrumb.setStyle(unhighlightStyle); }
+    public void unhighlightBreadcrumb() { breadcrumb.setStyle(UNHIGHLIGHT_STYLE); }
 
-    public void highlightLogSettings() { logSettingsPageButton.setStyle(highlightStyle); }
+    public void highlightLogSettings() { logSettingsPageButton.setStyle(HIGHLIGHT_STYLE); }
 
-    public void unhighlightLogSettings() { logSettingsPageButton.setStyle(unhighlightStyle); }
+    public void unhighlightLogSettings() { logSettingsPageButton.setStyle(UNHIGHLIGHT_STYLE); }
 
-    public void highlightDevices() { devicesPageButton.setStyle(highlightStyle); }
+    public void highlightDevices() { devicesPageButton.setStyle(HIGHLIGHT_STYLE); }
 
-    public void unhighlightDevices() { devicesPageButton.setStyle(unhighlightStyle); }
+    public void unhighlightDevices() { devicesPageButton.setStyle(UNHIGHLIGHT_STYLE); }
 
-    public void highlightLocalDevice() { applicationsPageButton.setStyle(highlightStyle); }
+    public void highlightLocalDevice() { applicationsPageButton.setStyle(HIGHLIGHT_STYLE); }
 
-    public void unhighlightLocalDevice() { applicationsPageButton.setStyle(unhighlightStyle); }
+    public void unhighlightLocalDevice() { applicationsPageButton.setStyle(UNHIGHLIGHT_STYLE); }
 
     public void login() throws IOException {
 
-        if (username.getText().equals(usernameValue) && password.getText().equals(passwordValue) && (tries > 0)) {
+        if (username.getText().equals(USERNAME_VALUE) && password.getText().equals(PASSWORD_VALUE) && (tries > 0)) {
             Controller.timeOutCompleted = false; //Resets the timeout variable
             Stage stage = (Stage) loginButton.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader();
@@ -203,7 +203,7 @@ public class Controller {
         pauseInactivityTimer();
     }
 
-    public void permission_settings() throws IOException {
+    public void permissionSettings() throws IOException {
         Stage stage = (Stage) permissionSettingsPageButton.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("permission_settingsResize.fxml"));
@@ -347,7 +347,7 @@ public class Controller {
                 try {
                     goToApplicationPage(newApp);
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    System.out.println(e);
                 }
             }
         });
@@ -375,9 +375,9 @@ public class Controller {
      * @return List of Application objects
      */
     public ArrayList<Application> getLocalApplications() {
-        ArrayList<Application> apps = new ArrayList<Application>();
-        File f = new File(applicationsPath);
-        ArrayList<File> files = new ArrayList<File>(Arrays.asList(f.listFiles()));
+        ArrayList<Application> apps = new ArrayList<>();
+        File f = new File(APPLICATIONS_PATH);
+        ArrayList<File> files = new ArrayList<>(Arrays.asList(f.listFiles()));
         for (File file : files) {
             if (!file.getName().startsWith(".")) {
                 String name = file.getName().split("\\.")[0];
@@ -436,14 +436,7 @@ public class Controller {
         try {
             Map<String, Object> properties = Plist.load(plist.getPath());
             for (Map.Entry<String, Object> entry : properties.entrySet()) {
-                try {
-                    if (entry.getKey().startsWith("NS")) {
-                        perms.add(new Permission(entry.getKey().substring(2), entry.getValue().toString()));
-                    }
-                }
-                catch (Exception exception) {
-                    System.out.println("Caught it here: " + exception);
-                }
+                buildPermissionList(perms, entry);   //Edits original array as array pointer is passed to function
             }
             return perms;
         }
@@ -454,6 +447,16 @@ public class Controller {
         }
     }
 
+public void buildPermissionList(ArrayList<Permission> perms, Map.Entry<String, Object> entry){
+    try {
+        if (entry.getKey().startsWith("NS")) {
+            perms.add(new Permission(entry.getKey().substring(2), entry.getValue().toString()));
+        }
+    }
+    catch (Exception exception) {
+        System.out.println("Caught it here: " + exception);
+    }
+}
 
     private void updateApplicationsForDatabase() {
         String uri = "mongodb+srv://PolicyLock:PolicyLock@policylock.rrwer.mongodb.net/PolicyLock?retryWrites=true&w=majority";
