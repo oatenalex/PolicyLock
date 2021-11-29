@@ -12,6 +12,7 @@ module com.example.policylock {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
+    requires xmlwise;
 
     opens com.example.policylock to javafx.fxml;
     exports com.example.policylock;
