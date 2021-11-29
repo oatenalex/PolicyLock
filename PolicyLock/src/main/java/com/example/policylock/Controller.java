@@ -154,7 +154,17 @@ public class Controller {
             {
                 triesLabel.setText("Attempts Left: " + tries);
             }
-            else{
+            else {
+                if (loginButton.getText().equals("Confirm")) {
+                    Stage stage = (Stage) loginButton.getScene().getWindow();
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("loginResize.fxml"));
+                    GridPane mainLayout = loader.load();
+                    Controller c = loader.getController();
+                    c.incorrect.setText("You have been logged out");
+                    c.triesLabel.setText("");
+                    stage.getScene().setRoot(mainLayout);
+                }
                 incorrect.setText("You have been locked out");
                 triesLabel.setText("");
             }
