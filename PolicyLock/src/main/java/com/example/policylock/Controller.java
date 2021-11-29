@@ -378,7 +378,7 @@ public class Controller {
 //            iconImage = new Image(defaultImageFile.toURI().toString());
 //        }
 
-        File defaultImageFile = new File(System.getProperty("user.dir") + "/src/main/java/com/example/policylock/Images/DefaultIcon.png");
+        File defaultImageFile = new File(System.getProperty("user.dir") + "/src/main/resources/img/DefaultIcon.png");
         iconImage = new Image(defaultImageFile.toURI().toString());
 
 
