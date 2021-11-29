@@ -4,10 +4,10 @@ import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -93,7 +93,7 @@ public class Controller {
     private GridPane gridPane;
 
     @FXML
-    private AnchorPane applicationsAnchorPane;
+    private ScrollPane applicationsScrollPane;
 
     //Timer variables used for handling inactivity
     private int inactivityTimeAllowance = 2;
@@ -336,38 +336,86 @@ public class Controller {
         stage.getScene().setRoot(mainLayout);
         pauseInactivityTimer();
 
-        applicationsAnchorPane = (AnchorPane) loader.getNamespace().get("applicationsAnchorPane");
+        applicationsScrollPane = (ScrollPane) loader.getNamespace().get("applicationsScrollPane");
         VBox appVBox = new VBox();
 
 
         ArrayList<Application> apps = getLocalApplications();
-        for (Application app : apps) {
-            appVBox.getChildren().add(createApplicationButton(app));
+        int _counter = 0;
+        ArrayList<HBox> rows = new ArrayList<>();
+        for (int i = 0; i < apps.size(); i += 3) {
+            HBox newRow = new HBox();
+            newRow.getChildren().add(createApplicationButton(apps.get(i)));
+            if (i + 1 < apps.size()) {
+                newRow.getChildren().add(createApplicationButton(apps.get(i + 1)));
+            }
+            if (i + 2 < apps.size()) {
+                newRow.getChildren().add(createApplicationButton(apps.get(i + 2)));
+            }
+            rows.add(newRow);
         }
 
-        applicationsAnchorPane.getChildren().add(appVBox);
+        for (HBox hBox : rows) {
+            hBox.setSpacing(30);
+            appVBox.getChildren().add(hBox);
+            appVBox.setAlignment(Pos.CENTER);
+        }
+
+        appVBox.setSpacing(30);
+        appVBox.setPadding(new Insets(30, 30, 30, 30));
+
+        applicationsScrollPane.setContent(appVBox);
         updateApplicationsForDatabase();
     }
 
     private Button createApplicationButton(Application app) {
+        Image iconImage;
+//        try {
+//            File file = new File(app.getPath());
+//            final javax.swing.JFileChooser fc = new javax.swing.JFileChooser();
+//            javax.swing.Icon icon = fc.getUI().getFileView(fc).getIcon(file);
+//
+//            BufferedImage bufferedImage = new BufferedImage(
+//                    icon.getIconWidth(),
+//                    icon.getIconHeight(),
+//                    BufferedImage.TYPE_INT_ARGB
+//            );
+//            icon.paintIcon(null, bufferedImage.getGraphics(), 0, 0);
+//            iconImage = SwingFXUtils.toFXImage(bufferedImage, null);
+//        }
+//        catch (Exception e) {
+//            File defaultImageFile = new File(System.getProperty("user.dir") + "/src/main/java/com/example/policylock/Images/DefaultIcon.png");
+//            iconImage = new Image(defaultImageFile.toURI().toString());
+//        }
+
+        File defaultImageFile = new File(System.getProperty("user.dir") + "/src/main/resources/img/DefaultIcon.png");
+        iconImage = new Image(defaultImageFile.toURI().toString());
+
+
+        ImageView btnView = new ImageView(iconImage);
+        btnView.setFitHeight(40);
+        btnView.setPreserveRatio(true);
+
         Button newApp = new Button();
-        newApp.setText(app.getButtonFormat());
+        newApp.setPrefSize(150, 80);
+        newApp.setGraphic(btnView);
+        newApp.setContentDisplay(ContentDisplay.TOP);
+        newApp.setText(app.name);
         newApp.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
                 try {
-                    goToApplicationPage(newApp);
+                    goToApplicationPage(newApp, app);
                 } catch (IOException e) {
-                    System.out.println(e);
+                    e.printStackTrace();
                 }
             }
         });
         return newApp;
     }
     //permissions and log of a specific application
-    public void goToApplicationPage(Button newApp) throws IOException {
-        String applicationName = newApp.getText().substring(newApp.getText().indexOf(" ") + 1, newApp.getText().indexOf("Last Modified"));
-        applicationName.trim();
+    public void goToApplicationPage(Button newApp, Application app) throws IOException {
+        String applicationName = app.name;
         Stage stage = (Stage) newApp.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("application.fxml"));
@@ -386,9 +434,9 @@ public class Controller {
      * @return List of Application objects
      */
     public ArrayList<Application> getLocalApplications() {
-        ArrayList<Application> apps = new ArrayList<>();
-        File f = new File(APPLICATIONS_PATH);
-        ArrayList<File> files = new ArrayList<>(Arrays.asList(f.listFiles()));
+        ArrayList<Application> apps = new ArrayList<Application>();
+        File f = new File("/Applications");
+        ArrayList<File> files = new ArrayList<File>(Arrays.asList(f.listFiles()));
         for (File file : files) {
             if (!file.getName().startsWith(".")) {
                 String name = file.getName().split("\\.")[0];
@@ -398,17 +446,14 @@ public class Controller {
 
                 Application newApp = new Application(name);
                 newApp.setDateLastModified(date);
+                newApp.setPath(file.getPath());
 
                 ArrayList<File> pckContents = new ArrayList<>(Arrays.asList(file.listFiles()));
                 for (File content: pckContents) {
                     if (content.getName().equals("Contents")) {
                         ArrayList<File> folders = new ArrayList<>(Arrays.asList(content.listFiles()));
                         for (File folder : folders) {
-                            if (folder.getName().equals("Resources")) {
-                                File appIcon = getApplicationIcon(folder);
-                                newApp.setIcon(appIcon);
-                            }
-                            else if (folder.getName().endsWith(".plist")) {
+                            if (folder.getName().endsWith(".plist")) {
                                 ArrayList<Permission> perms = parsePermissions(folder);
                                 newApp.setPermissions(perms);
                             }
@@ -423,21 +468,6 @@ public class Controller {
     }
 
     /**
-     * Retrieves the application icon from the Resources folder
-     * @param folder Resources folder
-     * @return File pointing to the application icon
-     */
-    public File getApplicationIcon(File folder) {
-        ArrayList<File> resources = new ArrayList<>(Arrays.asList(folder.listFiles()));
-        for (File icon : resources) {
-            if (icon.getName().endsWith(".icns")) {
-                return icon;
-            }
-        }
-        return new File("Images/DefaultIcon.icns");
-    }
-
-    /**
      * Parses the permissions of an application's Info.plist file
      * @param plist Info.plist file
      * @return ArrayList of Permission objects
@@ -447,7 +477,14 @@ public class Controller {
         try {
             Map<String, Object> properties = Plist.load(plist.getPath());
             for (Map.Entry<String, Object> entry : properties.entrySet()) {
-                buildPermissionList(perms, entry);   //Edits original array as array pointer is passed to function
+                try {
+                    if (entry.getKey().startsWith("NS")) {
+                        perms.add(new Permission(entry.getKey().substring(2), entry.getValue().toString()));
+                    }
+                }
+                catch (Exception exception) {
+                    System.out.println("Caught it here: " + exception);
+                }
             }
             return perms;
         }
@@ -456,6 +493,17 @@ public class Controller {
             perms.add(new Permission("ERROR", "Could not read permissions"));
             return perms;
         }
+    }
+
+
+    private void updateApplicationsForDatabase() {
+//        String uri = "mongodb+srv://PolicyLock:PolicyLock@policylock.rrwer.mongodb.net/PolicyLock?retryWrites=true&w=majority";
+//        try (MongoClient mongoClient = MongoClients.create(uri)) {
+//            MongoDatabase database = mongoClient.getDatabase("PolicyLock");
+//            MongoCollection<Document> collection = database.getCollection("Devices");
+//            Document doc = collection.find(eq("Test1", "Hello World!")).first();
+//            System.out.println(doc.toJson());
+//        }
     }
 
 public void buildPermissionList(ArrayList<Permission> perms, Map.Entry<String, Object> entry){
@@ -469,13 +517,7 @@ public void buildPermissionList(ArrayList<Permission> perms, Map.Entry<String, O
     }
 }
 
-    private void updateApplicationsForDatabase() {
-        String uri = "mongodb+srv://PolicyLock:PolicyLock@policylock.rrwer.mongodb.net/PolicyLock?retryWrites=true&w=majority";
-        try (MongoClient mongoClient = MongoClients.create(uri)) {
-            MongoDatabase database = mongoClient.getDatabase("PolicyLock");
-            MongoCollection<Document> collection = database.getCollection("Devices");
-            Document doc = collection.find(eq("Test1", "Hello World!")).first();
-            System.out.println(doc.toJson());
-        }
-    }
+
+
+
 }
