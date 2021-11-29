@@ -13,4 +13,9 @@
       <module name="PolicyLock" target="15" />
     </bytecodeTargetLevel>
   </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="PolicyLock" options="--add-modules java.base" />
+    </option>
+  </component>
 </project>
