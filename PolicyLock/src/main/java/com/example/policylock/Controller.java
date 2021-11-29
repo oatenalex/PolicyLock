@@ -503,7 +503,7 @@ public class Controller {
 //            MongoCollection<Document> collection = database.getCollection("Devices");
 //            Document doc = collection.find(eq("Test1", "Hello World!")).first();
 //            System.out.println(doc.toJson());
-//        }
+//        } 
     }
 
 public void buildPermissionList(ArrayList<Permission> perms, Map.Entry<String, Object> entry){
