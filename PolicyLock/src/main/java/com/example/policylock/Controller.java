@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.GregorianCalendar;
+import java.util.Map;
 
 import static com.mongodb.client.model.Filters.eq;
 import org.bson.Document;
@@ -29,6 +30,8 @@ import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+
+import xmlwise.Plist;
 
 public class Controller {
     //For Login
@@ -98,6 +101,9 @@ public class Controller {
     private int inactivityTimeAllowance = 20;
     private PauseTransition inactivityTimeCounter = new PauseTransition();
     private static boolean timeOutCompleted = false; //Variable used to check if timeout has already been completed to fix multiple log in screen issue from multiple anchor panes being activated
+
+    //File Path Variables
+    private static final String applicationsPath = "/Applications"; // for mac only
 
     //Breadcrumb Styling
     private static final String highlightStyle = "-fx-text-fill: #33D7FF; -fx-background-color: transparent;";
@@ -323,7 +329,7 @@ public class Controller {
         VBox appVBox = new VBox();
 
 
-        ArrayList<Application> apps = getLocalApplicationList();
+        ArrayList<Application> apps = getLocalApplications();
         for (Application app : apps) {
             appVBox.getChildren().add(createApplicationButton(app));
         }
@@ -362,17 +368,16 @@ public class Controller {
 
     }
 
+
     /**
      * Gets a list of the applications on a device.
      * Currently, only works for Macs that did not move the default location of applications directory.
      * @return List of Application objects
      */
-    private static final String applicationsPath = "/Applications";
-
-    private ArrayList<Application> getLocalApplicationList() {
-        ArrayList<Application> apps = new ArrayList<>();
+    public ArrayList<Application> getLocalApplications() {
+        ArrayList<Application> apps = new ArrayList<Application>();
         File f = new File(applicationsPath);
-        ArrayList<File> files = new ArrayList<>(Arrays.asList(f.listFiles()));
+        ArrayList<File> files = new ArrayList<File>(Arrays.asList(f.listFiles()));
         for (File file : files) {
             if (!file.getName().startsWith(".")) {
                 String name = file.getName().split("\\.")[0];
@@ -383,11 +388,72 @@ public class Controller {
                 Application newApp = new Application(name);
                 newApp.setDateLastModified(date);
 
+                ArrayList<File> pckContents = new ArrayList<>(Arrays.asList(file.listFiles()));
+                for (File content: pckContents) {
+                    if (content.getName().equals("Contents")) {
+                        ArrayList<File> folders = new ArrayList<>(Arrays.asList(content.listFiles()));
+                        for (File folder : folders) {
+                            if (folder.getName().equals("Resources")) {
+                                File appIcon = getApplicationIcon(folder);
+                                newApp.setIcon(appIcon);
+                            }
+                            else if (folder.getName().endsWith(".plist")) {
+                                ArrayList<Permission> perms = parsePermissions(folder);
+                                newApp.setPermissions(perms);
+                            }
+                        }
+                    }
+                }
+
                 apps.add(newApp);
             }
         }
         return apps;
     }
+
+    /**
+     * Retrieves the application icon from the Resources folder
+     * @param folder Resources folder
+     * @return File pointing to the application icon
+     */
+    public File getApplicationIcon(File folder) {
+        ArrayList<File> resources = new ArrayList<>(Arrays.asList(folder.listFiles()));
+        for (File icon : resources) {
+            if (icon.getName().endsWith(".icns")) {
+                return icon;
+            }
+        }
+        return new File("Images/DefaultIcon.icns");
+    }
+
+    /**
+     * Parses the permissions of an application's Info.plist file
+     * @param plist Info.plist file
+     * @return ArrayList of Permission objects
+     */
+    public ArrayList<Permission> parsePermissions(File plist) {
+        ArrayList<Permission> perms = new ArrayList<>();
+        try {
+            Map<String, Object> properties = Plist.load(plist.getPath());
+            for (Map.Entry<String, Object> entry : properties.entrySet()) {
+                try {
+                    if (entry.getKey().startsWith("NS")) {
+                        perms.add(new Permission(entry.getKey().substring(2), entry.getValue().toString()));
+                    }
+                }
+                catch (Exception exception) {
+                    System.out.println("Caught it here: " + exception);
+                }
+            }
+            return perms;
+        }
+        catch (Exception e) {
+            System.out.println("Error: " + e);
+            perms.add(new Permission("ERROR", "Could not read permissions"));
+            return perms;
+        }
+    }
+
 
     private void updateApplicationsForDatabase() {
         String uri = "mongodb+srv://PolicyLock:PolicyLock@policylock.rrwer.mongodb.net/PolicyLock?retryWrites=true&w=majority";
