@@ -1,12 +1,15 @@
 package com.example.policylock;
 
 import javafx.animation.PauseTransition;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -94,6 +97,9 @@ public class Controller {
 
     @FXML
     private ScrollPane applicationsScrollPane;
+
+    @FXML
+    private ScrollPane permissionScrollPane;
 
     //Timer variables used for handling inactivity
     private int inactivityTimeAllowance = 2;
@@ -331,7 +337,6 @@ public class Controller {
 
 
         ArrayList<Application> apps = getLocalApplications();
-        int _counter = 0;
         ArrayList<HBox> rows = new ArrayList<>();
         for (int i = 0; i < apps.size(); i += 3) {
             HBox newRow = new HBox();
@@ -412,9 +417,35 @@ public class Controller {
         GridPane mainLayout = loader.load();
         Controller c = loader.getController();
         c.applicationNameButton.setText(applicationName);
+
+        applicationsScrollPane = (ScrollPane) loader.getNamespace().get("permissionScrollPane");
+        VBox appVBox = new VBox();
+
+        TableView permTable = createPermissionsTable(app.getPermissions());
+        appVBox.getChildren().add(permTable);
+
         stage.getScene().setRoot(mainLayout);
         pauseInactivityTimer();
 
+    }
+
+    private TableView createPermissionsTable(ArrayList<Permission> permissions) {
+        TableView permTable = new TableView();
+        permTable.setEditable(true);
+
+        TableColumn nameCol = new TableColumn("Permission");
+        nameCol.setMinWidth(500);
+        nameCol.setCellFactory(new PropertyValueFactory<Permission, String>("name"));
+        TableColumn descCol = new TableColumn("Description");
+        descCol.setMinWidth(1000);
+        descCol.setCellFactory(new PropertyValueFactory<Permission, String>("description"));
+
+        ObservableList<Permission> data = FXCollections.observableArrayList(permissions);
+        permTable.setItems(data);
+
+        permTable.getColumns().addAll(nameCol, descCol);
+
+        return permTable;
     }
 
 

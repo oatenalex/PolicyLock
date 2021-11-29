@@ -17,5 +17,6 @@ public class Permission {
     public String getDescription() {
         return this.description;
     }
+
 }
 
