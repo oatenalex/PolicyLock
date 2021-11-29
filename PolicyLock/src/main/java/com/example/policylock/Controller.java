@@ -91,14 +91,12 @@ public class Controller {
     //Background anchorpane on which each UI element is placed. Use for inactivity timer
     @FXML
     private GridPane gridPane;
-    @FXML
-    private ImageView background;
 
     @FXML
     private AnchorPane applicationsAnchorPane;
 
     //Timer variables used for handling inactivity
-    private int inactivityTimeAllowance = 20;
+    private int inactivityTimeAllowance = 2;
     private PauseTransition inactivityTimeCounter = new PauseTransition();
     private static boolean timeOutCompleted = false; //Variable used to check if timeout has already been completed to fix multiple log in screen issue from multiple anchor panes being activated
 
@@ -308,8 +306,8 @@ public class Controller {
     }
 
     private void appTimeOut() throws IOException {
-        Stage stage = (Stage) gridPane.getScene().getWindow();
         if (!timeOutCompleted) {
+            Stage stage = (Stage) gridPane.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("loginResize.fxml"));
             GridPane mainLayout = loader.load();
