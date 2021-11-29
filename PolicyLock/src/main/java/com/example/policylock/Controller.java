@@ -438,7 +438,7 @@ public class Controller {
         File f = new File("/Applications");
         ArrayList<File> files = new ArrayList<File>(Arrays.asList(f.listFiles()));
         for (File file : files) {
-            if (!file.getName().startsWith(".")) {
+            if (!file.getName().startsWith(".") && file.getName().endsWith(".app")) {
                 String name = file.getName().split("\\.")[0];
 
                 GregorianCalendar date = new GregorianCalendar();
@@ -503,7 +503,7 @@ public class Controller {
 //            MongoCollection<Document> collection = database.getCollection("Devices");
 //            Document doc = collection.find(eq("Test1", "Hello World!")).first();
 //            System.out.println(doc.toJson());
-//        } 
+//        }
     }
 
 public void buildPermissionList(ArrayList<Permission> perms, Map.Entry<String, Object> entry){
