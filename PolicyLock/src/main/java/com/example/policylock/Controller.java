@@ -95,9 +95,11 @@ public class Controller {
     @FXML
     private ScrollPane applicationsScrollPane;
 
+    private static Stage currentStage;
+
     //Timer variables used for handling inactivity
-    private int inactivityTimeAllowance = 2;
-    private PauseTransition inactivityTimeCounter = new PauseTransition();
+    private static int inactivityTimeAllowance = 2;
+    private static PauseTransition inactivityTimeCounter = new PauseTransition();
     private static boolean timeOutCompleted = false; //Variable used to check if timeout has already been completed to fix multiple log in screen issue from multiple anchor panes being activated
 
     //File Path Variables
@@ -194,6 +196,8 @@ public class Controller {
         loader.setLocation(getClass().getResource("homeResize.fxml"));
         GridPane mainLayout = loader.load();
         stage.getScene().setRoot(mainLayout);
+        currentStage = stage;
+        pauseInactivityTimer();
     }
 
     public void devices() throws IOException {
@@ -202,6 +206,7 @@ public class Controller {
         loader.setLocation(getClass().getResource("devicesResize.fxml"));
         GridPane mainLayout = loader.load();
         stage.getScene().setRoot(mainLayout);
+        currentStage = stage;
         pauseInactivityTimer();
     }
 
@@ -211,6 +216,7 @@ public class Controller {
         loader.setLocation(getClass().getResource("settingsResize.fxml"));
         GridPane mainLayout = loader.load();
         stage.getScene().setRoot(mainLayout);
+        currentStage = stage;
         pauseInactivityTimer();
     }
 
@@ -220,6 +226,7 @@ public class Controller {
         loader.setLocation(getClass().getResource("permission_settingsResize.fxml"));
         GridPane mainLayout = loader.load();
         stage.getScene().setRoot(mainLayout);
+        currentStage = stage;
         pauseInactivityTimer();
     }
 
@@ -229,6 +236,7 @@ public class Controller {
         loader.setLocation(getClass().getResource("log_settingsResize.fxml"));
         GridPane mainLayout = loader.load();
         stage.getScene().setRoot(mainLayout);
+        currentStage = stage;
         pauseInactivityTimer();
     }
 
@@ -240,6 +248,7 @@ public class Controller {
         Controller c = loader.getController();
         c.breadcrumb.setText("LOG");
         stage.getScene().setRoot(mainLayout);
+        currentStage = stage;
         pauseInactivityTimer();
     }
 
@@ -252,6 +261,7 @@ public class Controller {
             loader.setLocation(getClass().getResource("logResize.fxml"));
         GridPane mainLayout = loader.load();
         stage.getScene().setRoot(mainLayout);
+        currentStage = stage;
         pauseInactivityTimer();
     }
 
@@ -261,6 +271,7 @@ public class Controller {
         loader.setLocation(getClass().getResource("notification_settingsResize.fxml"));
         GridPane mainLayout = loader.load();
         stage.getScene().setRoot(mainLayout);
+        currentStage = stage;
         pauseInactivityTimer();
     }
 
@@ -270,6 +281,7 @@ public class Controller {
         loader.setLocation(getClass().getResource("account_settingsLogin.fxml"));
         GridPane mainLayout = loader.load();
         stage.getScene().setRoot(mainLayout);
+        currentStage = stage;
         pauseInactivityTimer();
     }
 
@@ -279,6 +291,7 @@ public class Controller {
         loader.setLocation(getClass().getResource("logResize.fxml"));
         GridPane mainLayout = loader.load();
         stage.getScene().setRoot(mainLayout);
+        currentStage = stage;
         pauseInactivityTimer();
     }
 
@@ -288,6 +301,7 @@ public class Controller {
         loader.setLocation(getClass().getResource("confirm_logoutResize.fxml"));
         GridPane mainLayout = loader.load();
         stage.getScene().setRoot(mainLayout);
+        currentStage = stage;
         pauseInactivityTimer();
     }
 
@@ -297,6 +311,7 @@ public class Controller {
         loader.setLocation(getClass().getResource("loginResize.fxml"));
         GridPane mainLayout = loader.load();
         stage.getScene().setRoot(mainLayout);
+        currentStage = stage;
         pauseInactivityTimer();
     }
 
@@ -317,7 +332,7 @@ public class Controller {
 
     private void appTimeOut() throws IOException {
         if (!timeOutCompleted) {
-            Stage stage = (Stage) gridPane.getScene().getWindow();
+            Stage stage = (Stage) currentStage.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("loginResize.fxml"));
             GridPane mainLayout = loader.load();
@@ -516,8 +531,4 @@ public void buildPermissionList(ArrayList<Permission> perms, Map.Entry<String, O
         System.out.println("Caught it here: " + exception);
     }
 }
-
-
-
-
 }
