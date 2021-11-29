@@ -123,6 +123,10 @@ public class Controller {
 
     public void unhighlightDevices() { devicesPageButton.setStyle(unhighlightStyle); }
 
+    public void highlightLocalDevice() { applicationsPageButton.setStyle(highlightStyle); }
+
+    public void unhighlightLocalDevice() { applicationsPageButton.setStyle(unhighlightStyle); }
+
     public void login() throws IOException {
 
         if (username.getText().equals(usernameValue) && password.getText().equals(passwordValue) && (tries > 0)) {
