@@ -139,7 +139,10 @@ public class Controller {
             Controller.timeOutCompleted = false; //Resets the timeout variable
             Stage stage = (Stage) loginButton.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("homeResize.fxml"));
+            if (loginButton.getText().equals("Login"))
+                loader.setLocation(getClass().getResource("homeResize.fxml"));
+            else
+                loader.setLocation(getClass().getResource("account_settingsResize.fxml"));
             GridPane mainLayout = loader.load();
             stage.getScene().setRoot(mainLayout);
         }
@@ -174,8 +177,8 @@ public class Controller {
         //Checks if the source calling the actionEvent is the Username box or password
         if (event.getSource().getClass().equals(username.getClass()))
             password.requestFocus();
-        else{ login();}
-    };
+        else { login(); }
+    }
 
     public void home() throws IOException {
         Stage stage = (Stage) homePageButton.getScene().getWindow();
@@ -253,10 +256,10 @@ public class Controller {
         pauseInactivityTimer();
     }
 
-    public void accountSettings() throws IOException {
+    public void accountSettingsLogin() throws IOException {
         Stage stage = (Stage) accountSettingsPageButton.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("account_settingsResize.fxml"));
+        loader.setLocation(getClass().getResource("account_settingsLogin.fxml"));
         GridPane mainLayout = loader.load();
         stage.getScene().setRoot(mainLayout);
         pauseInactivityTimer();
