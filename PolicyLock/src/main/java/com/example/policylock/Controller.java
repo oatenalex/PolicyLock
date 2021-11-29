@@ -453,7 +453,7 @@ public class Controller {
         File f = new File("/Applications");
         ArrayList<File> files = new ArrayList<File>(Arrays.asList(f.listFiles()));
         for (File file : files) {
-            if (!file.getName().startsWith(".")) {
+            if (!file.getName().startsWith(".") && file.getName().endsWith(".app")) {
                 String name = file.getName().split("\\.")[0];
 
                 GregorianCalendar date = new GregorianCalendar();
@@ -531,4 +531,8 @@ public void buildPermissionList(ArrayList<Permission> perms, Map.Entry<String, O
         System.out.println("Caught it here: " + exception);
     }
 }
+
+
+
+
 }
