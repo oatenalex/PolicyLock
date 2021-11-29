@@ -2,7 +2,6 @@ package com.example.policylock;
 
 import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -16,6 +15,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import javafx.event.EventHandler;
 
 import java.io.File;
 import java.io.IOException;
@@ -67,6 +67,8 @@ public class Controller {
     @FXML
     private Button applicationsPageButton;
     @FXML
+    private Button applicationNameButton;
+    @FXML
     private Button localDevicePageButton;
     @FXML
     private Button settingsPageButton;
@@ -82,8 +84,6 @@ public class Controller {
     private Button accountSettingsPageButton;
     @FXML
     private Button logPageButton;
-    @FXML
-    private Button applicationNameButton;
 
     //Background anchorpane on which each UI element is placed. Use for inactivity timer
     @FXML
@@ -94,9 +94,6 @@ public class Controller {
     @FXML
     private AnchorPane applicationsAnchorPane;
 
-    //Variables for storing device/application info
-    private String applicationName;
-
     //Timer variables used for handling inactivity
     private int inactivityTimeAllowance = 20;
     private PauseTransition inactivityTimeCounter = new PauseTransition();
@@ -106,22 +103,25 @@ public class Controller {
     private static final String highlightStyle = "-fx-text-fill: #33D7FF; -fx-background-color: transparent;";
     private static final String unhighlightStyle = "-fx-text-fill: #909090; -fx-background-color: transparent;";
 
+    public void highlightHome() { homePageButton.setStyle(highlightStyle); }
 
+    public void unhighlightHome() { homePageButton.setStyle(unhighlightStyle); }
 
+    public void highlightSettings() { settingsPageButton.setStyle(highlightStyle); }
 
+    public void unhighlightSettings() { settingsPageButton.setStyle(unhighlightStyle); }
 
+    public void highlightBreadcrumb() { breadcrumb.setStyle(highlightStyle); }
 
+    public void unhighlightBreadcrumb() { breadcrumb.setStyle(unhighlightStyle); }
 
+    public void highlightLogSettings() { logSettingsPageButton.setStyle(highlightStyle); }
 
+    public void unhighlightLogSettings() { logSettingsPageButton.setStyle(unhighlightStyle); }
 
+    public void highlightDevices() { devicesPageButton.setStyle(highlightStyle); }
 
-    public void highlightLocalDevice() {
-        applicationsPageButton.setStyle(highlightStyle);
-    }
-
-    public void unhighlightLocalDevice() {
-        applicationsPageButton.setStyle(unhighlightStyle);
-    }
+    public void unhighlightDevices() { devicesPageButton.setStyle(unhighlightStyle); }
 
     public void login() throws IOException {
 
@@ -132,11 +132,18 @@ public class Controller {
             loader.setLocation(getClass().getResource("homeResize.fxml"));
             GridPane mainLayout = loader.load();
             stage.getScene().setRoot(mainLayout);
+        }
+
+        else {
             incorrect.setText("Incorrect username or password");
             tries -= 1;
 
             //Limited amount of tries
+            if (tries > 0)
+            {
                 triesLabel.setText("Attempts Left: " + tries);
+            }
+            else{
                 incorrect.setText("You have been locked out");
                 triesLabel.setText("");
             }
@@ -149,12 +156,16 @@ public class Controller {
         }
     }
 
+    public void closeNotification() { notification.setVisible(false); }
 
     //Method that handles when the enter key is pressed in text boxes on the enter page
     @FXML
+    private void onEnter(ActionEvent event) throws IOException{
         //Checks if the source calling the actionEvent is the Username box or password
         if (event.getSource().getClass().equals(username.getClass()))
             password.requestFocus();
+        else{ login();}
+    };
 
     public void home() throws IOException {
         Stage stage = (Stage) homePageButton.getScene().getWindow();
@@ -268,9 +279,12 @@ public class Controller {
         pauseInactivityTimer();
     }
 
+    public void pauseInactivityTimer(){
         inactivityTimeCounter.stop();
     }
+    public void inactivityTimer(){
         inactivityTimeCounter.setDuration(Duration.seconds(inactivityTimeAllowance));
+        inactivityTimeCounter.setOnFinished( event -> {
             try {
                 appTimeOut();
             } catch (IOException e) {
@@ -293,7 +307,6 @@ public class Controller {
         }
     }
 
-    //list of a device's applications
     public void goToApplicationsPage() throws IOException {
         Stage stage = (Stage) applicationsPageButton.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
@@ -332,7 +345,7 @@ public class Controller {
     }
     //permissions and log of a specific application
     public void goToApplicationPage(Button newApp) throws IOException {
-        applicationName = newApp.getText().substring(newApp.getText().indexOf(" ") + 1, newApp.getText().indexOf("Last Modified"));
+        String applicationName = newApp.getText().substring(newApp.getText().indexOf(" ") + 1, newApp.getText().indexOf("Last Modified"));
         applicationName.trim();
         Stage stage = (Stage) newApp.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
