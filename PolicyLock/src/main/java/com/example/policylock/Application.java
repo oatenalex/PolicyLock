@@ -12,7 +12,6 @@ public class Application {
 
     private String path;
     private GregorianCalendar dateLastModified;
-    private File icon;
 
     private ArrayList<Permission> permissions;
 
@@ -44,17 +43,6 @@ public class Application {
         return formatted.toString();
     }
 
-    public void setIcon(File icon) {
-        this.icon = icon;
-    }
-
-    public File getIcon() {
-        if (this.icon == null) {
-            return new File("Images/DefaultIcon.icns");
-        }
-        return this.icon;
-    }
-
     public void setPermissions(ArrayList<Permission> newPerms) {
         this.permissions.clear();
         for (Permission p : newPerms) {
@@ -64,5 +52,13 @@ public class Application {
 
     public ArrayList<Permission> getPermissions() {
         return this.permissions;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    public String getPath() {
+        return this.path;
     }
 }
