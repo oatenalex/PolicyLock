@@ -49,10 +49,6 @@ public class Controller {
     private static final String USERNAME_VALUE = "u";
     private static final String PASSWORD_VALUE = "p";
 
-    //Devices
-    private Device localDevice = new Device("Local Device");
-    private ArrayList<Device> serverDevices = new ArrayList<>();
-
     private static Stage currentStage;
 
     //Timer variables used for handling inactivity
@@ -87,9 +83,9 @@ public class Controller {
 
     public void unhighlightDevices() { devicesPageButton.setStyle(UNHIGHLIGHT_STYLE); }
 
-//    public void highlightLocalDevice() { applicationsPageButton.setStyle(HIGHLIGHT_STYLE); }
-//
-//    public void unhighlightLocalDevice() { applicationsPageButton.setStyle(UNHIGHLIGHT_STYLE); }
+    public void highlightLocalDevice() { applicationsPageButton.setStyle(HIGHLIGHT_STYLE); }
+
+    public void unhighlightLocalDevice() { applicationsPageButton.setStyle(UNHIGHLIGHT_STYLE); }
 
     public static String getOSType(){
         if (OSType != null){
@@ -136,15 +132,6 @@ public class Controller {
             Controller.timeOutCompleted = false; //Resets the timeout variable
             Stage stage = (Stage) loginButton.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader();
-
-            updateDatabaseForLocalDevice();
-            try {
-                retrieveDevicesFromDatabase();
-            }
-            catch (Exception e) {
-                System.err.println("Device Retrieval Failed");
-            }
-
 
             if (loginButton.getText().equals("Login"))
                 loader.setLocation(getClass().getResource("homeResize.fxml"));
@@ -223,6 +210,19 @@ public class Controller {
         currentStage = stage;
         pauseInactivityTimer();
 
+        Device localDevice = createLocalDevice();
+        updateDatabaseForLocalDevice(localDevice);
+
+        ArrayList<Device> systemDevices;
+
+        try {
+            systemDevices = retrieveDevicesFromDatabase();
+        }
+        catch (Exception e) {
+            System.err.println("Device Retrieval Failed");
+            systemDevices = new ArrayList<>();
+        }
+
         devicesScrollPane = (ScrollPane) loader.getNamespace().get("devicesScrollPane");
 
         VBox devicesVBox = new VBox();
@@ -233,8 +233,7 @@ public class Controller {
         }
 
         boolean _odd = false;
-        for (Device device : this.serverDevices) {
-            System.out.println(device.name);
+        for (Device device : systemDevices) {
             Button newDevice = createDeviceButton(device, false);
             if (_odd) {
                 newDevice.setBackground(new Background(new BackgroundFill(Color.WHITE, null, null)));
@@ -435,6 +434,8 @@ public class Controller {
     }
 
     @FXML
+    private Button applicationsPageButton;
+    @FXML
     private ScrollPane applicationsScrollPane;
 
     public void goToApplicationsPage(Button devicePageButton, Device device) throws IOException {
@@ -455,12 +456,12 @@ public class Controller {
         ArrayList<HBox> rows = new ArrayList<>();
         for (int i = 0; i < apps.size(); i += 3) {
             HBox newRow = new HBox();
-            newRow.getChildren().add(createApplicationButton(apps.get(i)));
+            newRow.getChildren().add(createApplicationButton(apps.get(i), device));
             if (i + 1 < apps.size()) {
-                newRow.getChildren().add(createApplicationButton(apps.get(i + 1)));
+                newRow.getChildren().add(createApplicationButton(apps.get(i + 1), device));
             }
             if (i + 2 < apps.size()) {
-                newRow.getChildren().add(createApplicationButton(apps.get(i + 2)));
+                newRow.getChildren().add(createApplicationButton(apps.get(i + 2), device));
             }
             rows.add(newRow);
         }
@@ -477,7 +478,7 @@ public class Controller {
         applicationsScrollPane.setContent(appVBox);
     }
 
-    private Button createApplicationButton(Application app) {
+    private Button createApplicationButton(Application app, Device device) {
         Image iconImage;
 //        try {
 //            File file = new File(app.getPath());
@@ -514,7 +515,7 @@ public class Controller {
             @Override
             public void handle(ActionEvent actionEvent) {
                 try {
-                    goToApplicationPage(newApp, app);
+                    goToApplicationPage(newApp, app, device);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -528,7 +529,7 @@ public class Controller {
     @FXML
     private ScrollPane permissionScrollPane;
     //permissions and log of a specific application
-    public void goToApplicationPage(Button newApp, Application app) throws IOException {
+    public void goToApplicationPage(Button newApp, Application app, Device device) throws IOException {
         String applicationName = app.name;
         Stage stage = (Stage) newApp.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
@@ -536,6 +537,23 @@ public class Controller {
         GridPane mainLayout = loader.load();
         Controller c = loader.getController();
         c.applicationNameButton.setText(applicationName);
+        stage.getScene().setRoot(mainLayout);
+        pauseInactivityTimer();
+
+        c.applicationsPageButton = (Button) loader.getNamespace().get("applicationsPageButton");
+        c.applicationsPageButton.setText(device.name.toUpperCase(Locale.ROOT));
+        c.applicationsPageButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                try {
+                    goToApplicationsPage(applicationsPageButton, device);
+                }
+                catch (Exception e) {
+                    System.err.println("bad");
+                }
+
+            }
+        });
 
         permissionScrollPane = (ScrollPane) loader.getNamespace().get("permissionScrollPane");
         VBox appVBox = new VBox();
@@ -569,9 +587,6 @@ public class Controller {
 
         permissionScrollPane.setContent(appVBox);
 
-        stage.getScene().setRoot(mainLayout);
-        pauseInactivityTimer();
-
     }
 
     private HBox createPermissionRow(Permission permission, Font font) {
@@ -600,21 +615,14 @@ public class Controller {
         return newRow;
     }
 
-    /**
-     * Creates localDevice object. Pulls all applications and permissions for it.
-     * @return true if localDevice is initialized. False if process failed.
-     */
-    private boolean createLocalDevice() {
-        if (!localDevice.name.equals("Local Device")) {
-            return true;
-        }
+    private Device createLocalDevice() {
         String deviceName = getDeviceName();
         if (deviceName.equals("NOT A MAC") || deviceName.equals("ERROR")) {
-            return false;
+            return new Device("ERROR");
         }
-        localDevice.setNewName(deviceName);
+        Device localDevice = new Device(deviceName);
         localDevice.addMultipleApplications(getLocalApplications());
-        return true;
+        return localDevice;
     }
 
 
@@ -686,17 +694,8 @@ public class Controller {
     }
 
 
-    private void updateDatabaseForLocalDevice() {
+    private void updateDatabaseForLocalDevice(Device localDevice) {
         if (!getOSType().equals("mac")) {
-            return;
-        }
-
-        if (!createLocalDevice()) {
-            System.err.println("Error creating local device");
-            return;
-        }
-
-        if (localDevice == null) {
             return;
         }
 
@@ -725,7 +724,7 @@ public class Controller {
         }
     }
 
-    private void retrieveDevicesFromDatabase() {
+    private ArrayList<Device> retrieveDevicesFromDatabase() {
         ArrayList<String> deviceJSONs = new ArrayList<>();
 
         String uri = "mongodb+srv://PolicyLock:PolicyLock@policylock.rrwer.mongodb.net/PolicyLock?retryWrites=true&w=majority";
@@ -749,10 +748,13 @@ public class Controller {
             }
         }
 
+
+        ArrayList<Device> systemDevices = new ArrayList<>();
         Gson gson = new Gson();
         for (String json : deviceJSONs) {
-            this.serverDevices.add(gson.fromJson(json, Device.class));
+            systemDevices.add(gson.fromJson(json, Device.class));
         }
+        return systemDevices;
     }
 
     private static String getDeviceName() {
