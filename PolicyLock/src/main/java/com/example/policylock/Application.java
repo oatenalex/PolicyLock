@@ -10,10 +10,10 @@ public class Application {
 
     public String name;
 
-    private String path;
-    private GregorianCalendar dateLastModified;
+    public String path;
+    public GregorianCalendar dateLastModified;
 
-    private ArrayList<Permission> permissions;
+    public ArrayList<Permission> permissions;
 
     public Application(String name) {
         this.name = name;
@@ -31,16 +31,6 @@ public class Application {
     public String getLastModifiedString() {
         SimpleDateFormat fmt = new SimpleDateFormat("MMM dd, yyyy");
         return fmt.format(dateLastModified.getTime());
-    }
-
-    public String getButtonFormat() {
-        StringBuilder formatted = new StringBuilder();
-        formatted.append("Name: ").append(this.name);
-        for (int i = 0; i < 30 - this.name.length(); i++) {
-            formatted.append(" ");
-        }
-        formatted.append(" Last Modified: " + this.getLastModifiedString());
-        return formatted.toString();
     }
 
     public void setPermissions(ArrayList<Permission> newPerms) {

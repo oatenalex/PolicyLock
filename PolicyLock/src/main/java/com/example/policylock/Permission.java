@@ -2,8 +2,8 @@ package com.example.policylock;
 
 public class Permission {
 
-    private String name;
-    private String description;
+    public String name;
+    public String description;
 
     public Permission(String name, String description) {
         this.name = name;
