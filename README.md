@@ -1,5 +1,7 @@
 # PolicyLock
 Desktop application for policy inofrmation and enforcement.
+Username: username
+Password: password
 
 Under 4000 lines were analyzed by SonarCloud due to FXML files.
 Additional, unavoidable CodeSmells due to JavaFX code structure.
