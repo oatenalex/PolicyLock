@@ -136,9 +136,9 @@
             </Button>
             </children>
         </HBox>
-        <VBox maxHeight="900.0" maxWidth="700.0" spacing="10.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+        <VBox fx:id="permissionVBOX" maxHeight="900.0" maxWidth="700.0" spacing="10.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
             <children>
-                <ScrollPane fitToHeight="true" hbarPolicy="NEVER" maxHeight="900.0" maxWidth="700.0" prefWidth="820.0" style="-fx-background-color: transparent;" vbarPolicy="ALWAYS" VBox.vgrow="ALWAYS">
+                <ScrollPane fx:id="permissionScrollPane" fitToHeight="true" hbarPolicy="NEVER" maxHeight="900.0" maxWidth="700.0" prefWidth="820.0" style="-fx-background-color: transparent;" vbarPolicy="ALWAYS" VBox.vgrow="ALWAYS">
                     <content>
                         <AnchorPane id="applicationsAnchorPane" fx:id="applicationsAnchorPane" maxHeight="900.0" maxWidth="700.0" minHeight="0.0" minWidth="0.0" prefHeight="580.0" prefWidth="801.0" style="-fx-background-color: transparent;">
                             <children>

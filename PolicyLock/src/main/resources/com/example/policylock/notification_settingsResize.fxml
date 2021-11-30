@@ -32,12 +32,20 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <!--
 <AnchorPane xmlns="http://javafx.com/javafx"
@@ -48,7 +56,7 @@
 </AnchorPane>
 -->
 
-<GridPane fx:id="gridPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseEntered="#pauseInactivityTimer" onMouseExited="#startInactivityTimer" prefHeight="580.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.policylock.Controller">
+<GridPane fx:id="gridPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseEntered="#pauseInactivityTimer" onMouseExited="#startInactivityTimer" prefHeight="580.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.policylock.Controller">
     <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     </columnConstraints>
@@ -114,5 +122,124 @@
                 </Button>
             </children>
         </HBox>
+      <VBox alignment="TOP_CENTER" maxHeight="450.0" maxWidth="700.0" prefHeight="900.0" style="-fx-background-color: grey;" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+         <children>
+            <Label alignment="TOP_CENTER" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="1353.0" style="-fx-background-color: black;" text="Notification Settings" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" top="5.0" />
+               </padding>
+            </Label>
+            <HBox maxHeight="40.0" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="Email for Notifications: ">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="50.0" top="1.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField prefHeight="26.0" prefWidth="244.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </TextField>
+               </children>
+               <VBox.margin>
+                  <Insets top="38.0" />
+               </VBox.margin>
+            </HBox>
+            <CheckBox mnemonicParsing="false" text="Email Notifications">
+               <VBox.margin>
+                  <Insets right="380.0" top="15.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </CheckBox>
+            <CheckBox mnemonicParsing="false" text="Email and Push Notifications">
+               <VBox.margin>
+                  <Insets right="286.0" top="30.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </CheckBox>
+            <HBox maxHeight="40.0" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="Send Notifications for Log Message Level(s):">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="50.0" top="1.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets top="40.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox maxHeight="40.0" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <CheckBox mnemonicParsing="false" text="Critical">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="60.0" />
+                     </HBox.margin>
+                  </CheckBox>
+                  <CheckBox mnemonicParsing="false" text="Warning">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="60.0" />
+                     </HBox.margin>
+                  </CheckBox>
+                  <CheckBox mnemonicParsing="false" text="Notice">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="60.0" />
+                     </HBox.margin>
+                  </CheckBox>
+                  <CheckBox mnemonicParsing="false" text="Info">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="60.0" />
+                     </HBox.margin>
+                  </CheckBox>
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="40.0" maxWidth="144.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="144.0" text="Save Settings" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+         <GridPane.margin>
+            <Insets left="100.0" right="100.0" top="20.0" />
+         </GridPane.margin>
+      </VBox>
     </children>
 </GridPane>
