@@ -583,9 +583,7 @@ public class Controller {
         inactivityTimeCounter.setOnFinished( event -> {
             try {
                 appTimeOut();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            } catch (IOException e) {}
         });
         inactivityTimeCounter.play();
     }
@@ -688,9 +686,7 @@ public class Controller {
             public void handle(ActionEvent actionEvent) {
                 try {
                     goToApplicationPage(newApp, app, device);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                } catch (IOException e) {}
             }
         });
         return newApp;
@@ -721,9 +717,7 @@ public class Controller {
                 try {
                     goToApplicationsPage(c.applicationsPageButton, device);
                 }
-                catch (Exception e) {
-                    System.err.println("bad");
-                }
+                catch (Exception e) {}
 
             }
         });
