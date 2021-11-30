@@ -23,11 +23,6 @@ import java.io.IOException;
 import java.util.*;
 
 import static com.mongodb.client.model.Filters.eq;
-import org.bson.Document;
-import com.mongodb.client.MongoClient;
-import com.mongodb.client.MongoClients;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
 
 import xmlwise.Plist;
 
@@ -189,7 +184,7 @@ public class Controller {
         GridPane mainLayout = loader.load();
         stage.getScene().setRoot(mainLayout);
         currentStage = stage;
-        pauseInactivityTimer();
+        stopInactivityTimer();
     }
 
     @FXML
@@ -202,7 +197,7 @@ public class Controller {
         GridPane mainLayout = loader.load();
         stage.getScene().setRoot(mainLayout);
         currentStage = stage;
-        pauseInactivityTimer();
+        stopInactivityTimer();
     }
 
     @FXML
@@ -215,7 +210,7 @@ public class Controller {
         GridPane mainLayout = loader.load();
         stage.getScene().setRoot(mainLayout);
         currentStage = stage;
-        pauseInactivityTimer();
+        stopInactivityTimer();
     }
 
     @FXML
@@ -228,7 +223,7 @@ public class Controller {
         GridPane mainLayout = loader.load();
         stage.getScene().setRoot(mainLayout);
         currentStage = stage;
-        pauseInactivityTimer();
+        stopInactivityTimer();
     }
 
     @FXML
@@ -241,7 +236,7 @@ public class Controller {
         GridPane mainLayout = loader.load();
         stage.getScene().setRoot(mainLayout);
         currentStage = stage;
-        pauseInactivityTimer();
+        stopInactivityTimer();
     }
 
     @FXML
@@ -263,18 +258,21 @@ public class Controller {
     private void logSettingsEventHandler(ActionEvent event){
         if (event.getSource().equals(verboseCheckBox) && verboseCheckBox.isSelected()){
             logSettingsConfirmMessage = logSettings.setLogSettingsVerbose();
+            verboseCheckBox.setSelected(true);
             standardCheckBox.setSelected(false);
             minimalCheckBox.setSelected(false);
         }
         else if (event.getSource().equals(standardCheckBox) && standardCheckBox.isSelected()){
             logSettingsConfirmMessage = logSettings.setLogSettingsStandard();
             verboseCheckBox.setSelected(false);
+            standardCheckBox.setSelected(true);
             minimalCheckBox.setSelected(false);
         }
         else if (event.getSource().equals(minimalCheckBox) && minimalCheckBox.isSelected()){
             logSettingsConfirmMessage = logSettings.setLogSettingsMinimal();
             verboseCheckBox.setSelected(false);
             standardCheckBox.setSelected(false);
+            minimalCheckBox.setSelected(true);
             }
         else if (event.getSource().equals(saveLogSettings) && (minimalCheckBox.isSelected() || standardCheckBox.isSelected() || verboseCheckBox.isSelected())){
             logSettingsChangeConfirm.setTextFill(Color.LAWNGREEN);
@@ -291,6 +289,26 @@ public class Controller {
             logSettingsChangeConfirm.setText("Error: Something occurred while attempting to perform the request");
         }
     }
+
+    public void setLogSettingCheckBox(){
+        System.out.println("Method entered");
+        if (logSettings.getInstance().getLogLevel().equals("verbose")) {
+            verboseCheckBox.setSelected(true);
+            verboseCheckBox.setIndeterminate(false);
+            verboseCheckBox.fire();
+            System.out.println("Verbose Fired");
+        }
+        else if (logSettings.getInstance().getLogLevel().equals("minimal")) {
+
+            minimalCheckBox.setSelected(true);
+            minimalCheckBox.fire();
+        }
+        else{
+            standardCheckBox.setIndeterminate(false);
+            standardCheckBox.setSelected(true);
+            standardCheckBox.fire();
+        }
+    }
     public void logLogSettings() throws IOException {
         Stage stage = (Stage) logSettingsPageButton.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
@@ -298,9 +316,11 @@ public class Controller {
         GridPane mainLayout = loader.load();
         Controller c = loader.getController();
         c.breadcrumb.setText("LOG");
+        c.setLogSettingCheckBox();
+        System.out.println(logSettings.getLogLevel());
         stage.getScene().setRoot(mainLayout);
         currentStage = stage;
-        pauseInactivityTimer();
+        stopInactivityTimer();
     }
 
     public void breadcrumbTrace() throws IOException {
@@ -312,8 +332,10 @@ public class Controller {
             loader.setLocation(getClass().getResource("logResize.fxml"));
         GridPane mainLayout = loader.load();
         stage.getScene().setRoot(mainLayout);
+        setLogSettingCheckBox();
+        System.out.println(logSettings.getLogLevel());
         currentStage = stage;
-        pauseInactivityTimer();
+        stopInactivityTimer();
     }
 
     @FXML
@@ -326,7 +348,7 @@ public class Controller {
         GridPane mainLayout = loader.load();
         stage.getScene().setRoot(mainLayout);
         currentStage = stage;
-        pauseInactivityTimer();
+        stopInactivityTimer();
     }
 
     @FXML
@@ -339,7 +361,7 @@ public class Controller {
         GridPane mainLayout = loader.load();
         stage.getScene().setRoot(mainLayout);
         currentStage = stage;
-        pauseInactivityTimer();
+        stopInactivityTimer();
     }
 
     @FXML
@@ -352,7 +374,7 @@ public class Controller {
         GridPane mainLayout = loader.load();
         stage.getScene().setRoot(mainLayout);
         currentStage = stage;
-        pauseInactivityTimer();
+        stopInactivityTimer();
     }
 
     @FXML
@@ -365,7 +387,7 @@ public class Controller {
         GridPane mainLayout = loader.load();
         stage.getScene().setRoot(mainLayout);
         currentStage = stage;
-        pauseInactivityTimer();
+        stopInactivityTimer();
     }
 
     @FXML
@@ -378,10 +400,10 @@ public class Controller {
         GridPane mainLayout = loader.load();
         stage.getScene().setRoot(mainLayout);
         currentStage = stage;
-        pauseInactivityTimer();
+        stopInactivityTimer();
     }
 
-    public void pauseInactivityTimer(){
+    public void stopInactivityTimer(){
         inactivityTimeCounter.stop();
     }
     public void startInactivityTimer(){
@@ -420,7 +442,7 @@ public class Controller {
         loader.setLocation(getClass().getResource("deviceApplications.fxml"));
         GridPane mainLayout = loader.load();
         stage.getScene().setRoot(mainLayout);
-        pauseInactivityTimer();
+        stopInactivityTimer();
 
         applicationsScrollPane = (ScrollPane) loader.getNamespace().get("applicationsScrollPane");
         VBox appVBox = new VBox();
@@ -512,6 +534,7 @@ public class Controller {
         loader.setLocation(getClass().getResource("application.fxml"));
         GridPane mainLayout = loader.load();
         Controller c = loader.getController();
+        stopInactivityTimer();
         c.applicationNameButton.setText(applicationName);
 
         permissionScrollPane = (ScrollPane) loader.getNamespace().get("permissionScrollPane");
@@ -552,7 +575,6 @@ public class Controller {
         permissionScrollPane.setContent(appVBox);
 
         stage.getScene().setRoot(mainLayout);
-        pauseInactivityTimer();
 
     }
 
