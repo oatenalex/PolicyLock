@@ -384,7 +384,7 @@ public class Controller {
     @FXML
     private CheckBox emailPushNotifications;
     @FXML
-    private TextField email;
+    private TextField emailNotification;
     @FXML
     private Button saveNotificationSettings;
 
