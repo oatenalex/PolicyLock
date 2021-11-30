@@ -1,5 +1,11 @@
 package com.example.policylock;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonParser;
+import com.mongodb.BasicDBObject;
+import com.mongodb.client.*;
+import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.ReplaceOptions;
 import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,20 +20,21 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.event.EventHandler;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.security.spec.ECField;
 import java.util.*;
 
 import static com.mongodb.client.model.Filters.eq;
 import org.bson.Document;
-import com.mongodb.client.MongoClient;
-import com.mongodb.client.MongoClients;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
+
+import org.json.JSONObject;
 
 import xmlwise.Plist;
 
@@ -42,8 +49,9 @@ public class Controller {
     private static final String USERNAME_VALUE = "u";
     private static final String PASSWORD_VALUE = "p";
 
-    @FXML
-    private Button localDevicePageButton;
+    //Devices
+    private Device localDevice = new Device("Local Device");
+    private ArrayList<Device> serverDevices = new ArrayList<>();
 
     private static Stage currentStage;
 
@@ -79,9 +87,9 @@ public class Controller {
 
     public void unhighlightDevices() { devicesPageButton.setStyle(UNHIGHLIGHT_STYLE); }
 
-    public void highlightLocalDevice() { applicationsPageButton.setStyle(HIGHLIGHT_STYLE); }
-
-    public void unhighlightLocalDevice() { applicationsPageButton.setStyle(UNHIGHLIGHT_STYLE); }
+//    public void highlightLocalDevice() { applicationsPageButton.setStyle(HIGHLIGHT_STYLE); }
+//
+//    public void unhighlightLocalDevice() { applicationsPageButton.setStyle(UNHIGHLIGHT_STYLE); }
 
     public static String getOSType(){
         if (OSType != null){
@@ -128,6 +136,16 @@ public class Controller {
             Controller.timeOutCompleted = false; //Resets the timeout variable
             Stage stage = (Stage) loginButton.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader();
+
+            updateDatabaseForLocalDevice();
+            try {
+                retrieveDevicesFromDatabase();
+            }
+            catch (Exception e) {
+                System.err.println("Device Retrieval Failed");
+            }
+
+
             if (loginButton.getText().equals("Login"))
                 loader.setLocation(getClass().getResource("homeResize.fxml"));
             else
@@ -194,7 +212,8 @@ public class Controller {
 
     @FXML
     private Button devicesPageButton;
-
+    @FXML
+    private ScrollPane devicesScrollPane;
     public void devices() throws IOException {
         Stage stage = (Stage) devicesPageButton.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
@@ -203,6 +222,56 @@ public class Controller {
         stage.getScene().setRoot(mainLayout);
         currentStage = stage;
         pauseInactivityTimer();
+
+        devicesScrollPane = (ScrollPane) loader.getNamespace().get("devicesScrollPane");
+
+        VBox devicesVBox = new VBox();
+
+        if (getOSType().equals("mac") && localDevice != null) {
+            Button localDeviceButton = createDeviceButton(localDevice, true);
+            devicesVBox.getChildren().add(localDeviceButton);
+        }
+
+        boolean _odd = false;
+        for (Device device : this.serverDevices) {
+            System.out.println(device.name);
+            Button newDevice = createDeviceButton(device, false);
+            if (_odd) {
+                newDevice.setBackground(new Background(new BackgroundFill(Color.WHITE, null, null)));
+            }
+            else {
+                newDevice.setBackground(new Background(new BackgroundFill(Color.LIGHTGRAY, null, null)));
+            }
+            _odd = !_odd;
+            devicesVBox.getChildren().add(newDevice);
+        }
+
+        devicesScrollPane.setContent(devicesVBox);
+
+    }
+
+    private Button createDeviceButton(Device device, Boolean local) {
+        Button newDevice = new Button();
+        newDevice.setText(device.name);
+        newDevice.setPrefSize(680, 50);
+        newDevice.setTextAlignment(TextAlignment.CENTER);
+
+        if (local) {
+            newDevice.setBackground(new Background(new BackgroundFill(Color.YELLOW, null, null)));
+        }
+
+        newDevice.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                try {
+                    goToApplicationsPage(newDevice, device);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        return newDevice;
     }
 
     @FXML
@@ -366,12 +435,10 @@ public class Controller {
     }
 
     @FXML
-    private Button applicationsPageButton;
-    @FXML
     private ScrollPane applicationsScrollPane;
 
-    public void goToApplicationsPage() throws IOException {
-        Stage stage = (Stage) applicationsPageButton.getScene().getWindow();
+    public void goToApplicationsPage(Button devicePageButton, Device device) throws IOException {
+        Stage stage = (Stage) devicePageButton.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("deviceApplications.fxml"));
         GridPane mainLayout = loader.load();
@@ -382,7 +449,8 @@ public class Controller {
         VBox appVBox = new VBox();
 
 
-        ArrayList<Application> apps = getLocalApplications();
+//        ArrayList<Application> apps = getLocalApplications();
+        ArrayList<Application> apps = device.getApplications();
         int _counter = 0;
         ArrayList<HBox> rows = new ArrayList<>();
         for (int i = 0; i < apps.size(); i += 3) {
@@ -407,7 +475,6 @@ public class Controller {
         appVBox.setPadding(new Insets(30, 30, 30, 30));
 
         applicationsScrollPane.setContent(appVBox);
-        updateApplicationsForDatabase();
     }
 
     private Button createApplicationButton(Application app) {
@@ -500,11 +567,6 @@ public class Controller {
             appVBox.getChildren().add(newRow);
         }
 
-
-
-//        TableView permTable = createPermissionsTable(app.getPermissions());
-//        appVBox.getChildren().add(permTable);
-
         permissionScrollPane.setContent(appVBox);
 
         stage.getScene().setRoot(mainLayout);
@@ -536,6 +598,23 @@ public class Controller {
         newRow.getChildren().addAll(permName, permDesc);
 
         return newRow;
+    }
+
+    /**
+     * Creates localDevice object. Pulls all applications and permissions for it.
+     * @return true if localDevice is initialized. False if process failed.
+     */
+    private boolean createLocalDevice() {
+        if (!localDevice.name.equals("Local Device")) {
+            return true;
+        }
+        String deviceName = getDeviceName();
+        if (deviceName.equals("NOT A MAC") || deviceName.equals("ERROR")) {
+            return false;
+        }
+        localDevice.setNewName(deviceName);
+        localDevice.addMultipleApplications(getLocalApplications());
+        return true;
     }
 
 
@@ -607,18 +686,77 @@ public class Controller {
     }
 
 
-    private void updateApplicationsForDatabase() {
-//        String uri = "mongodb+srv://PolicyLock:PolicyLock@policylock.rrwer.mongodb.net/PolicyLock?retryWrites=true&w=majority";
-//        try (MongoClient mongoClient = MongoClients.create(uri)) {
-//            MongoDatabase database = mongoClient.getDatabase("PolicyLock");
-//            MongoCollection<Document> collection = database.getCollection("Devices");
-//            Document doc = collection.find(eq("Test1", "Hello World!")).first();
-//            System.out.println(doc.toJson());
-//        }
+    private void updateDatabaseForLocalDevice() {
+        if (!getOSType().equals("mac")) {
+            return;
+        }
+
+        if (!createLocalDevice()) {
+            System.err.println("Error creating local device");
+            return;
+        }
+
+        if (localDevice == null) {
+            return;
+        }
+
+        String localName = localDevice.name;
+
+        Gson gson = new Gson();
+        String deviceJSON = gson.toJson(localDevice);
+
+        String uri = "mongodb+srv://PolicyLock:PolicyLock@policylock.rrwer.mongodb.net/PolicyLock?retryWrites=true&w=majority";
+        try (MongoClient mongoClient = MongoClients.create(uri)) {
+            MongoDatabase database = mongoClient.getDatabase("PolicyLock");
+            MongoCollection<Document> collection = database.getCollection("Devices");
+
+            Document deviceDoc = new Document();
+            deviceDoc.append("Name", localName);
+            deviceDoc.append("DeviceJSON", deviceJSON);
+
+            ReplaceOptions replaceOptions = new ReplaceOptions();
+            replaceOptions.upsert(true);
+
+            collection.replaceOne(
+                    Filters.eq("Name", localName),
+                    deviceDoc,
+                    replaceOptions
+            );
+        }
     }
 
-    private String getDeviceName() {
-        if (!isMac()) {
+    private void retrieveDevicesFromDatabase() {
+        ArrayList<String> deviceJSONs = new ArrayList<>();
+
+        String uri = "mongodb+srv://PolicyLock:PolicyLock@policylock.rrwer.mongodb.net/PolicyLock?retryWrites=true&w=majority";
+        try (MongoClient mongoClient = MongoClients.create(uri)) {
+            MongoDatabase database = mongoClient.getDatabase("PolicyLock");
+            MongoCollection<Document> collection = database.getCollection("Devices");
+
+            FindIterable<Document> iterable = collection.find();
+            MongoCursor<Document> cursor = iterable.iterator();
+
+            try {
+                while (cursor.hasNext()) {
+                    Document newDevice = cursor.next();
+                    if (!(getOSType().equals("mac") && newDevice.get("Name").equals(getDeviceName()))) {
+                        deviceJSONs.add((String)newDevice.get("DeviceJSON"));
+                    }
+                }
+            }
+            finally {
+                cursor.close();
+            }
+        }
+
+        Gson gson = new Gson();
+        for (String json : deviceJSONs) {
+            this.serverDevices.add(gson.fromJson(json, Device.class));
+        }
+    }
+
+    private static String getDeviceName() {
+        if (!getOSType().equals("mac")) {
             return "NOT A MAC";
         }
         File users = new File("/Users");
@@ -629,16 +767,6 @@ public class Controller {
             }
         }
         return "ERROR";
-    }
-
-    private boolean isMac() {
-        String OS_Type = System.getProperty("os.name").toString();
-        if (OS_Type.equals("Mac OS X")) {
-            return true;
-        }
-        else {
-            return false;
-        }
     }
 
 public void buildPermissionList(ArrayList<Permission> perms, Map.Entry<String, Object> entry){
