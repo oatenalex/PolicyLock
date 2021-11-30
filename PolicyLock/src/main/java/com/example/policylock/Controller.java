@@ -437,7 +437,7 @@ public class Controller {
     @FXML
     private Label notificationSettingsChangeConfirm;
 
-    private notificationSettings notificationSettings = com.example.policylock.notificationSettings.getInstance();
+    private NotificationSettings notificationSettings = NotificationSettings.getInstance();
     private static final String NOTIFICATION_SETTING_CONFIRM = "Success: Changes have been saved";
 
     @FXML

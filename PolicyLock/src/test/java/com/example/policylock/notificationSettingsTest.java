@@ -2,8 +2,6 @@ package com.example.policylock;
 
 import org.junit.jupiter.api.Test;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -11,10 +9,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class notificationSettingsTest {
 
-    private static notificationSettings settings;
+    private static NotificationSettings settings;
 
     @Test
-    void createInstance() {assertNotNull(notificationSettings.getInstance()); }
+    void createInstance() {assertNotNull(NotificationSettings.getInstance()); }
 
     @Test
     void getInstance() { assertNotNull(settings.getInstance()); }

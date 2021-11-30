@@ -1,30 +1,24 @@
 package com.example.policylock;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Arrays;
 
-public class notificationSettings {
-    private static notificationSettings instance;
-    private static List<Boolean> notificationLevel = new ArrayList<>();
-    private static List<Boolean> notificationType = new ArrayList<>();
-    private String emailAddress;
+public class NotificationSettings {
+    private static NotificationSettings instance;
+    private List<Boolean> notificationLevel = Arrays.asList(true, true, true, false); //Critical, warning, notice, info
+    private List<Boolean> notificationType = Arrays.asList(false, true); //Email only, Email and push
+    private String emailAddress = "";
 
-    private notificationSettings(){
-        notificationLevel = Arrays.asList(true, true, true, false); //Critical, warning, notice, info
-        notificationType = Arrays.asList(false, true); //Email only, Email and push
-        emailAddress = "";
+    private NotificationSettings(){
     }
 
-    public static synchronized notificationSettings getInstance()
+    public static synchronized NotificationSettings getInstance()
     {
         if (instance == null)
-            instance = new notificationSettings();
+            instance = new NotificationSettings();
         return instance;
     }
-
-    public List<Boolean> getNotificationLevel() { return notificationLevel; }
 
     //Email Address Methods
     public void setEmailAddress(String email){
