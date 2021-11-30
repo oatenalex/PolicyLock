@@ -82,7 +82,7 @@ public class Controller {
     public void highlightLocalDevice() { applicationsPageButton.setStyle(HIGHLIGHT_STYLE); }
 
     public void unhighlightLocalDevice() { applicationsPageButton.setStyle(UNHIGHLIGHT_STYLE); }
-    
+
     public void highlightShowPassword() { showPassword.setStyle(HIGHLIGHT_STYLE); }
 
     public void unhighlightShowPassword() { showPassword.setStyle("-fx-text-fill: BLACK; -fx-background-color: transparent;"); }

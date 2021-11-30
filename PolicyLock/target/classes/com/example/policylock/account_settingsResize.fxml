@@ -121,7 +121,7 @@
                 </Button>
             </children>
         </HBox>
-      <VBox alignment="TOP_CENTER" maxHeight="350.0" maxWidth="700.0" prefHeight="367.0" prefWidth="700.0" style="-fx-background-color: grey;" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+      <VBox alignment="TOP_CENTER" maxHeight="350.0" maxWidth="700.0" prefHeight="367.0" prefWidth="700.0" style="-fx-background-color: #B0B0B0 #B0B0B0;" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
          <children>
             <Label alignment="TOP_CENTER" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="1353.0" style="-fx-background-color: black;" text="Account Settings" textFill="WHITE">
                <font>
