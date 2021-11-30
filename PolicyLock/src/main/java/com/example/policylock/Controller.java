@@ -47,10 +47,8 @@ public class Controller {
     private static final String USERNAME_VALUE = "username";
     private static final String PASSWORD_VALUE = "password";
 
-    private static Stage currentStage;
-
     //Timer variables used for handling inactivity
-    private static int inactivityTimeAllowance = 2;
+    private static int inactivityTimeAllowance = 60;
     private static PauseTransition inactivityTimeCounter = new PauseTransition();
     private static boolean timeOutCompleted = false; //Variable used to check if timeout has already been completed to fix multiple log in screen issue from multiple anchor panes being activated
 
@@ -104,10 +102,6 @@ public class Controller {
         else {
             osType = "other";
             return osType;}
-    }
-
-    public static Stage getCurrentStage() {
-        return currentStage;
     }
 
     @FXML
@@ -204,7 +198,6 @@ public class Controller {
         loader.setLocation(getClass().getResource("homeResize.fxml"));
         GridPane mainLayout = loader.load();
         stage.getScene().setRoot(mainLayout);
-        currentStage = stage;
         stopInactivityTimer();
     }
 
@@ -218,7 +211,6 @@ public class Controller {
         loader.setLocation(getClass().getResource("devicesResize.fxml"));
         GridPane mainLayout = loader.load();
         stage.getScene().setRoot(mainLayout);
-        currentStage = stage;
         stopInactivityTimer();
 
         Device localDevice = createLocalDevice();
@@ -293,7 +285,6 @@ public class Controller {
         loader.setLocation(getClass().getResource("settingsResize.fxml"));
         GridPane mainLayout = loader.load();
         stage.getScene().setRoot(mainLayout);
-        currentStage = stage;
         stopInactivityTimer();
     }
 
@@ -306,7 +297,6 @@ public class Controller {
         loader.setLocation(getClass().getResource("permission_settingsResize.fxml"));
         GridPane mainLayout = loader.load();
         stage.getScene().setRoot(mainLayout);
-        currentStage = stage;
         stopInactivityTimer();
     }
 
@@ -372,7 +362,6 @@ public class Controller {
         getPreviousLogSettings(c); //Gets previous log settings for checkbox
 
         stage.getScene().setRoot(mainLayout);
-        currentStage = stage;
         stopInactivityTimer();
     }
 
@@ -386,7 +375,6 @@ public class Controller {
         getPreviousLogSettings(c); //Gets previous log settings for checkbox
 
         stage.getScene().setRoot(mainLayout);
-        currentStage = stage;
         stopInactivityTimer();
     }
     
@@ -415,7 +403,6 @@ public class Controller {
             c.displayLogSettings.setText(logSettings.getInstance().getLogLevel());
         }
         stage.getScene().setRoot(mainLayout);
-        currentStage = stage;
         stopInactivityTimer();
     }
 
@@ -508,7 +495,6 @@ public class Controller {
         getPreviousNotificationSettings(c); //Gets previous log settings for checkbox
 
         stage.getScene().setRoot(mainLayout);
-        currentStage = stage;
         stopInactivityTimer();
     }
 
@@ -523,7 +509,6 @@ public class Controller {
         loader.setLocation(getClass().getResource("account_settingsLogin.fxml"));
         GridPane mainLayout = loader.load();
         stage.getScene().setRoot(mainLayout);
-        currentStage = stage;
         stopInactivityTimer();
     }
 
@@ -542,7 +527,6 @@ public class Controller {
         Controller c = loader.getController();
         c.displayLogSettings.setText(logSettings.getInstance().getLogLevel());
         stage.getScene().setRoot(mainLayout);
-        currentStage = stage;
         stopInactivityTimer();
     }
 
@@ -555,7 +539,6 @@ public class Controller {
         loader.setLocation(getClass().getResource("confirm_logoutResize.fxml"));
         GridPane mainLayout = loader.load();
         stage.getScene().setRoot(mainLayout);
-        currentStage = stage;
         stopInactivityTimer();
     }
 
@@ -568,7 +551,6 @@ public class Controller {
         loader.setLocation(getClass().getResource(LOGIN_FILE));
         GridPane mainLayout = loader.load();
         stage.getScene().setRoot(mainLayout);
-        currentStage = stage;
         stopInactivityTimer();
     }
     private IOException exception;
