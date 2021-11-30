@@ -153,6 +153,10 @@ public class Controller {
             return OSType;}
     }
 
+    public static Stage getCurrentStage() {
+        return currentStage;
+    }
+
     public void login() throws IOException {
 
         if (username.getText().equals(USERNAME_VALUE) && password.getText().equals(PASSWORD_VALUE) && (tries > 0)) {
