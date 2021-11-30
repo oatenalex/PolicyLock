@@ -36,6 +36,9 @@ public class Controller {
     //OS
     private static String osType;
 
+    //Text Constants
+    private static final String ERROR = "ERROR";
+
     //For Login
     private int tries = 3;
 
@@ -728,7 +731,9 @@ public class Controller {
         permissionScrollPane = (ScrollPane) loader.getNamespace().get("permissionScrollPane");
         VBox appVBox = new VBox();
 
-        HBox colNames = createPermissionRow(new Permission("Name", "Description"), Font.font("Arial", FontWeight.BOLD, 15));
+        String fontType = "Arial";
+
+        HBox colNames = createPermissionRow(new Permission("Name", "Description"), Font.font(fontType, FontWeight.BOLD, 15));
         colNames.setBackground(new Background(new BackgroundFill(Color.YELLOW, null, null)));
 
         appVBox.getChildren().add(colNames);
@@ -737,14 +742,14 @@ public class Controller {
         Background evenBackground = new Background(new BackgroundFill(Color.LIGHTGRAY, null, null));
 
         if (app.getPermissions().size() == 0) {
-            HBox errorRow = createPermissionRow(new Permission("NONE", "0 Permissions detected"), Font.font("Arial", FontWeight.NORMAL, 14));
+            HBox errorRow = createPermissionRow(new Permission("NONE", "0 Permissions detected"), Font.font(fontType, FontWeight.NORMAL, 14));
             errorRow.setBackground(evenBackground);
             appVBox.getChildren().add(errorRow);
         }
 
         boolean _odd = false;
         for (Permission permission : app.getPermissions()) {
-            HBox newRow = createPermissionRow(permission, Font.font("Arial", FontWeight.NORMAL, 14));
+            HBox newRow = createPermissionRow(permission, Font.font(fontType, FontWeight.NORMAL, 14));
             if (_odd) {
                 newRow.setBackground(oddBackground);
             }
@@ -787,8 +792,8 @@ public class Controller {
 
     private Device createLocalDevice() {
         String deviceName = getDeviceName();
-        if (deviceName.equals("NOT A MAC") || deviceName.equals("ERROR")) {
-            return new Device("ERROR");
+        if (deviceName.equals("NOT A MAC") || deviceName.equals(ERROR)) {
+            return new Device(ERROR);
         }
         Device localDevice = new Device(deviceName);
         localDevice.addMultipleApplications(getLocalApplications());
@@ -850,15 +855,12 @@ public class Controller {
                         perms.add(new Permission(entry.getKey().substring(2), entry.getValue().toString()));
                     }
                 }
-                catch (Exception exception) {
-                    System.out.println("Caught it here: " + exception);
-                }
+                catch (Exception exception) {}
             }
             return perms;
         }
         catch (Exception e) {
-            System.out.println("Error: " + e);
-            perms.add(new Permission("ERROR", "Could not read permissions"));
+            perms.add(new Permission(ERROR, "Could not read permissions"));
             return perms;
         }
     }
@@ -938,7 +940,7 @@ public class Controller {
                 return file.getName();
             }
         }
-        return "ERROR";
+        return ERROR;
     }
 
 public void buildPermissionList(ArrayList<Permission> perms, Map.Entry<String, Object> entry){
