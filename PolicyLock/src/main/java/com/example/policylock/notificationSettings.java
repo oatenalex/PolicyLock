@@ -13,7 +13,7 @@ public class notificationSettings {
 
     private notificationSettings(){
         notificationLevel = Arrays.asList(true, true, true, false); //Critical, warning, notice, info
-        notificationType = Arrays.asList(false, true); //Email, push
+        notificationType = Arrays.asList(false, true); //Email only, Email and push
         emailAddress = "";
     }
 
@@ -39,7 +39,7 @@ public class notificationSettings {
     }
 
     public void setEmailPushNotifications() {
-        notificationType = Arrays.asList(true, true);
+        notificationType = Arrays.asList(false, true);
     }
 
     public List<Boolean> getNotificationTypeSettings(){

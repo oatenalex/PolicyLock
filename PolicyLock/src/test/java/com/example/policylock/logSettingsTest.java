@@ -18,7 +18,7 @@ class logSettingsTest {
     @Test
     void getLogLevel() {
         //checks that the logging level/mode is set to standard if not specified
-        assertEquals("standard", settings.getInstance().getLogLevel());
+        assertEquals("Standard", settings.getInstance().getLogLevel());
     }
 
     //Verbose Log Setting Tests
@@ -31,7 +31,7 @@ class logSettingsTest {
     @Test
     void setLogSettingsVerbose() {
         settings.getInstance().setLogSettingsVerbose();
-        assertEquals("verbose", settings.getInstance().getLogLevel());
+        assertEquals("Verbose", settings.getInstance().getLogLevel());
     }
 
     //Standard Log Setting Tests
@@ -43,7 +43,7 @@ class logSettingsTest {
     @Test
     void setLogSettingsStandard() {
         settings.getInstance().setLogSettingsStandard();
-        assertEquals("standard", settings.getInstance().getLogLevel());
+        assertEquals("Standard", settings.getInstance().getLogLevel());
     }
 
     //Minimal Log Setting Tests
@@ -55,6 +55,6 @@ class logSettingsTest {
     @Test
     void setLogSettingsMinimal() {
         settings.getInstance().setLogSettingsMinimal();
-        assertEquals("minimal", settings.getInstance().getLogLevel());
+        assertEquals("Minimal", settings.getInstance().getLogLevel());
     }
 }
