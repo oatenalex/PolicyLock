@@ -14,6 +14,7 @@ public class notificationSettings {
     private notificationSettings(){
         notificationLevel = Arrays.asList(true, true, true, false); //Critical, warning, notice, info
         notificationType = Arrays.asList(false, true); //Email, push
+        emailAddress = "";
     }
 
     public static synchronized notificationSettings getInstance()

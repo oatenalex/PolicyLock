@@ -145,7 +145,7 @@
                         <Insets left="50.0" top="1.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField fx:id="emailNotification" prefHeight="26.0" prefWidth="244.0">
+                  <TextField fx:id="emailNotification" prefHeight="26.0" prefWidth="244.0" promptText="example@gmail.com">
                      <font>
                         <Font size="15.0" />
                      </font>
