@@ -105,17 +105,9 @@
         </HBox>
         <VBox maxHeight="900.0" maxWidth="700.0" prefHeight="200.0" prefWidth="100.0" spacing="10.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
             <children>
-                <ScrollPane fitToHeight="true" hbarPolicy="NEVER" maxHeight="900.0" maxWidth="700.0" prefHeight="466.0" prefWidth="820.0" style="-fx-background-color: transparent;" vbarPolicy="ALWAYS" VBox.vgrow="ALWAYS">
+                <ScrollPane fx:id="devicesScrollPane" fitToHeight="true" hbarPolicy="NEVER" maxHeight="900.0" maxWidth="700.0" prefHeight="466.0" prefWidth="820.0" style="-fx-background-color: transparent;" vbarPolicy="ALWAYS" VBox.vgrow="ALWAYS">
                     <content>
-                        <AnchorPane maxHeight="900.0" maxWidth="700.0" prefHeight="900.0" prefWidth="700.0">
-                            <children>
-                                <Button id="localDeviceButton" fx:id="applicationsPageButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#goToApplicationsPage" text="Local Device" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                    <font>
-                                        <Font name="System Bold" size="20.0" />
-                                    </font>
-                                </Button>
-                            </children>
-                        </AnchorPane>
+                        <AnchorPane maxHeight="900.0" maxWidth="700.0" prefHeight="900.0" prefWidth="700.0" />
                     </content>
                     <VBox.margin>
                         <Insets />
