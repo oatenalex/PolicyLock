@@ -145,7 +145,7 @@
                         <Insets left="50.0" top="1.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField prefHeight="26.0" prefWidth="244.0">
+                  <TextField fx:id="email" prefHeight="26.0" prefWidth="244.0">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -155,7 +155,7 @@
                   <Insets top="38.0" />
                </VBox.margin>
             </HBox>
-            <CheckBox mnemonicParsing="false" text="Email Notifications">
+            <CheckBox fx:id="emailOnlyNotifications" mnemonicParsing="false" text="Email Notifications">
                <VBox.margin>
                   <Insets right="380.0" top="15.0" />
                </VBox.margin>
@@ -163,7 +163,7 @@
                   <Font size="20.0" />
                </font>
             </CheckBox>
-            <CheckBox mnemonicParsing="false" text="Email and Push Notifications">
+            <CheckBox fx:id="emailPushNotifications" mnemonicParsing="false" text="Email and Push Notifications">
                <VBox.margin>
                   <Insets right="286.0" top="30.0" />
                </VBox.margin>
@@ -188,7 +188,23 @@
             </HBox>
             <HBox maxHeight="40.0" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <CheckBox mnemonicParsing="false" text="Critical">
+                  <CheckBox fx:id="criticalNotifications" mnemonicParsing="false" text="Critical" textFill="#7d7d7d">
+                     <font>
+                        <Font name="System Italic" size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="60.0" />
+                     </HBox.margin>
+                  </CheckBox>
+                  <CheckBox fx:id="warningNotifications" mnemonicParsing="false" text="Warning" textFill="#7d7d7d">
+                     <HBox.margin>
+                        <Insets left="60.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Italic" size="20.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="noticeNotifications" mnemonicParsing="false" text="Notice">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -196,23 +212,7 @@
                         <Insets left="60.0" />
                      </HBox.margin>
                   </CheckBox>
-                  <CheckBox mnemonicParsing="false" text="Warning">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets left="60.0" />
-                     </HBox.margin>
-                  </CheckBox>
-                  <CheckBox mnemonicParsing="false" text="Notice">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets left="60.0" />
-                     </HBox.margin>
-                  </CheckBox>
-                  <CheckBox mnemonicParsing="false" text="Info">
+                  <CheckBox fx:id="infoNotifications" mnemonicParsing="false" text="Info">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -225,7 +225,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </HBox>
-            <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="40.0" maxWidth="144.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="144.0" text="Save Settings" VBox.vgrow="ALWAYS">
+            <Button fx:id="saveNotificationSettings" alignment="CENTER" contentDisplay="CENTER" maxHeight="40.0" maxWidth="144.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="144.0" text="Save Settings" VBox.vgrow="ALWAYS">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>

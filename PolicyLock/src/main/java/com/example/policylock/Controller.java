@@ -371,6 +371,23 @@ public class Controller {
 
     @FXML
     private Button notificationSettingsPageButton;
+    @FXML
+    private CheckBox criticalNotifications;
+    @FXML
+    private CheckBox warningNotifications;
+    @FXML
+    private CheckBox noticeNotifications;
+    @FXML
+    private CheckBox infoNotifications;
+    @FXML
+    private CheckBox emailOnlyNotifications;
+    @FXML
+    private CheckBox emailPushNotifications;
+    @FXML
+    private TextField email;
+    @FXML
+    private Button saveNotificationSettings;
+
 
     public void notificationSettings() throws IOException {
         Stage stage = (Stage) notificationSettingsPageButton.getScene().getWindow();
@@ -725,7 +742,7 @@ public class Controller {
         File users = new File("/Users");
         ArrayList<File> files = new ArrayList<File>(Arrays.asList(users.listFiles()));
         for (File file : files) {
-            if (file.getName() != "Shared") {
+            if (!file.getName().equals("Shared")) {
                 return file.getName();
             }
         }
