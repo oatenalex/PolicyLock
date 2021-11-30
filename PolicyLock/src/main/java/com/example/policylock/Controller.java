@@ -13,6 +13,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.control.CheckBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.event.EventHandler;
@@ -35,65 +36,14 @@ public class Controller {
     private static String OSType;
 
     //For Login
-    @FXML
-    private Button loginButton;
-    @FXML
-    private TextField username;
-    @FXML
-    private PasswordField password;
-    @FXML
-    private Label incorrect;
-    @FXML
-    private Label triesLabel;
-    @FXML
-    private HBox notification;
-    @FXML
-    private Button closeNotificationButton;
-
     private int tries = 3;
 
     //Username & Password Settings
     private static final String USERNAME_VALUE = "u";
     private static final String PASSWORD_VALUE = "p";
 
-    //Log out Buttons
-    @FXML
-    private Button confirmLogoutButton;
-    @FXML
-    private Button logoutButton;
-
-    //Page switching buttons
-    @FXML
-    private Button homePageButton;
-    @FXML
-    private Button devicesPageButton;
-    @FXML
-    private Button applicationsPageButton;
-    @FXML
-    private Button applicationNameButton;
     @FXML
     private Button localDevicePageButton;
-    @FXML
-    private Button settingsPageButton;
-    @FXML
-    private Button permissionSettingsPageButton;
-    @FXML
-    private Button logSettingsPageButton;
-    @FXML
-    private Button breadcrumb;
-    @FXML
-    private Button notificationSettingsPageButton;
-    @FXML
-    private Button accountSettingsPageButton;
-    @FXML
-    private Button logPageButton;
-
-    //Background anchorpane on which each UI element is placed. Use for inactivity timer
-    @FXML
-    private GridPane gridPane;
-
-    @FXML
-    private ScrollPane applicationsScrollPane;
 
     private static Stage currentStage;
 
@@ -157,6 +107,21 @@ public class Controller {
         return currentStage;
     }
 
+    @FXML
+    private Button loginButton;
+    @FXML
+    private TextField username;
+    @FXML
+    private PasswordField password;
+    @FXML
+    private Label incorrect;
+    @FXML
+    private Label triesLabel;
+    @FXML
+    private HBox notification;
+    @FXML
+    private Button closeNotificationButton;
+
     public void login() throws IOException {
 
         if (username.getText().equals(USERNAME_VALUE) && password.getText().equals(PASSWORD_VALUE) && (tries > 0)) {
@@ -214,6 +179,9 @@ public class Controller {
         else { login(); }
     }
 
+    @FXML
+    private Button homePageButton;
+
     public void home() throws IOException {
         Stage stage = (Stage) homePageButton.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
@@ -223,6 +191,9 @@ public class Controller {
         currentStage = stage;
         pauseInactivityTimer();
     }
+
+    @FXML
+    private Button devicesPageButton;
 
     public void devices() throws IOException {
         Stage stage = (Stage) devicesPageButton.getScene().getWindow();
@@ -234,6 +205,9 @@ public class Controller {
         pauseInactivityTimer();
     }
 
+    @FXML
+    private Button settingsPageButton;
+
     public void settings() throws IOException {
         Stage stage = (Stage) settingsPageButton.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
@@ -243,6 +217,9 @@ public class Controller {
         currentStage = stage;
         pauseInactivityTimer();
     }
+
+    @FXML
+    private Button permissionSettingsPageButton;
 
     public void permissionSettings() throws IOException {
         Stage stage = (Stage) permissionSettingsPageButton.getScene().getWindow();
@@ -254,6 +231,9 @@ public class Controller {
         pauseInactivityTimer();
     }
 
+    @FXML
+    private Button logSettingsPageButton;
+
     public void logSettings() throws IOException {
         Stage stage = (Stage) logSettingsPageButton.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
@@ -263,6 +243,9 @@ public class Controller {
         currentStage = stage;
         pauseInactivityTimer();
     }
+
+    @FXML
+    private Button breadcrumb;
 
     public void logLogSettings() throws IOException {
         Stage stage = (Stage) logSettingsPageButton.getScene().getWindow();
@@ -289,6 +272,9 @@ public class Controller {
         pauseInactivityTimer();
     }
 
+    @FXML
+    private Button notificationSettingsPageButton;
+
     public void notificationSettings() throws IOException {
         Stage stage = (Stage) notificationSettingsPageButton.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
@@ -298,6 +284,9 @@ public class Controller {
         currentStage = stage;
         pauseInactivityTimer();
     }
+
+    @FXML
+    private Button accountSettingsPageButton;
 
     public void accountSettingsLogin() throws IOException {
         Stage stage = (Stage) accountSettingsPageButton.getScene().getWindow();
@@ -309,6 +298,9 @@ public class Controller {
         pauseInactivityTimer();
     }
 
+    @FXML
+    private Button logPageButton;
+
     public void log() throws IOException {
         Stage stage = (Stage) logPageButton.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
@@ -319,6 +311,9 @@ public class Controller {
         pauseInactivityTimer();
     }
 
+    @FXML
+    private Button confirmLogoutButton;
+
     public void confirmLogout() throws IOException {
         Stage stage = (Stage) confirmLogoutButton.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
@@ -328,6 +323,9 @@ public class Controller {
         currentStage = stage;
         pauseInactivityTimer();
     }
+
+    @FXML
+    private Button logoutButton;
 
     public void logout() throws IOException {
         Stage stage = (Stage) logoutButton.getScene().getWindow();
@@ -366,6 +364,11 @@ public class Controller {
             timeOutCompleted = true;
         }
     }
+
+    @FXML
+    private Button applicationsPageButton;
+    @FXML
+    private ScrollPane applicationsScrollPane;
 
     public void goToApplicationsPage() throws IOException {
         Stage stage = (Stage) applicationsPageButton.getScene().getWindow();
@@ -452,6 +455,9 @@ public class Controller {
         });
         return newApp;
     }
+
+    @FXML
+    private Button applicationNameButton;
     //permissions and log of a specific application
     public void goToApplicationPage(Button newApp, Application app) throws IOException {
         String applicationName = app.name;
