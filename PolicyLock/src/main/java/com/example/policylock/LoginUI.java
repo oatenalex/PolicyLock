@@ -7,10 +7,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class loginUI extends Application {
+public class LoginUI extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(loginUI.class.getResource("loginResize.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(LoginUI.class.getResource("loginResize.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
 
         stage.setTitle("PolicyLock");

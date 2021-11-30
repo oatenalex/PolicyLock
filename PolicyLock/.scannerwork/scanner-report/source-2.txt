@@ -1,4 +1,4 @@
-import com.example.policylock.loginUI;
+import com.example.policylock.LoginUI;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
