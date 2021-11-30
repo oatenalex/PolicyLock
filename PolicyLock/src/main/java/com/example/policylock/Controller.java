@@ -418,7 +418,6 @@ public class Controller {
             c.displayLogSettings.setText(logSettings.getInstance().getLogLevel());
         }
         stage.getScene().setRoot(mainLayout);
-        System.out.println(logSettings.getLogLevel());
         currentStage = stage;
         stopInactivityTimer();
     }

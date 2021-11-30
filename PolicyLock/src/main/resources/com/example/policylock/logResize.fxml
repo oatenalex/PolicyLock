@@ -127,5 +127,15 @@
             <Font size="16.0" />
          </font>
       </Label>
+      <Label text="Coming" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+         <font>
+            <Font size="96.0" />
+         </font>
+      </Label>
+      <Label text=" Soon!" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+         <font>
+            <Font size="96.0" />
+         </font>
+      </Label>
     </children>
 </GridPane>
