@@ -546,7 +546,7 @@ public class Controller {
             @Override
             public void handle(ActionEvent actionEvent) {
                 try {
-                    goToApplicationsPage(applicationsPageButton, device);
+                    goToApplicationsPage(c.applicationsPageButton, device);
                 }
                 catch (Exception e) {
                     System.err.println("bad");
