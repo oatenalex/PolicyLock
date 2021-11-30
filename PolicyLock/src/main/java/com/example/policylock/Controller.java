@@ -12,10 +12,11 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.event.EventHandler;
@@ -421,8 +422,38 @@ public class Controller {
         applicationsScrollPane = (ScrollPane) loader.getNamespace().get("permissionScrollPane");
         VBox appVBox = new VBox();
 
-        TableView permTable = createPermissionsTable(app.getPermissions());
-        appVBox.getChildren().add(permTable);
+        HBox colNames = createPermissionRow(new Permission("Name", "Description"), Font.font("Arial", FontWeight.BOLD, 15));
+        colNames.setBackground(new Background(new BackgroundFill(Color.YELLOW, null, null)));
+
+        appVBox.getChildren().add(colNames);
+
+        Background oddBackground = new Background(new BackgroundFill(Color.WHITE, null, null));
+        Background evenBackground = new Background(new BackgroundFill(Color.LIGHTGRAY, null, null));
+
+        if (app.getButtonFormat().length() == 0) {
+            HBox errorRow = createPermissionRow(new Permission("ERROR", "Could not read permissions"), Font.font("Arial", FontWeight.NORMAL, 14));
+            appVBox.getChildren().add(errorRow);
+        }
+
+        boolean _odd = false;
+        for (Permission permission : app.getPermissions()) {
+            HBox newRow = createPermissionRow(permission, Font.font("Arial", FontWeight.NORMAL, 14));
+            if (_odd) {
+                newRow.setBackground(oddBackground);
+            }
+            else {
+                newRow.setBackground(evenBackground);
+            }
+            _odd = !_odd;
+            appVBox.getChildren().add(newRow);
+        }
+
+
+
+//        TableView permTable = createPermissionsTable(app.getPermissions());
+//        appVBox.getChildren().add(permTable);
+
+        applicationsScrollPane.setContent(appVBox);
 
         stage.getScene().setRoot(mainLayout);
         pauseInactivityTimer();
@@ -446,6 +477,30 @@ public class Controller {
         permTable.getColumns().addAll(nameCol, descCol);
 
         return permTable;
+    }
+
+    private HBox createPermissionRow(Permission permission, Font font) {
+        int nameWidth = 300;
+        int descWidth = 500;
+
+        HBox newRow = new HBox();
+        Label permName = new Label();
+        permName.setText(permission.getName());
+        permName.setMinWidth(nameWidth);
+        permName.setMaxWidth(nameWidth);
+        permName.setFont(font);
+
+        Label permDesc = new Label();
+        permDesc.setText(permission.getDescription());
+        permDesc.setMinWidth(descWidth);
+        permDesc.setMaxWidth(descWidth);
+        permDesc.setFont(font);
+
+        newRow.setPadding(new Insets(5, 5, 5, 5));
+
+        newRow.getChildren().addAll(permName, permDesc);
+
+        return newRow;
     }
 
 
