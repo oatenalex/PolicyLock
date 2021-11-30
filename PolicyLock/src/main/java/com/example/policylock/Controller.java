@@ -1,8 +1,6 @@
 package com.example.policylock;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonParser;
-import com.mongodb.BasicDBObject;
 import com.mongodb.client.*;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.ReplaceOptions;
@@ -27,26 +25,22 @@ import javafx.event.EventHandler;
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Array;
-import java.security.spec.ECField;
 import java.util.*;
 
 import static com.mongodb.client.model.Filters.eq;
 import org.bson.Document;
 
-import org.json.JSONObject;
-
 import xmlwise.Plist;
 
 public class Controller {
     //OS
-    private static String OSType;
+    private static String osType;
 
     //For Login
     private int tries = 3;
 
     //Account Settings
-    private static final String EMAIL = "johndoe@gmail.com";
+    private static final String EMAIL_EXAMPLE = "johndoe@gmail.com";
     private static final String USERNAME_VALUE = "username";
     private static final String PASSWORD_VALUE = "password";
 
@@ -56,9 +50,6 @@ public class Controller {
     private static int inactivityTimeAllowance = 2;
     private static PauseTransition inactivityTimeCounter = new PauseTransition();
     private static boolean timeOutCompleted = false; //Variable used to check if timeout has already been completed to fix multiple log in screen issue from multiple anchor panes being activated
-
-    //File Path Variables
-    private static final String APPLICATIONS_PATH = "/Applications"; // for mac only
 
     //Breadcrumb Styling
     private static final String HIGHLIGHT_STYLE = "-fx-text-fill: #33D7FF; -fx-background-color: transparent;";
@@ -92,24 +83,24 @@ public class Controller {
 
     public void unhighlightShowPassword() { showPassword.setStyle("-fx-text-fill: BLACK; -fx-background-color: transparent;"); }
 
-    public static String getOSType(){
-        if (OSType != null){
-            return OSType;
+    public static String getOsType(){
+        if (osType != null){
+            return osType;
         }
         String rawOSType = System.getProperty("os.name");
         if (rawOSType.contains("Windows")) {
-            OSType = "windows";
-            return OSType;}
+            osType = "windows";
+            return osType;}
         else if (rawOSType.contains("Mac")) {
-            OSType = "mac";
-            return OSType;}
+            osType = "mac";
+            return osType;}
         else if (rawOSType.contains("Linux")) {
-            OSType = "linux";
-            return OSType;
+            osType = "linux";
+            return osType;
         }
         else {
-            OSType = "other";
-            return OSType;}
+            osType = "other";
+            return osType;}
     }
 
     public static Stage getCurrentStage() {
@@ -135,6 +126,8 @@ public class Controller {
     @FXML
     private TextField passwordText;
 
+    private static final String LOGIN_FILE = "loginResize.fxml";
+
     public void login() throws IOException {
 
         if (username.getText().equals(USERNAME_VALUE) && password.getText().equals(PASSWORD_VALUE) && (tries > 0)) {
@@ -150,7 +143,7 @@ public class Controller {
                 loader.setLocation(getClass().getResource("account_settingsResize.fxml"));
                 mainLayout = loader.load();
                 Controller c = loader.getController();
-                c.email.setText(EMAIL);
+                c.email.setText(EMAIL_EXAMPLE);
                 c.username.setText(USERNAME_VALUE);
             }
             stage.getScene().setRoot(mainLayout);
@@ -169,7 +162,7 @@ public class Controller {
                 if (loginButton.getText().equals("Confirm")) {
                     Stage stage = (Stage) loginButton.getScene().getWindow();
                     FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getResource("loginResize.fxml"));
+                    loader.setLocation(getClass().getResource(LOGIN_FILE));
                     GridPane mainLayout = loader.load();
                     Controller c = loader.getController();
                     c.incorrect.setText("You have been logged out");
@@ -242,7 +235,7 @@ public class Controller {
 
         VBox devicesVBox = new VBox();
 
-        if (getOSType().equals("mac") && localDevice != null) {
+        if (getOsType().equals("mac") && localDevice != null) {
             Button localDeviceButton = createDeviceButton(localDevice, true);
             devicesVBox.getChildren().add(localDeviceButton);
         }
@@ -569,7 +562,7 @@ public class Controller {
     public void logout() throws IOException {
         Stage stage = (Stage) logoutButton.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("loginResize.fxml"));
+        loader.setLocation(getClass().getResource(LOGIN_FILE));
         GridPane mainLayout = loader.load();
         stage.getScene().setRoot(mainLayout);
         currentStage = stage;
@@ -578,7 +571,7 @@ public class Controller {
 
     @FXML
     private GridPane gridPane;
-    
+
     public void stopInactivityTimer(){
         inactivityTimeCounter.stop();
     }
@@ -598,7 +591,7 @@ public class Controller {
         if (!timeOutCompleted) {
             Stage stage = (Stage) gridPane.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("loginResize.fxml"));
+            loader.setLocation(getClass().getResource(LOGIN_FILE));
             GridPane mainLayout = loader.load();
             Controller c = loader.getController();
             c.notification.setVisible(true);
@@ -874,7 +867,7 @@ public class Controller {
 
 
     private void updateDatabaseForLocalDevice(Device localDevice) {
-        if (!getOSType().equals("mac")) {
+        if (!getOsType().equals("mac")) {
             return;
         }
 
@@ -917,7 +910,7 @@ public class Controller {
             try {
                 while (cursor.hasNext()) {
                     Document newDevice = cursor.next();
-                    if (!(getOSType().equals("mac") && newDevice.get("Name").equals(getDeviceName()))) {
+                    if (!(getOsType().equals("mac") && newDevice.get("Name").equals(getDeviceName()))) {
                         deviceJSONs.add((String)newDevice.get("DeviceJSON"));
                     }
                 }
@@ -937,7 +930,7 @@ public class Controller {
     }
 
     private static String getDeviceName() {
-        if (!getOSType().equals("mac")) {
+        if (!getOsType().equals("mac")) {
             return "NOT A MAC";
         }
         File users = new File("/Users");

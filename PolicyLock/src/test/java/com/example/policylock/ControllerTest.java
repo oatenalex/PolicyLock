@@ -18,14 +18,14 @@ class ControllerTest {
 
     @Test
     void getOSType(){
-        String OS = controller.getOSType();
+        String OS = controller.getOsType();
         boolean validOS = OS.equals("windows") || OS.equals("mac") || OS.equals("linux")|| OS.equals("other");
         assertTrue(validOS);
     }
     @Test
     void checkOS(){
-        controller.getOSType();
-        String OS = controller.getOSType(); //Checks if not null
+        controller.getOsType();
+        String OS = controller.getOsType(); //Checks if not null
         boolean validOS = OS.equals("windows") || OS.equals("mac") || OS.equals("linux")|| OS.equals("other");
         assertTrue(validOS);
     }
