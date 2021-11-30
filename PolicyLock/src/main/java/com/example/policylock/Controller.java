@@ -866,7 +866,7 @@ public class Controller {
         File users = new File("/Users");
         ArrayList<File> files = new ArrayList<File>(Arrays.asList(users.listFiles()));
         for (File file : files) {
-            if (!file.getName().equals("Shared")) {
+            if (!file.getName().equals("Shared") && !file.getName().startsWith(".")) {
                 return file.getName();
             }
         }
