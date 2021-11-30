@@ -19,10 +19,7 @@ import javafx.event.EventHandler;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.GregorianCalendar;
-import java.util.Map;
+import java.util.*;
 
 import static com.mongodb.client.model.Filters.eq;
 import org.bson.Document;
@@ -34,6 +31,9 @@ import com.mongodb.client.MongoDatabase;
 import xmlwise.Plist;
 
 public class Controller {
+    //OS
+    private static String OSType = getOSType();
+
     //For Login
     @FXML
     private Button loginButton;
@@ -132,6 +132,16 @@ public class Controller {
     public void highlightLocalDevice() { applicationsPageButton.setStyle(HIGHLIGHT_STYLE); }
 
     public void unhighlightLocalDevice() { applicationsPageButton.setStyle(UNHIGHLIGHT_STYLE); }
+
+    public static String getOSType(){
+        String rawOSType = System.getProperty("os.name");
+        if (rawOSType.contains("Windows")) {
+            return ("windows");}
+        else if (rawOSType.contains("Mac")) {
+            return ("mac");}
+        else {
+            return ("other");}
+    }
 
     public void login() throws IOException {
 
