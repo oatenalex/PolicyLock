@@ -1,13 +1,12 @@
 package com.example.policylock;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class logSettingsTest {
 
-    private static logSettings settings;
+    private static LogSettings settings;
     private String message;
 
     @Test

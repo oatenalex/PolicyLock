@@ -326,7 +326,7 @@ public class Controller {
     private Label logSettingsChangeConfirm;
 
     private String logSettingsConfirmMessage;
-    private logSettings logSettings = com.example.policylock.logSettings.getInstance();
+    private LogSettings logSettings = LogSettings.getInstance();
 
     @FXML
     private void logSettingsEventHandler(ActionEvent event){

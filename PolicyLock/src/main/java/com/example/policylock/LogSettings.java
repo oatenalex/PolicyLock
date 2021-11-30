@@ -1,17 +1,17 @@
 package com.example.policylock;
 
-public class logSettings {
-    private static logSettings instance;
+public class LogSettings {
+    private static LogSettings instance;
     private String logLevel;
 
-    private logSettings(){
+    private LogSettings(){
         logLevel = "Standard";  //Log settings intially set to standard
     }
 
-    public static synchronized logSettings getInstance()
+    public static synchronized LogSettings getInstance()
     {
         if (instance == null)
-            instance = new logSettings();
+            instance = new LogSettings();
         return instance;
     }
 

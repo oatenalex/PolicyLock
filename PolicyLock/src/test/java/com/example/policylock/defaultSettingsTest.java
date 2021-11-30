@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class defaultSettingsTest {
 
     private static NotificationSettings settings;
-    private static logSettings logSettings;
+    private static LogSettings logSettings;
 
     @Test
     void defaultLogSetting() {
