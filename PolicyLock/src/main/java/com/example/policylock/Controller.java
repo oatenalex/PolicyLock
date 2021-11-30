@@ -576,6 +576,9 @@ public class Controller {
         stopInactivityTimer();
     }
 
+    @FXML
+    private GridPane gridPane;
+    
     public void stopInactivityTimer(){
         inactivityTimeCounter.stop();
     }
@@ -593,7 +596,7 @@ public class Controller {
 
     private void appTimeOut() throws IOException {
         if (!timeOutCompleted) {
-            Stage stage = (Stage) currentStage.getScene().getWindow();
+            Stage stage = (Stage) gridPane.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("loginResize.fxml"));
             GridPane mainLayout = loader.load();
