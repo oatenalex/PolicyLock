@@ -327,6 +327,7 @@ public class Controller {
     private Button saveLogSettings;
     @FXML
     private Label logSettingsChangeConfirm;
+
     private String logSettingsConfirmMessage;
     private logSettings logSettings = com.example.policylock.logSettings.getInstance();
 
@@ -358,7 +359,7 @@ public class Controller {
         else if (!(minimalCheckBox.isSelected() && standardCheckBox.isSelected() && verboseCheckBox.isSelected()))
             logSettingsChangeConfirm.setText("");
         else {
-            logSettingsChangeConfirm.setTextFill(Color.RED);
+            logSettingsChangeConfirm.setTextFill(Color.DARKRED);
             logSettingsChangeConfirm.setText("Error: Something occurred while attempting to perform the request");
         }
     }
@@ -411,7 +412,6 @@ public class Controller {
             loader.setLocation(getClass().getResource("logResize.fxml"));
         GridPane mainLayout = loader.load();
         stage.getScene().setRoot(mainLayout);
-        System.out.println(logSettings.getLogLevel());
         currentStage = stage;
         stopInactivityTimer();
     }
@@ -434,13 +434,76 @@ public class Controller {
     private TextField emailNotification;
     @FXML
     private Button saveNotificationSettings;
+    @FXML
+    private Label notificationSettingsChangeConfirm;
 
+    private notificationSettings notificationSettings = com.example.policylock.notificationSettings.getInstance();
+    private static final String NOTIFICATION_SETTING_CONFIRM = "Success: Changes have been saved";
+
+    @FXML
+    private void notificationTypeSettingsEventHandler(ActionEvent event){
+        if (event.getSource().equals(emailOnlyNotifications) && emailOnlyNotifications.isSelected()){
+            notificationSettings.setEmailOnlyNotifications();
+            emailPushNotifications.setSelected(false);
+        }
+        else if (event.getSource().equals(emailPushNotifications) && emailPushNotifications.isSelected()){
+            notificationSettings.setEmailPushNotifications();
+            emailOnlyNotifications.setSelected(false);
+        }
+    }
+
+    @FXML
+    private void lockNotificationSettings(ActionEvent event){
+        criticalNotifications.setSelected(true);
+        warningNotifications.setSelected(true);
+    }
+
+    @FXML
+    private void saveNotificationSettingsEventhandler(ActionEvent event){
+        if (!emailOnlyNotifications.isSelected() && !emailPushNotifications.isSelected()){
+            notificationSettingsChangeConfirm.setTextFill(Color.DARKRED);
+            notificationSettingsChangeConfirm.setText("Error: Please select how you would like to be notified");
+        }
+        else{ //Notification Types are valid
+            if (emailNotification.getText().contains("@")){
+                notificationSettings.setEmailAddress(emailNotification.getText());
+                notificationSettings.setAllNotifications(criticalNotifications.isSelected(), warningNotifications.isSelected(), noticeNotifications.isSelected(), infoNotifications.isSelected());
+                notificationSettingsChangeConfirm.setTextFill(Color.LAWNGREEN);
+                notificationSettingsChangeConfirm.setText(NOTIFICATION_SETTING_CONFIRM);
+            }
+            else{
+                notificationSettingsChangeConfirm.setTextFill(Color.DARKRED);
+                notificationSettingsChangeConfirm.setText("Error: Please give a valid email address");
+            }
+        }
+    }
+
+    private void getPreviousNotificationSettings(Controller c){
+        List<Boolean> notificationLevel = notificationSettings.getInstance().getNotificationLevelSettings();
+        List<Boolean> notificationType = notificationSettings.getInstance().getNotificationTypeSettings();
+
+        //get email address
+        c.emailNotification.setText(notificationSettings.getInstance().getEmailAddress());
+        //get notification type settings
+        c.emailOnlyNotifications.setSelected(notificationType.get(0));
+        c.emailPushNotifications.setSelected(notificationType.get(1));
+        //get notification level settings
+        c.criticalNotifications.setSelected(notificationLevel.get(0));
+        c.warningNotifications.setSelected(notificationLevel.get(1));
+        c.noticeNotifications.setSelected(notificationLevel.get(2));
+        c.infoNotifications.setSelected(notificationLevel.get(3));
+
+    }
 
     public void notificationSettings() throws IOException {
         Stage stage = (Stage) notificationSettingsPageButton.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("notification_settingsResize.fxml"));
         GridPane mainLayout = loader.load();
+        Controller c = loader.getController();
+
+        getPreviousNotificationSettings(c); //Gets previous log settings for checkbox
+
         stage.getScene().setRoot(mainLayout);
         currentStage = stage;
         stopInactivityTimer();

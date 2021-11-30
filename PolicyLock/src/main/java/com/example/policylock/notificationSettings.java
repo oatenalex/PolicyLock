@@ -8,12 +8,12 @@ import java.util.Arrays;
 public class notificationSettings {
     private static notificationSettings instance;
     private static List<Boolean> notificationLevel = new ArrayList<>();
+    private static List<Boolean> notificationType = new ArrayList<>();
     private String emailAddress;
-    private boolean emailNotifications;
-    private boolean pushNotifications;
 
     private notificationSettings(){
         notificationLevel = Arrays.asList(true, true, true, false); //Critical, warning, notice, info
+        notificationType = Arrays.asList(false, true); //Email, push
     }
 
     public static synchronized notificationSettings getInstance()
@@ -31,16 +31,26 @@ public class notificationSettings {
     }
 
     public void setEmailOnlyNotifications() {
-        this.emailNotifications = true;
-        this.pushNotifications = false;
+        notificationType = Arrays.asList(true, false);
     }
 
     public void setEmailPushNotifications() {
-        this.emailNotifications = true;
-        this.pushNotifications = true;
+        notificationType = Arrays.asList(true, true);
     }
 
-    public void setAllNotifications(){
-        notificationLevel = Arrays.asList(true, true, true, true);
+    public List<Boolean> getNotificationTypeSettings(){
+        return notificationType;
+    }
+
+    public List<Boolean> getNotificationLevelSettings(){
+        return notificationLevel;
+    }
+
+    public String getEmailAddress(){
+        return this.emailAddress;
+    }
+
+    public void setAllNotifications(boolean critical, boolean warning, boolean notice, boolean info){
+        notificationLevel = Arrays.asList(critical, warning, notice, info);
     }
 }
