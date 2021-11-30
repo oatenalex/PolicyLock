@@ -47,8 +47,8 @@ public class Controller {
 
     //Account Settings
     private static final String EMAIL = "johndoe@gmail.com";
-    private static final String USERNAME_VALUE = "u";
-    private static final String PASSWORD_VALUE = "p";
+    private static final String USERNAME_VALUE = "username";
+    private static final String PASSWORD_VALUE = "password";
 
     private static Stage currentStage;
 
