@@ -144,7 +144,7 @@
                         <Insets top="1.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField prefHeight="26.0" prefWidth="244.0">
+                  <TextField fx:id="email" prefHeight="26.0" prefWidth="244.0">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -167,7 +167,7 @@
                         <Insets top="1.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField prefHeight="26.0" prefWidth="244.0">
+                  <TextField fx:id="username" prefHeight="26.0" prefWidth="244.0">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -190,7 +190,7 @@
                         <Insets left="50.0" top="1.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField prefHeight="26.0" prefWidth="244.0" text="••••••••">
+                  <TextField fx:id="passwordText" prefHeight="26.0" prefWidth="244.0" text="••••••••">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -198,7 +198,7 @@
                         <Insets left="4.0" />
                      </HBox.margin>
                   </TextField>
-                  <Button fx:id="showPassword" graphicTextGap="0.0" mnemonicParsing="false" onMouseEntered="#highlightShowPassword" onMouseExited="#unhighlightShowPassword" style="-fx-background-color: transparent;" text="show">
+                  <Button fx:id="showPassword" graphicTextGap="0.0" mnemonicParsing="false" onAction="#showPassword" onMouseEntered="#highlightShowPassword" onMouseExited="#unhighlightShowPassword" style="-fx-background-color: transparent;" text="show">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>

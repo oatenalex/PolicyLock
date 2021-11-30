@@ -33,7 +33,8 @@ public class Controller {
     //For Login
     private int tries = 3;
 
-    //Username & Password Settings
+    //Account Settings
+    private static final String EMAIL = "johndoe@gmail.com";
     private static final String USERNAME_VALUE = "u";
     private static final String PASSWORD_VALUE = "p";
 
@@ -120,6 +121,10 @@ public class Controller {
     private HBox notification;
     @FXML
     private Button closeNotificationButton;
+    @FXML
+    private TextField email;
+    @FXML
+    private TextField passwordText;
 
     public void login() throws IOException {
 
@@ -132,6 +137,11 @@ public class Controller {
             else
                 loader.setLocation(getClass().getResource("account_settingsResize.fxml"));
             GridPane mainLayout = loader.load();
+            if (loginButton.getText().equals("Confirm")) {
+                Controller c = loader.getController();
+                c.email.setText(EMAIL);
+                c.username.setText(USERNAME_VALUE);
+            }
             stage.getScene().setRoot(mainLayout);
         }
 
@@ -351,7 +361,7 @@ public class Controller {
     @FXML
     private CheckBox emailPushNotifications;
     @FXML
-    private TextField email;
+    private TextField emailNotification;
     @FXML
     private Button saveNotificationSettings;
 
@@ -380,6 +390,8 @@ public class Controller {
         currentStage = stage;
         stopInactivityTimer();
     }
+
+    public void showPassword() { passwordText.setText(PASSWORD_VALUE); }
 
     @FXML
     private Button logPageButton;
