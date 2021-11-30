@@ -619,9 +619,7 @@ public class Controller {
 
         applicationsScrollPane = (ScrollPane) loader.getNamespace().get("applicationsScrollPane");
         VBox appVBox = new VBox();
-
-
-//        ArrayList<Application> apps = getLocalApplications();
+        
         ArrayList<Application> apps = device.getApplications();
         int _counter = 0;
         ArrayList<HBox> rows = new ArrayList<>();
