@@ -21,16 +21,16 @@ public class logSettings {
 
     public String setLogSettingsVerbose(){
         logLevel = "verbose";
-        return "Log Setting set to -Verbose-";
+        return "Log Setting successfully set to -Verbose-";
     }
 
     public String setLogSettingsStandard(){
         logLevel = "standard";
-        return "Log Setting set to -Standard-";
+        return "Log Setting successfully set to -Standard-";
     }
 
     public String setLogSettingsMinimal(){
         logLevel = "minimal";
-        return "Log Setting set to -Minimal-";
+        return "Log Setting successfully set to -Minimal-";
     }
 }

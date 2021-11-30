@@ -121,7 +121,7 @@
                 </Button>
             </children>
         </HBox>
-      <VBox alignment="TOP_CENTER" maxHeight="330.0" maxWidth="700.0" prefHeight="900.0" style="-fx-background-color: grey;" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+      <VBox alignment="TOP_CENTER" maxHeight="400.0" maxWidth="700.0" prefHeight="367.0" prefWidth="700.0" style="-fx-background-color: grey;" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
          <children>
             <Label alignment="TOP_CENTER" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="1353.0" style="-fx-background-color: black;" text="Message Settings" textFill="WHITE">
                <font>
@@ -134,15 +134,23 @@
                   <Insets bottom="5.0" top="5.0" />
                </padding>
             </Label>
-            <CheckBox mnemonicParsing="false" text="Verbose">
+            <Label fx:id="logSettingsChangeConfirm" textFill="#0d15bd">
                <VBox.margin>
-                  <Insets right="480.0" top="50.0" />
+                  <Insets top="20.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <CheckBox fx:id="verboseCheckBox" mnemonicParsing="false" onAction="#logSettingsEventHandler" text="Verbose">
+               <VBox.margin>
+                  <Insets right="480.0" top="25.0" />
                </VBox.margin>
                <font>
                   <Font size="20.0" />
                </font>
             </CheckBox>
-            <CheckBox mnemonicParsing="false" text="Standard">
+            <CheckBox fx:id="standardCheckBox" mnemonicParsing="false" onAction="#logSettingsEventHandler" text="Standard">
                <VBox.margin>
                   <Insets right="472.0" top="30.0" />
                </VBox.margin>
@@ -150,7 +158,7 @@
                   <Font size="20.0" />
                </font>
             </CheckBox>
-            <CheckBox mnemonicParsing="false" text="Minimal">
+            <CheckBox fx:id="minimalCheckBox" mnemonicParsing="false" onAction="#logSettingsEventHandler" text="Minimal">
                <VBox.margin>
                   <Insets right="484.0" top="30.0" />
                </VBox.margin>
@@ -158,7 +166,7 @@
                   <Font size="20.0" />
                </font>
             </CheckBox>
-            <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="40.0" maxWidth="144.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="144.0" text="Save Settings" VBox.vgrow="ALWAYS">
+            <Button fx:id="saveLogSettings" alignment="CENTER" contentDisplay="CENTER" maxHeight="40.0" maxWidth="144.0" mnemonicParsing="false" onAction="#logSettingsEventHandler" prefHeight="40.0" prefWidth="144.0" text="Save Settings" VBox.vgrow="ALWAYS">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -171,7 +179,7 @@
             </Button>
          </children>
          <GridPane.margin>
-            <Insets bottom="130.0" left="100.0" right="100.0" top="120.0" />
+            <Insets bottom="100.0" left="100.0" right="100.0" top="120.0" />
          </GridPane.margin>
       </VBox>
     </children>

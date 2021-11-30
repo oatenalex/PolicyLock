@@ -14,6 +14,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.CheckBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.event.EventHandler;
@@ -246,7 +247,51 @@ public class Controller {
 
     @FXML
     private Button breadcrumb;
+    @FXML
+    private CheckBox verboseCheckBox;
+    @FXML
+    private CheckBox standardCheckBox;
+    @FXML
+    private CheckBox minimalCheckBox;
+    @FXML
+    private Button saveLogSettings;
+    @FXML
+    private Label logSettingsChangeConfirm;
+    private String logSettingsConfirmMessage;
+    private logSettings logSettings = com.example.policylock.logSettings.getInstance();
 
+    @FXML
+    private void logSettingsEventHandler(ActionEvent event){
+        if (event.getSource().equals(verboseCheckBox) && verboseCheckBox.isSelected()){
+            logSettingsConfirmMessage = logSettings.setLogSettingsVerbose();
+            standardCheckBox.setSelected(false);
+            minimalCheckBox.setSelected(false);
+        }
+        else if (event.getSource().equals(standardCheckBox) && standardCheckBox.isSelected()){
+            logSettingsConfirmMessage = logSettings.setLogSettingsStandard();
+            verboseCheckBox.setSelected(false);
+            minimalCheckBox.setSelected(false);
+        }
+        else if (event.getSource().equals(minimalCheckBox) && minimalCheckBox.isSelected()){
+            logSettingsConfirmMessage = logSettings.setLogSettingsMinimal();
+            verboseCheckBox.setSelected(false);
+            standardCheckBox.setSelected(false);
+            }
+        else if (event.getSource().equals(saveLogSettings) && (minimalCheckBox.isSelected() || standardCheckBox.isSelected() || verboseCheckBox.isSelected())){
+            logSettingsChangeConfirm.setTextFill(Color.LAWNGREEN);
+            logSettingsChangeConfirm.setText(logSettingsConfirmMessage);
+        }
+        else if (event.getSource().equals(saveLogSettings)){
+            logSettingsChangeConfirm.setTextFill(Color.DARKRED);
+            logSettingsChangeConfirm.setText("Error: Select a setting before saving");
+        }
+        else if (!(minimalCheckBox.isSelected() && standardCheckBox.isSelected() && verboseCheckBox.isSelected()))
+            logSettingsChangeConfirm.setText("");
+        else {
+            logSettingsChangeConfirm.setTextFill(Color.RED);
+            logSettingsChangeConfirm.setText("Error: Something occurred while attempting to perform the request");
+        }
+    }
     public void logLogSettings() throws IOException {
         Stage stage = (Stage) logSettingsPageButton.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
