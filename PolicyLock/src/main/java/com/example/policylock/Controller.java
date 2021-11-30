@@ -571,7 +571,7 @@ public class Controller {
         currentStage = stage;
         stopInactivityTimer();
     }
-    private boolean exception;
+    private IOException exception;
     @FXML
     private GridPane gridPane;
 
@@ -583,7 +583,7 @@ public class Controller {
         inactivityTimeCounter.setOnFinished( event -> {
             try {
                 appTimeOut();
-            } catch (IOException e) {exception = true; }
+            } catch (IOException e) {exception = e; }
         });
         inactivityTimeCounter.play();
     }
@@ -686,7 +686,7 @@ public class Controller {
             public void handle(ActionEvent actionEvent) {
                 try {
                     goToApplicationPage(newApp, app, device);
-                } catch (IOException e) {exception = true;}
+                } catch (IOException e) {exception = e;}
             }
         });
         return newApp;
