@@ -141,13 +141,14 @@ public class Controller {
             Controller.timeOutCompleted = false; //Resets the timeout variable
             Stage stage = (Stage) loginButton.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader();
-
-            if (loginButton.getText().equals("Login"))
+            GridPane mainLayout;
+            if (loginButton.getText().equals("Login")) {
                 loader.setLocation(getClass().getResource("homeResize.fxml"));
-            else
+                mainLayout = loader.load();
+            }
+            else {
                 loader.setLocation(getClass().getResource("account_settingsResize.fxml"));
-            GridPane mainLayout = loader.load();
-            if (loginButton.getText().equals("Confirm")) {
+                mainLayout = loader.load();
                 Controller c = loader.getController();
                 c.email.setText(EMAIL);
                 c.username.setText(USERNAME_VALUE);
@@ -394,9 +395,9 @@ public class Controller {
     
     public void getPreviousLogSettings(Controller c){
         String level = logSettings.getInstance().getLogLevel();
-        if (level.equals("verbose"))
+        if (level.equals("Verbose"))
             c.verboseCheckBox.setSelected(true);
-        else if (level.equals("standard"))
+        else if (level.equals("Standard"))
             c.standardCheckBox.setSelected(true);
         else
             c.minimalCheckBox.setSelected(true);
@@ -405,11 +406,17 @@ public class Controller {
     public void breadcrumbTrace() throws IOException {
         Stage stage = (Stage) breadcrumb.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
-        if (breadcrumb.getText().equals("SETTINGS"))
+        GridPane mainLayout;
+        if (breadcrumb.getText().equals("SETTINGS")) {
             loader.setLocation(getClass().getResource("settingsResize.fxml"));
-        else
+            mainLayout = loader.load();
+        }
+        else {
             loader.setLocation(getClass().getResource("logResize.fxml"));
-        GridPane mainLayout = loader.load();
+            mainLayout = loader.load();
+            Controller c = loader.getController();
+            c.displayLogSettings.setText(logSettings.getInstance().getLogLevel());
+        }
         stage.getScene().setRoot(mainLayout);
         System.out.println(logSettings.getLogLevel());
         currentStage = stage;
@@ -465,12 +472,16 @@ public class Controller {
 
     @FXML
     private Button logPageButton;
+    @FXML
+    private Label displayLogSettings;
 
     public void log() throws IOException {
         Stage stage = (Stage) logPageButton.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("logResize.fxml"));
         GridPane mainLayout = loader.load();
+        Controller c = loader.getController();
+        c.displayLogSettings.setText(logSettings.getInstance().getLogLevel());
         stage.getScene().setRoot(mainLayout);
         currentStage = stage;
         stopInactivityTimer();
