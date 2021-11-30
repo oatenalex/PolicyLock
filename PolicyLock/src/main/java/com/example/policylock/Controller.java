@@ -9,11 +9,11 @@ import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.control.CheckBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.event.EventHandler;
@@ -458,6 +458,8 @@ public class Controller {
 
     @FXML
     private Button applicationNameButton;
+    @FXML
+    private ScrollPane permissionScrollPane;
     //permissions and log of a specific application
     public void goToApplicationPage(Button newApp, Application app) throws IOException {
         String applicationName = app.name;
@@ -467,9 +469,73 @@ public class Controller {
         GridPane mainLayout = loader.load();
         Controller c = loader.getController();
         c.applicationNameButton.setText(applicationName);
+
+        permissionScrollPane = (ScrollPane) loader.getNamespace().get("permissionScrollPane");
+        VBox appVBox = new VBox();
+
+        HBox colNames = createPermissionRow(new Permission("Name", "Description"), Font.font("Arial", FontWeight.BOLD, 15));
+        colNames.setBackground(new Background(new BackgroundFill(Color.YELLOW, null, null)));
+
+        appVBox.getChildren().add(colNames);
+
+        Background oddBackground = new Background(new BackgroundFill(Color.WHITE, null, null));
+        Background evenBackground = new Background(new BackgroundFill(Color.LIGHTGRAY, null, null));
+
+        if (app.getPermissions().size() == 0) {
+            HBox errorRow = createPermissionRow(new Permission("NONE", "0 Permissions detected"), Font.font("Arial", FontWeight.NORMAL, 14));
+            errorRow.setBackground(evenBackground);
+            appVBox.getChildren().add(errorRow);
+        }
+
+        boolean _odd = false;
+        for (Permission permission : app.getPermissions()) {
+            HBox newRow = createPermissionRow(permission, Font.font("Arial", FontWeight.NORMAL, 14));
+            if (_odd) {
+                newRow.setBackground(oddBackground);
+            }
+            else {
+                newRow.setBackground(evenBackground);
+            }
+            _odd = !_odd;
+            appVBox.getChildren().add(newRow);
+        }
+
+
+
+//        TableView permTable = createPermissionsTable(app.getPermissions());
+//        appVBox.getChildren().add(permTable);
+
+        permissionScrollPane.setContent(appVBox);
+
         stage.getScene().setRoot(mainLayout);
         pauseInactivityTimer();
 
+    }
+
+    private HBox createPermissionRow(Permission permission, Font font) {
+        double nameWidth = 275;
+        double descWidth = 400;
+
+        HBox newRow = new HBox();
+        Label permName = new Label();
+        permName.setText(permission.getName());
+        permName.setMinWidth(nameWidth);
+        permName.setMaxWidth(nameWidth);
+        permName.setFont(font);
+        permName.setWrapText(true);
+
+        Label permDesc = new Label();
+        permDesc.setText(permission.getDescription());
+        permDesc.setMinWidth(descWidth);
+        permDesc.setMaxWidth(descWidth);
+        permDesc.setFont(font);
+        permDesc.setWrapText(true);
+
+        newRow.setPadding(new Insets(5, 5, 5, 5));
+
+        newRow.getChildren().addAll(permName, permDesc);
+
+        return newRow;
     }
 
 
