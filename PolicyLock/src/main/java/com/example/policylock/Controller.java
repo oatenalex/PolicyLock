@@ -328,7 +328,7 @@ public class Controller {
     public void pauseInactivityTimer(){
         inactivityTimeCounter.stop();
     }
-    public void inactivityTimer(){
+    public void startInactivityTimer(){
         inactivityTimeCounter.setDuration(Duration.seconds(inactivityTimeAllowance));
         inactivityTimeCounter.setOnFinished( event -> {
             try {

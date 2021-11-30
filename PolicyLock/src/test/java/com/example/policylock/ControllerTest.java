@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ControllerTest {
 
-    private Controller controller;
+    private Controller controller = new Controller();
 
     @Test
     void login() {
@@ -15,4 +15,5 @@ class ControllerTest {
     @Test
     void logout() {
     }
+    
 }
