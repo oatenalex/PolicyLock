@@ -235,16 +235,16 @@ public class Controller {
             devicesVBox.getChildren().add(localDeviceButton);
         }
 
-        boolean _odd = false;
+        boolean odd = false;
         for (Device device : systemDevices) {
             Button newDevice = createDeviceButton(device, false);
-            if (_odd) {
+            if (odd) {
                 newDevice.setBackground(new Background(new BackgroundFill(Color.WHITE, null, null)));
             }
             else {
                 newDevice.setBackground(new Background(new BackgroundFill(Color.LIGHTGRAY, null, null)));
             }
-            _odd = !_odd;
+            odd = !odd;
             devicesVBox.getChildren().add(newDevice);
         }
 
@@ -258,7 +258,7 @@ public class Controller {
         newDevice.setPrefSize(680, 50);
         newDevice.setTextAlignment(TextAlignment.CENTER);
 
-        if (local) {
+        if (Boolean.TRUE.equals(local)) {
             newDevice.setBackground(new Background(new BackgroundFill(Color.YELLOW, null, null)));
         }
 
@@ -268,7 +268,7 @@ public class Controller {
                 try {
                     goToApplicationsPage(newDevice, device);
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    exception = e;
                 }
             }
         });
