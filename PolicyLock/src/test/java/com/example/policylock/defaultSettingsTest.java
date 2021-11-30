@@ -12,7 +12,12 @@ import static org.junit.jupiter.api.Assertions.*;
 class defaultSettingsTest {
 
     private static notificationSettings settings;
+    private static logSettings logSettings;
 
+    @Test
+    void defaultLogSetting() {
+        assertEquals("Standard", logSettings.getInstance().getLogLevel());
+    }
     @Test
     void defaultEmail() { //Tests for default settings
         assertEquals("", settings.getInstance().getEmailAddress());
