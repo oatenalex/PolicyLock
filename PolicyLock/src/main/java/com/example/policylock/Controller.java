@@ -32,7 +32,7 @@ import xmlwise.Plist;
 
 public class Controller {
     //OS
-    private static String OSType = getOSType();
+    private static String OSType;
 
     //For Login
     @FXML
@@ -134,13 +134,23 @@ public class Controller {
     public void unhighlightLocalDevice() { applicationsPageButton.setStyle(UNHIGHLIGHT_STYLE); }
 
     public static String getOSType(){
+        if (OSType != null){
+            return OSType;
+        }
         String rawOSType = System.getProperty("os.name");
         if (rawOSType.contains("Windows")) {
-            return ("windows");}
+            OSType = "windows";
+            return OSType;}
         else if (rawOSType.contains("Mac")) {
-            return ("mac");}
+            OSType = "mac";
+            return OSType;}
+        else if (rawOSType.contains("Linux")) {
+            OSType = "linux";
+            return OSType;
+        }
         else {
-            return ("other");}
+            OSType = "other";
+            return OSType;}
     }
 
     public void login() throws IOException {
