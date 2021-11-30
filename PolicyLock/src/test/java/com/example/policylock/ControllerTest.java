@@ -22,4 +22,11 @@ class ControllerTest {
         boolean validOS = OS.equals("windows") || OS.equals("mac") || OS.equals("linux")|| OS.equals("other");
         assertTrue(validOS);
     }
+    @Test
+    void checkOS(){
+        controller.getOSType();
+        String OS = controller.getOSType(); //Checks if not null
+        boolean validOS = OS.equals("windows") || OS.equals("mac") || OS.equals("linux")|| OS.equals("other");
+        assertTrue(validOS);
+    }
 }
