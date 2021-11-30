@@ -173,7 +173,7 @@
             </CheckBox>
             <HBox maxHeight="40.0" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label text="Send Log Notifications for Level(s):">
+                  <Label text="Send Notifications for Log Message Level(s):">
                      <font>
                         <Font size="20.0" />
                      </font>
