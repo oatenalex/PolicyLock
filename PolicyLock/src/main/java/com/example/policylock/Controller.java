@@ -617,6 +617,30 @@ public class Controller {
 //        }
     }
 
+    private String getDeviceName() {
+        if (!isMac()) {
+            return "NOT A MAC";
+        }
+        File users = new File("/Users");
+        ArrayList<File> files = new ArrayList<File>(Arrays.asList(users.listFiles()));
+        for (File file : files) {
+            if (file.getName() != "Shared") {
+                return file.getName();
+            }
+        }
+        return "ERROR";
+    }
+
+    private boolean isMac() {
+        String OS_Type = System.getProperty("os.name").toString();
+        if (OS_Type.equals("Mac OS X")) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
 public void buildPermissionList(ArrayList<Permission> perms, Map.Entry<String, Object> entry){
     try {
         if (entry.getKey().startsWith("NS")) {
