@@ -82,6 +82,10 @@ public class Controller {
     public void highlightLocalDevice() { applicationsPageButton.setStyle(HIGHLIGHT_STYLE); }
 
     public void unhighlightLocalDevice() { applicationsPageButton.setStyle(UNHIGHLIGHT_STYLE); }
+    
+    public void highlightShowPassword() { showPassword.setStyle(HIGHLIGHT_STYLE); }
+
+    public void unhighlightShowPassword() { showPassword.setStyle("-fx-text-fill: BLACK; -fx-background-color: transparent;"); }
 
     public static String getOSType(){
         if (OSType != null){
@@ -331,6 +335,8 @@ public class Controller {
 
     @FXML
     private Button accountSettingsPageButton;
+    @FXML
+    private Button showPassword;
 
     public void accountSettingsLogin() throws IOException {
         Stage stage = (Stage) accountSettingsPageButton.getScene().getWindow();
