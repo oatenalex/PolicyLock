@@ -261,21 +261,18 @@ public class Controller {
     private void logSettingsEventHandler(ActionEvent event){
         if (event.getSource().equals(verboseCheckBox) && verboseCheckBox.isSelected()){
             logSettingsConfirmMessage = logSettings.setLogSettingsVerbose();
-            verboseCheckBox.setSelected(true);
             standardCheckBox.setSelected(false);
             minimalCheckBox.setSelected(false);
         }
         else if (event.getSource().equals(standardCheckBox) && standardCheckBox.isSelected()){
             logSettingsConfirmMessage = logSettings.setLogSettingsStandard();
             verboseCheckBox.setSelected(false);
-            standardCheckBox.setSelected(true);
             minimalCheckBox.setSelected(false);
         }
         else if (event.getSource().equals(minimalCheckBox) && minimalCheckBox.isSelected()){
             logSettingsConfirmMessage = logSettings.setLogSettingsMinimal();
             verboseCheckBox.setSelected(false);
             standardCheckBox.setSelected(false);
-            minimalCheckBox.setSelected(true);
             }
         else if (event.getSource().equals(saveLogSettings) && (minimalCheckBox.isSelected() || standardCheckBox.isSelected() || verboseCheckBox.isSelected())){
             logSettingsChangeConfirm.setTextFill(Color.LAWNGREEN);
