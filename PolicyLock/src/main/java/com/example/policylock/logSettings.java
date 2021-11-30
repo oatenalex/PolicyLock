@@ -5,7 +5,7 @@ public class logSettings {
     private String logLevel;
 
     private logSettings(){
-        logLevel = "standard";  //Log settings intially set to standard
+        logLevel = "Standard";  //Log settings intially set to standard
     }
 
     public static synchronized logSettings getInstance()
@@ -20,17 +20,17 @@ public class logSettings {
     }
 
     public String setLogSettingsVerbose(){
-        logLevel = "verbose";
+        logLevel = "Verbose";
         return "Log Setting successfully set to -Verbose-";
     }
 
     public String setLogSettingsStandard(){
-        logLevel = "standard";
+        logLevel = "Standard";
         return "Log Setting successfully set to -Standard-";
     }
 
     public String setLogSettingsMinimal(){
-        logLevel = "minimal";
+        logLevel = "Minimal";
         return "Log Setting successfully set to -Minimal-";
     }
 }
