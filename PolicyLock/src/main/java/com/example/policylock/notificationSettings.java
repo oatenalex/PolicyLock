@@ -25,11 +25,14 @@ public class notificationSettings {
 
     public List<Boolean> getNotificationLevel() { return notificationLevel; }
 
-    //Setters
+    //Email Address Methods
     public void setEmailAddress(String email){
         this.emailAddress = email;
     }
 
+    public String getEmailAddress(){return this.emailAddress;}
+
+    //Notification Types Methods
     public void setEmailOnlyNotifications() {
         notificationType = Arrays.asList(true, false);
     }
@@ -42,12 +45,9 @@ public class notificationSettings {
         return notificationType;
     }
 
+    //Notification Level Settings
     public List<Boolean> getNotificationLevelSettings(){
         return notificationLevel;
-    }
-
-    public String getEmailAddress(){
-        return this.emailAddress;
     }
 
     public void setAllNotifications(boolean critical, boolean warning, boolean notice, boolean info){
