@@ -232,25 +232,6 @@ public class Controller {
 
     @FXML
     private Button logSettingsPageButton;
-    private int lastChecked = 2;
-
-    public void logSettings() throws IOException {
-        Stage stage = (Stage) logSettingsPageButton.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("log_settingsResize.fxml"));
-        GridPane mainLayout = loader.load();
-        Controller c = loader.getController();
-        if (lastChecked == 1)
-            c.verboseCheckBox.setSelected(true);
-        else if (lastChecked == 2)
-            c.standardCheckBox.setSelected(true);
-        else
-            c.minimalCheckBox.setSelected(true);
-        stage.getScene().setRoot(mainLayout);
-        currentStage = stage;
-        stopInactivityTimer();
-    }
-
     @FXML
     private Button breadcrumb;
     @FXML
@@ -273,21 +254,18 @@ public class Controller {
             verboseCheckBox.setSelected(true);
             standardCheckBox.setSelected(false);
             minimalCheckBox.setSelected(false);
-            lastChecked = 1;
         }
         else if (event.getSource().equals(standardCheckBox) && standardCheckBox.isSelected()){
             logSettingsConfirmMessage = logSettings.setLogSettingsStandard();
             verboseCheckBox.setSelected(false);
             standardCheckBox.setSelected(true);
             minimalCheckBox.setSelected(false);
-            lastChecked = 2;
         }
         else if (event.getSource().equals(minimalCheckBox) && minimalCheckBox.isSelected()){
             logSettingsConfirmMessage = logSettings.setLogSettingsMinimal();
             verboseCheckBox.setSelected(false);
             standardCheckBox.setSelected(false);
             minimalCheckBox.setSelected(true);
-            lastChecked = 3;
             }
         else if (event.getSource().equals(saveLogSettings) && (minimalCheckBox.isSelected() || standardCheckBox.isSelected() || verboseCheckBox.isSelected())){
             logSettingsChangeConfirm.setTextFill(Color.LAWNGREEN);
@@ -305,26 +283,6 @@ public class Controller {
         }
     }
 
-    public void setLogSettingCheckBox(){
-        /*System.out.println("Method entered");
-        if (logSettings.getInstance().getLogLevel().equals("verbose")) {
-            verboseCheckBox.setSelected(true);
-            verboseCheckBox.setIndeterminate(false);
-            verboseCheckBox.fire();
-            System.out.println("Verbose Fired");
-        }
-        else if (logSettings.getInstance().getLogLevel().equals("minimal")) {
-
-            minimalCheckBox.setSelected(true);
-            minimalCheckBox.fire();
-        }
-        else{
-            standardCheckBox.setIndeterminate(false);
-            standardCheckBox.setSelected(true);
-            standardCheckBox.fire();
-        }
-         */
-    }
     public void logLogSettings() throws IOException {
         Stage stage = (Stage) logSettingsPageButton.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
@@ -332,16 +290,36 @@ public class Controller {
         GridPane mainLayout = loader.load();
         Controller c = loader.getController();
         c.breadcrumb.setText("LOG");
-        if (lastChecked == 1)
-            c.verboseCheckBox.setSelected(true);
-        else if (lastChecked == 2)
-            c.standardCheckBox.setSelected(true);
-        else
-            c.minimalCheckBox.setSelected(true);
-        System.out.println(logSettings.getLogLevel());
+
+        getPreviousLogSettings(c); //Gets previous log settings for checkbox
+
         stage.getScene().setRoot(mainLayout);
         currentStage = stage;
         stopInactivityTimer();
+    }
+
+    public void logSettings() throws IOException {
+        Stage stage = (Stage) logSettingsPageButton.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("log_settingsResize.fxml"));
+        GridPane mainLayout = loader.load();
+        Controller c = loader.getController();
+
+        getPreviousLogSettings(c); //Gets previous log settings for checkbox
+
+        stage.getScene().setRoot(mainLayout);
+        currentStage = stage;
+        stopInactivityTimer();
+    }
+    
+    public void getPreviousLogSettings(Controller c){
+        String level = logSettings.getInstance().getLogLevel();
+        if (level.equals("verbose"))
+            c.verboseCheckBox.setSelected(true);
+        else if (level.equals("standard"))
+            c.standardCheckBox.setSelected(true);
+        else
+            c.minimalCheckBox.setSelected(true);
     }
 
     public void breadcrumbTrace() throws IOException {
@@ -353,7 +331,6 @@ public class Controller {
             loader.setLocation(getClass().getResource("logResize.fxml"));
         GridPane mainLayout = loader.load();
         stage.getScene().setRoot(mainLayout);
-        setLogSettingCheckBox();
         System.out.println(logSettings.getLogLevel());
         currentStage = stage;
         stopInactivityTimer();
