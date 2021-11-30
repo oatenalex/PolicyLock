@@ -2,17 +2,18 @@ package com.example.policylock;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Arrays;
 
 public class notificationSettings {
     private static notificationSettings instance;
-    private static boolean[] notificationLevel = new boolean[4];
+    private static List<Boolean> notificationLevel = new ArrayList<>();
     private String emailAddress;
     private boolean emailNotifications;
     private boolean pushNotifications;
 
     private notificationSettings(){
-       // notificationLevel = new boolean[]{true, true, true, false}; //Critical Notifications
-        notificationLevel = new boolean[4];
+        notificationLevel = Arrays.asList(true, true, true, false); //Critical, warning, notice, info
     }
 
     public static synchronized notificationSettings getInstance()
@@ -22,7 +23,7 @@ public class notificationSettings {
         return instance;
     }
 
-    public boolean[] getNotificationLevel() { return notificationLevel; }
+    public List<Boolean> getNotificationLevel() { return notificationLevel; }
 
     //Setters
     public void setEmailAddress(String email){
@@ -40,6 +41,6 @@ public class notificationSettings {
     }
 
     public void setAllNotifications(){
-        //notificationLevel = {true, true, true, true};
+        notificationLevel = Arrays.asList(true, true, true, true);
     }
 }
