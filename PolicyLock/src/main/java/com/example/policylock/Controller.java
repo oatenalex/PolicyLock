@@ -541,7 +541,11 @@ public class Controller {
         loader.setLocation(getClass().getResource("deviceApplications.fxml"));
         GridPane mainLayout = loader.load();
         stage.getScene().setRoot(mainLayout);
+        Controller c = loader.getController();
         stopInactivityTimer();
+
+        c.applicationsPageButton = (Button) loader.getNamespace().get("localDevicePageButton");
+        c.applicationsPageButton.setText(device.name.toUpperCase(Locale.ROOT));
 
         applicationsScrollPane = (ScrollPane) loader.getNamespace().get("applicationsScrollPane");
         VBox appVBox = new VBox();
@@ -636,7 +640,7 @@ public class Controller {
         stopInactivityTimer();
         c.applicationNameButton.setText(applicationName);
         stage.getScene().setRoot(mainLayout);
-        pauseInactivityTimer();
+        stopInactivityTimer();
 
         c.applicationsPageButton = (Button) loader.getNamespace().get("applicationsPageButton");
         c.applicationsPageButton.setText(device.name.toUpperCase(Locale.ROOT));
