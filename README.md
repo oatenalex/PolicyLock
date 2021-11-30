@@ -8,3 +8,7 @@ MongoDB has requirements that cause unavoidable code smells.
 No loop testing was done due to testable loops not being present.
   All loops involve inconsistent application information.
   Applications are not replicable within our testing environment.
+
+Some code smells were unavoidable too due to handling the file object.
+Some handling of files would become ridiculously inefficient if refactored
+like Sonar Cloud instructed. 
